@@ -4,7 +4,7 @@
 
 EARTHSONA is an interactive Earth Information Jukebox built for NASA Space Apps Challenge 2026. Use it to hear the colors of NASA Earth Information Center maps and compare surface-temperature changes across latitude bands on one pitch scale.
 
-[Open on Vercel](https://earthsona.vercel.app/) · [GitHub Pages](https://unknowngod2011.github.io/EARTHSONA/) · [Watch the demo](https://unknowngod2011.github.io/EARTHSONA/demo/earthsona.mp4) · [Official challenge](https://www.spaceappschallenge.org/2026/challenges/the-earth-information-jukebox/)
+[Open on Vercel](https://earthsona.vercel.app/) · [GitHub Pages](https://unknowngod2011.github.io/EARTHSONA/) · [Watch the demo](https://unknowngod2011.github.io/EARTHSONA/demo/) · [Official challenge](https://www.spaceappschallenge.org/2026/challenges/the-earth-information-jukebox/)
 
 ## Listen and explore
 
@@ -32,10 +32,27 @@ npm run build
 
 Vite produces `dist/` for static hosting. The Vercel project is linked to this GitHub repository, and GitHub Actions validates the data, runs the unit and browser suites, and deploys `main` to GitHub Pages. To rebuild the browser JSON from the pinned CSV, run `node scripts/build-climate.mjs`. The [data guide](docs/DATASET_RESEARCH.md) explains how to refresh the upstream download and preserve its checksum and provenance.
 
+## Architecture
+
+```mermaid
+flowchart LR
+    EIC["NASA Earth Information Center map"] --> Image["Browser canvas reads map pixels"]
+    Image --> Stripes["Six latitude stripes · red–blue balance"]
+    Stripes --> MapNotes["Color mapped to pitch"]
+    GISS["NASA GISS GISTEMP v4 annual CSV"] --> Snapshot["Validated local climate JSON"]
+    Snapshot --> Select["Pick years and latitude bands"]
+    Select --> DataNotes["Temperature anomaly mapped to pitch"]
+    Select --> Views["Globe, timeline and data table"]
+    MapNotes --> Player["Web Audio scheduler"]
+    DataNotes --> Player
+    Player --> Sync["Sound with a synchronized stripe or year marker"]
+```
+
+The map scan plays the visual palette. The climate tracks play the measured anomalies on a shared scale. Both run in the browser from bundled NASA assets. [Architecture and deployment](docs/ARCHITECTURE.md) · [Sonification methodology](docs/SONIFICATION_METHODOLOGY.md)
+
 ## Data and design
 
 - [Scientific data and attribution](docs/DATASET_RESEARCH.md) · [Findings and calculations](docs/DISCOVERED_INSIGHTS.md)
-- [Architecture and deployment](docs/ARCHITECTURE.md) · [Sonification methodology](docs/SONIFICATION_METHODOLOGY.md)
 - [Challenge analysis](docs/CHALLENGE_ANALYSIS.md) · [Product direction](docs/PRODUCT_DIRECTION.md) · [Open-source research](docs/OPEN_SOURCE_RESEARCH.md)
 - [Testing](docs/TESTING.md) · [Self-evaluation](docs/SELF_EVALUATION.md) · [Screenshots](screenshots/)
 - [Demo script](docs/DEMO_SCRIPT.md) · [Submission checklist and form copy](docs/SUBMISSION_CHECKLIST.md)

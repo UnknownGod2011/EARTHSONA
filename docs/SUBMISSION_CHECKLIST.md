@@ -20,7 +20,7 @@ EARTHSONA turns official NASA Earth Information Center maps into sound and lets 
 
 **Link to Project Demo**
 
-Public captioned demonstration, 29.60 seconds. [Watch the demo](https://unknowngod2011.github.io/EARTHSONA/demo/earthsona.mp4)
+Public captioned demonstration, 29.70 seconds. [Watch the demo](https://unknowngod2011.github.io/EARTHSONA/demo/) · [Direct MP4](https://unknowngod2011.github.io/EARTHSONA/demo/earthsona.mp4)
 
 **Link to Final Project**
 
@@ -36,7 +36,7 @@ Keyboard-accessible playback controls, map descriptions, exact readings, and dat
 
 **Use of Super Intelligence (SI)**
 
-The team supplied the Earth-data listening concept. OpenAI Codex assisted with source research, implementation, tests, documentation and demo editing. NASA supplied the climate data, maps and Blue Marble imagery. EARTHSONA reuses the team’s AI-assisted Luma artwork. Website narration was synthesized with ElevenLabs using Jessica and Eleven v4. The site credits both in Method & Sources. The MP3s credit `elevenlabs.io` in their title metadata. The demo captures real browser interactions and deterministic Web Audio derived from NASA values and pixels. [Official SI rules](https://www.spaceappschallenge.org/resources/project-submission-guide/#project-page-form-field-instructions)
+The team supplied the Earth-data listening concept and the opening animation. OpenAI Codex assisted with source research, implementation, tests, documentation and demo editing. NASA supplied the climate data, maps and Blue Marble imagery. EARTHSONA reuses AI-assisted Luma artwork. Website and demo narration were synthesized with ElevenLabs using Jessica and Eleven v4. Method & Sources carries the site credits. Audio titles and the demo credits and metadata identify `elevenlabs.io`. The demo captures real browser interactions and deterministic Web Audio derived from NASA values and pixels. Its overlays and captions synchronize with the original scientific tones. [Official SI rules](https://www.spaceappschallenge.org/resources/project-submission-guide/#project-page-form-field-instructions)
 
 **NASA Data**
 

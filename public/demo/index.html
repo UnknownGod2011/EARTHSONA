@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080910">
+  <meta name="description" content="Watch the EARTHSONA NASA Space Apps demo, then play a NASA map yourself.">
+  <title>EARTHSONA — Hear the Earth · Narration by elevenlabs.io</title>
+  <style>
+    :root { color-scheme: dark; background: #080910; color: #f7f4f9; font-family: system-ui, sans-serif; }
+    body { margin: 0; }
+    main { max-width: 1024px; margin: 0 auto; padding: clamp(20px, 5vw, 64px) 20px 42px; }
+    h1 { margin: 0 0 12px; font-size: clamp(1.85rem, 5vw, 3.4rem); letter-spacing: -.045em; }
+    p { margin: 0 0 20px; color: #c0bbd0; }
+    video { display: block; box-sizing: border-box; width: 100%; aspect-ratio: 16 / 9; background: #010102; border: 1px solid #373044; border-radius: 12px; }
+    nav { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 18px; }
+    a { color: #e3d2ff; }
+    .primary { padding: 10px 15px; border-radius: 8px; background: #d4bbff; color: #1d1130; text-decoration: none; font-weight: 700; }
+    a:focus-visible { outline: 2px solid #fff; outline-offset: 5px; }
+    .credits { margin-top: 20px; font-size: .85rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>EARTHSONA · Hear the Earth</h1>
+    <p>The Earth Information Jukebox · NASA Space Apps Challenge 2026</p>
+    <video src="./earthsona.mp4" poster="./poster.webp" controls playsinline preload="metadata" aria-label="Captioned EARTHSONA demo"></video>
+    <nav aria-label="Explore EARTHSONA">
+      <a class="primary" href="../">Play a NASA map</a>
+      <a href="./earthsona.mp4" download="EARTHSONA-Space-Apps-2026.mp4">Download MP4</a>
+    </nav>
+    <p class="credits">Tanush Shah and Yaksh Dharod · AI narration by elevenlabs.io</p>
+  </main>
+</body>
+</html>
