@@ -37,6 +37,10 @@ These counts summarize sampled pixels on a rendered, non-equal-area projection. 
 
 The frame interface also offers **GISTEMP annual reading**. It plays the matching year’s published global index as a single note using the same temperature formula as Climate tracks. The display identifies the selected source.
 
+## Luma’s guided comparison
+
+The first guide step uses the same pixel scan on NASA SVS #5603. The second takes the arithmetic mean of the ten published annual values in each selected window, 1980–1989 and 2016–2025, for the Arctic band and the global record. It applies the numeric mapping to each unrounded mean. Each pair plays Arctic first, then global, using the same sine wave, duration, output gain and centered pan. A brief pause separates the windows. The reveal rounds the measured changes only for display and links directly to the source table. [Underlying values and calculations](DISCOVERED_INSIGHTS.md) · [Guide implementation](../src/guide.js)
+
 ## Playback and reproducibility
 
 Score construction is deterministic from the selected input and settings. Web Audio schedules sine or triangle oscillators from its audio clock, shapes each note with a short attack and decay, and applies the shared volume and mute settings. Visual steps follow the same timestamps. The player may skip scheduled notes after a long timer delay in a background tab. Synthesizer output can vary slightly by browser audio sampling and speaker setup. For the frame scan, a browser’s image color management and decoding can affect the processed channel values. Listening relies primarily on pitch, with two-track contrast also signaled by onset and oscillator type.

@@ -16,11 +16,11 @@ The Earth Information Jukebox
 
 **High-Level Project Summary**
 
-EARTHSONA is an Earth Information Jukebox that lets people hear and see NASA’s record of surface temperature change. It turns colors in official Earth Information Center maps into tones, then lets users compare 146 years of measured and analyzed temperature anomalies across latitude bands on a single pitch scale.
+EARTHSONA turns official NASA Earth Information Center maps into sound and lets learners hear how the Arctic band and global mean changed across two ten-year windows. Luma guides the first listen, then reveals the exact NASA GISTEMP values behind each note. Visitors can explore 146 years of annual temperature anomalies across latitude bands on a shared pitch scale.
 
 **Link to Project Demo**
 
-Public captioned demonstration, 29.52 seconds. [Watch the demo](https://unknowngod2011.github.io/EARTHSONA/demo/earthsona.mp4)
+Public captioned demonstration, 29.60 seconds. [Watch the demo](https://unknowngod2011.github.io/EARTHSONA/demo/earthsona.mp4)
 
 **Link to Final Project**
 
@@ -36,7 +36,7 @@ Keyboard-accessible playback controls, map descriptions, exact readings, and dat
 
 **Use of Super Intelligence (SI)**
 
-The participant supplied the Earth-data listening concept and commissioned a geographic, explanatory jukebox. OpenAI Codex assisted with source research, implementation, tests, documentation and editing the demo. NASA supplied the data, maps, and Blue Marble imagery. The demo shows recorded browser interaction and its live deterministic Web Audio output. It uses no synthetic narration or generated visual assets. The app code calculates audio from NASA values and pixels, and the recording embeds this provenance in its metadata. [Official SI rules](https://www.spaceappschallenge.org/resources/project-submission-guide/#project-page-form-field-instructions)
+The participant supplied the Earth-data listening concept and commissioned a geographic, explanatory jukebox. OpenAI Codex assisted with source research, implementation, tests, documentation and demo editing. NASA supplied the climate data, maps and Blue Marble imagery. The guide reuses the participant’s AI-assisted Luma artwork and labels it on screen. The demo records real browser interactions and live deterministic Web Audio from NASA values and pixels. The app offers optional local browser read-aloud, while the demo uses captions. Provenance is embedded in the recording metadata. [Official SI rules](https://www.spaceappschallenge.org/resources/project-submission-guide/#project-page-form-field-instructions)
 
 **NASA Data**
 

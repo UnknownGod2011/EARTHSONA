@@ -1,19 +1,22 @@
-# Demo script
+# EARTHSONA demo
 
-The [captioned demo](https://unknowngod2011.github.io/EARTHSONA/demo/earthsona.mp4) runs for **29.52 seconds** at 1440 × 900 with stereo AAC audio. It captures the running application and its actual synthesized audio. The audio was captured from the browser's Web Audio output through a media stream and combined with the Playwright recording using FFmpeg. English captions describe the interaction and leave the sonification audible. The closing credit identifies the project by its GitHub repository. The MP4 includes provenance and a disclosure of Codex assistance in its metadata.
+[Watch the captioned demo](https://unknowngod2011.github.io/EARTHSONA/demo/earthsona.mp4). The 29.60-second cut shows the running site at 1600×900, with its real Web Audio and open English captions. The browser audio plays at the app's native rate so the pitch differences are preserved. Luma's existing AI-assisted artwork is visibly credited in the guide, with production information recorded in the MP4 metadata.
 
-The submission requires a **public video of 30 seconds or less**. NASA also accepts a public English slide deck of up to seven slides, including the title and introduction. Use a demo link that opens in a signed-out browser. [Official demo requirements](https://www.spaceappschallenge.org/resources/project-submission-guide/#tips-for-creating-a-project-demo)
+| Time | What the viewer sees and hears |
+| --- | --- |
+| 0–3 s | The EARTHSONA observatory and the opening question, “What does a NASA warming map sound like?” |
+| 3–8 s | Open **Listen with Luma**. The scan reads the colors of the 2025 NASA Earth Information Center frame in six stripes, from north to south, and highlights each stripe as it sounds. |
+| 8–13.5 s | Hear the Arctic band and global mean for 1980–1989, then 2016–2025. The pairs use one pitch scale and the same sine voice. |
+| 13.5–19.5 s | Reveal the mean anomaly shifts between the two windows, **+2.38°C in the Arctic band** and **+0.77°C globally**. The result gives the four underlying means and the 1951–1980 baseline. |
+| 19.5–24 s | Open **Method & sources** to see how the site converts both the rendered map and the published numeric record into sound. |
+| 24–29.6 s | Return to the observatory and display the public app address. |
 
-## Recorded sequence
+## Re-record
 
-| Approximate time | Screen action | Caption |
-| --- | --- | --- |
-| 0:00–0:04 | Start at the home screen and open the observatory. | “EARTHSONA · The Earth Information Jukebox” |
-| 0:04–0:09 | Open **NASA frames**. Play the 2025 color scan from north to south. | “2025 NASA map · Six tones scan the colors from north to south.” |
-| 0:09–0:21 | Open **Climate globe**. Compare the Arctic band and global mean for 2014–2025, at two years per second. Show the current readings and both curves. | “GISTEMP tracks · Larger temperature anomalies sound higher.” |
-| 0:21–0:26 | Open **Method & sources**. Show the mapping and the reference period. | “Inspect the NASA source, the raw CSV, and the 1951–1980 baseline.” |
-| 0:26–0:29.52 | Hold on the methodology and closing credit. | “EARTHSONA · UnknownGod2011/EARTHSONA on GitHub” |
+Use a current Chrome or Playwright Chromium, and FFmpeg with AAC, libx264 and libass support. Install the project dependencies, start Vite on port 4174, then run:
 
-## Update the recording
+```sh
+node scripts/record-demo.mjs public/demo/earthsona.mp4
+```
 
-Capture the running app and keep the NASA SVS credit in view during the frame scan. Export at or under 30 seconds. Check caption readability, scan synchronization, both audio sequences, and the public link from a signed-out browser. If the project form uses a participant name different from the project handle, introduce that name in the recording or identify the participant through the project page form according to the event requirements. [Project submission guide](https://www.spaceappschallenge.org/resources/project-submission-guide/#tips-for-creating-a-project-demo)
+Set `EARTHSONA_CHROME` to the Chrome executable when using a system browser. Set `EARTHSONA_URL` to capture a different running build. The script drives the real guide, records its Web Audio output, and encodes English captions into a separate lower band. Temporary audio and captions are left in the printed recording folder for review. The official public English demo limit is 30 seconds. [Space Apps demo guidance](https://www.spaceappschallenge.org/resources/project-submission-guide/#tips-for-creating-a-project-demo)
