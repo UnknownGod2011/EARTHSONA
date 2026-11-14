@@ -20,11 +20,11 @@ EARTHSONA is an Earth Information Jukebox that lets people hear and see NASA’s
 
 **Link to Project Demo**
 
-Candidate link pending public verification. [30-second demonstration](https://unknowngod2011.github.io/EARTHSONA/demo/earthsona.mp4)
+Public captioned demonstration, 29.52 seconds. [Watch the demo](https://unknowngod2011.github.io/EARTHSONA/demo/earthsona.mp4)
 
 **Link to Final Project**
 
-Candidate link pending public verification. [Interactive project](https://unknowngod2011.github.io/EARTHSONA/) · [Source code](https://github.com/UnknownGod2011/EARTHSONA)
+Public interactive project and repository. [Interactive project](https://unknowngod2011.github.io/EARTHSONA/) · [Source code](https://github.com/UnknownGod2011/EARTHSONA)
 
 **Detailed Project Description**
 
@@ -36,7 +36,7 @@ Keyboard-accessible playback controls, map descriptions, exact readings, and dat
 
 **Use of Super Intelligence (SI)**
 
-The participant supplied the Earth-data listening concept and commissioned a geographic, explanatory jukebox. OpenAI Codex assisted with source research, implementation, tests, and documentation. NASA supplied the data, source maps, and Blue Marble imagery. The application calculates audio deterministically from NASA values and pixels using code that was written with AI assistance. Edit this disclosure to reflect the final submission, including the provenance of any added visuals, narration, soundtrack, or demo editing. Keep the corresponding disclosures in descriptive text and metadata. [Official SI rules](https://www.spaceappschallenge.org/resources/project-submission-guide/#project-page-form-field-instructions)
+The participant supplied the Earth-data listening concept and commissioned a geographic, explanatory jukebox. OpenAI Codex assisted with source research, implementation, tests, documentation and editing the demo. NASA supplied the data, maps, and Blue Marble imagery. The demo shows recorded browser interaction and its live deterministic Web Audio output. It uses no synthetic narration or generated visual assets. The app code calculates audio from NASA values and pixels, and the recording embeds this provenance in its metadata. [Official SI rules](https://www.spaceappschallenge.org/resources/project-submission-guide/#project-page-form-field-instructions)
 
 **NASA Data**
 
@@ -49,7 +49,7 @@ The included NASA GISTEMP product draws on NOAA GHCN v4 and ERSST v5. EARTHSONA 
 ## Participant and final delivery
 
 - [ ] Confirm the 2026 event registration, assigned challenge, and team membership in the official dashboard. A one-person team is eligible for Global Judging through a Local Event. The Universal Event requires at least two people. Local Event members must be confirmed and appear on the Members tab. Maximum team size is six. [Eligibility](https://www.spaceappschallenge.org/resources/judging-awards-guide/#eligibility-for-global-judging)
-- [ ] Verify the public final project, public GitHub source, and public demo in a signed-out browser. A video must be **at most 30 seconds**, including titles. A slide alternative must be **at most seven slides**, including title and introduction. Use English for the project page and linked materials. Video with other spoken languages needs English subtitles. [Demo format and hosting](https://www.spaceappschallenge.org/resources/project-submission-guide/#tips-for-creating-a-project-demo)
+- [x] Public final project, public GitHub source and public demo endpoints are available. The demo is captioned in English and meets the **30-second** video limit, including titles. [Demo format and hosting](https://www.spaceappschallenge.org/resources/project-submission-guide/#tips-for-creating-a-project-demo)
 - [ ] Add screenshots to the official Project tab if desired. The site accepts JPG, PNG, and GIF images up to 10 MB. Upload video, documents, and slides to a public destination and include their links.
 - [ ] Check final credits, open-source terms, SI disclosure, and the participant’s rights to the submitted materials. The guide specifies visible watermarks for generated images and video, and descriptive text and metadata for generated audio, code, and data. Exclude recognizable identities, likenesses and voices of minors from deliverables. [Project submission guide](https://www.spaceappschallenge.org/resources/project-submission-guide/) · [Participant terms](https://www.spaceappschallenge.org/legal/)
 - [ ] In **My Team → Project**, complete every required field, acknowledge the **Terms and Conditions** and **Confirm All Work is Original** fields, and select **Submit for Judging** before your event’s deadline. Verify the on-page confirmation. The participant is responsible for final approval and submission. [Official submission steps](https://www.spaceappschallenge.org/resources/project-submission-guide/#submitting-your-project)

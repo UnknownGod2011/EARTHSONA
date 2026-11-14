@@ -1,19 +1,19 @@
 # Demo script
 
-Use a **public video of 30 seconds or less** for the project submission. NASA also accepts a public English slide deck of up to seven slides, including the title and introduction. The project page and linked material should be in English. For spoken audio in another language, include English subtitles. [Official demo requirements](https://www.spaceappschallenge.org/resources/project-submission-guide/#tips-for-creating-a-project-demo)
+The [captioned demo](https://unknowngod2011.github.io/EARTHSONA/demo/earthsona.mp4) runs for **29.52 seconds** at 1440 × 900 with stereo AAC audio. It captures the running application and its actual synthesized audio. The audio was captured from the browser's Web Audio output through a media stream and combined with the Playwright recording using FFmpeg. English captions describe the interaction and leave the sonification audible. The closing credit identifies the project by its GitHub repository. The MP4 includes provenance and a disclosure of Codex assistance in its metadata.
 
-## 30-second recording
+The submission requires a **public video of 30 seconds or less**. NASA also accepts a public English slide deck of up to seven slides, including the title and introduction. Use a demo link that opens in a signed-out browser. [Official demo requirements](https://www.spaceappschallenge.org/resources/project-submission-guide/#tips-for-creating-a-project-demo)
 
-| Time | Screen action | Spoken line or caption |
+## Recorded sequence
+
+| Approximate time | Screen action | Caption |
 | --- | --- | --- |
-| 0:00–0:04 | Show the EARTHSONA home screen and open the observatory. Introduce the submitting participant or team using the name on the project page. | “EARTHSONA is an Earth Information Jukebox.” |
-| 0:04–0:10 | Open **NASA frames**. Select **2025** and **Frame colors**, then play through the north-to-south scan. Leave the six app-generated notes unobstructed. | “Hear the colors of NASA’s 2025 Earth map.” |
-| 0:10–0:21 | Open **Climate globe**. Play a short comparison of the far north and global tracks. Show the matching yearly values and the two curves on one scale. | “Now compare the far north and the globe, using the same pitch scale across years.” |
-| 0:21–0:27 | Open **Method & sources**. Hold on the mapping and the 1951–1980 reference period. | “Map colors make the first sound. NASA’s GISTEMP temperature values make the second.” |
-| 0:27–0:29.5 | Return to the observatory or hold on a closing title that can be read without pause. | “See it. Hear it. Check the data.” |
+| 0:00–0:04 | Start at the home screen and open the observatory. | “EARTHSONA · The Earth Information Jukebox” |
+| 0:04–0:09 | Open **NASA frames**. Play the 2025 color scan from north to south. | “2025 NASA map · Six tones scan the colors from north to south.” |
+| 0:09–0:21 | Open **Climate globe**. Compare the Arctic band and global mean for 2014–2025, at two years per second. Show the current readings and both curves. | “GISTEMP tracks · Larger temperature anomalies sound higher.” |
+| 0:21–0:26 | Open **Method & sources**. Show the mapping and the reference period. | “Inspect the NASA source, the raw CSV, and the 1951–1980 baseline.” |
+| 0:26–0:29.52 | Hold on the methodology and closing credit. | “EARTHSONA · UnknownGod2011/EARTHSONA on GitHub” |
 
-## Capture and delivery
+## Update the recording
 
-Record the actual application at 1920 × 1080 where available. Balance app audio and narration so both are intelligible. To keep the data audible, use captions over the frame scan and the track comparison. Keep the NASA SVS source credit visible when the 2025 map plays. Avoid cursor movement through text and controls between the actions that matter. Use the submission page for the complete sources and technical explanation.
-
-Export at or under 30 seconds with captions that remain legible at phone size. Open the video from a signed-out window and check the scan audio, source credits, playback length, and accessibility of the public link. The submission uses the actual application capture. [Project submission guide](https://www.spaceappschallenge.org/resources/project-submission-guide/)
+Capture the running app and keep the NASA SVS credit in view during the frame scan. Export at or under 30 seconds. Check caption readability, scan synchronization, both audio sequences, and the public link from a signed-out browser. If the project form uses a participant name different from the project handle, introduce that name in the recording or identify the participant through the project page form according to the event requirements. [Project submission guide](https://www.spaceappschallenge.org/resources/project-submission-guide/#tips-for-creating-a-project-demo)

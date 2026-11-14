@@ -23,6 +23,7 @@ To run the Playwright tests against an existing Chrome binary, set `EARTHSONA_CH
 | Real frame scans | Decoded each shipped EIC image in Chromium, played the browser-generated scan, and verified the active stripe and frequency. 2023, 2024 and 2025 all yielded six valid notes. Checked the separate global annual reading. |
 | Mobile and fallback | Inspected a narrow layout at 390 CSS pixels. Verified tap selection, pinch zoom and page scrolling with emulated touch. Deliberately blocked the basemap asset and verified the banded fallback and numeric controls. |
 | Media | Captured the actual browser app and exported the screenshots in [`screenshots`](../screenshots/). The demo captures the running browser and its Web Audio output. |
+| Deployment | Ubuntu Chromium checks and GitHub Pages deployment passed in GitHub Actions. Both the app and the MP4 served over public HTTPS. Local interaction checks passed in Chrome and Edge. |
 
 During integration, the comparison label remained stale after selecting solo playback. The browser suite reproduced it, and the transport now refreshes whenever a selection changes. Source review also caught an image-decode delay before AudioContext activation and a dependency on the latest CSV year for frame selection. Playback unlocks synchronously on interaction, and the frame picker now initializes from its separate catalog.
 
