@@ -117,7 +117,6 @@
 .luma-greeting-actions button { padding: 7px 8px; color: var(--ink); border: 1px solid var(--accent-border, #dfd2f1); border-radius: 7px; background: transparent; font-size: .72rem; font-weight: 600; }
 .luma-greeting-actions .luma-tour-launch { color: #201338; border-color: #cdc0ed; background: #cfbaff; }
 .luma-greeting-actions button:hover { color: var(--ink); background: var(--accent-wash, #f0e9f9); }
-.luma-greeting small { display: block; margin-top: 9px; color: var(--muted); font: 500 .59rem var(--mono); }
 
 @media (max-width: 520px) {
   .roaming-luma { --luma-cell: 50px; }

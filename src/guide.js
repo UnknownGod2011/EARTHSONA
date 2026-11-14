@@ -78,7 +78,7 @@ export function createGuide({ observations, frame, onFrame, onCompare, onOpen, o
   dialog.setAttribute('aria-labelledby', 'guide-heading');
   dialog.innerHTML = `
     <div class="guide-header">
-      <div class="guide-character"><div class="guide-pet" data-pose="idle" aria-hidden="true"></div><span class="guide-art-note">AI art</span></div>
+      <div class="guide-character" aria-hidden="true"><div class="guide-pet" data-pose="idle"></div></div>
       <div class="guide-heading-block"><p class="guide-kicker">Listen with Luma</p><h2 id="guide-heading" tabindex="-1"></h2></div>
       <button id="guide-close" class="guide-close" type="button" aria-label="Close guide">×</button>
     </div>
@@ -97,8 +97,7 @@ export function createGuide({ observations, frame, onFrame, onCompare, onOpen, o
         <button id="guide-next" type="button" class="guide-next">Continue ${icon('arrow', 17)}</button>
         <button id="guide-sources" type="button" class="guide-next" hidden>Visit method &amp; sources ${icon('arrow', 17)}</button>
       </div>
-    </div>
-    <small id="guide-voice-credit" class="guide-voice-credit" hidden>Voice · elevenlabs.io</small>`;
+    </div>`;
   document.body.append(dialog);
 
   const get = (name) => dialog.querySelector(`#guide-${name}`);
@@ -127,7 +126,6 @@ export function createGuide({ observations, frame, onFrame, onCompare, onOpen, o
   function showSpeakControl({ available, speaking }) {
     const control = get('speak');
     control.hidden = !available;
-    get('voice-credit').hidden = !available;
     control.innerHTML = `${icon(speaking ? 'mute' : 'speaker', 17)} ${speaking ? 'Quiet Luma' : 'Hear Luma'}`;
   }
 

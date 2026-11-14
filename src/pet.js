@@ -72,7 +72,6 @@ export function createPet({ onTour }) {
       <div class="luma-greeting-header"><h2>Hi, I’m Luma!</h2><button type="button" aria-label="Close Luma greeting" class="luma-dismiss">×</button></div>
       <p>Come hear a NASA map with me. I’ll show you where the sounds come from.</p>
       <div class="luma-greeting-actions"><button type="button" class="luma-tour-launch">Take the tour</button><button type="button" class="luma-wander" aria-pressed="false">Pause wandering</button></div>
-      <small>AI art</small>
     </div>`;
   document.body.append(pet);
 

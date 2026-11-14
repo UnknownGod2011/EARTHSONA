@@ -75,7 +75,7 @@ export function createTour(options = {}) {
     <div class="tour-spotlight" aria-hidden="true"></div>
     <section class="tour-coach" role="dialog" aria-labelledby="tour-title" aria-describedby="tour-chapter tour-copy">
       <div class="tour-header">
-        <span class="tour-character"><span class="tour-portrait" aria-hidden="true"></span><small>AI art</small></span>
+        <span class="tour-portrait" aria-hidden="true"></span>
         <div><p class="tour-kicker">Luma</p><p id="tour-chapter" class="tour-chapter"></p></div>
         <button id="tour-voice-toggle" class="tour-header-button" type="button" aria-label="Automatic Luma narration" aria-pressed="true" hidden></button>
         <button id="tour-close" class="tour-close" type="button" aria-label="Close tour">×</button>
@@ -86,7 +86,6 @@ export function createTour(options = {}) {
       <div id="tour-extras" class="tour-extras">
         <button id="tour-action" class="tour-action" type="button" hidden></button>
         <button id="tour-speak" class="tour-speak" type="button" hidden></button>
-        <span id="tour-voice-credit" class="tour-voice-credit" hidden>Voice · elevenlabs.io</span>
       </div>
       <div class="tour-navigation">
         <button id="tour-explore" type="button">Explore on my own</button>
@@ -116,7 +115,6 @@ export function createTour(options = {}) {
 
   const narration = createNarration(({ available, speaking }) => {
     get('speak').hidden = !available;
-    get('voice-credit').hidden = !available;
     get('voice-toggle').hidden = !available;
     get('speak').setAttribute('aria-label', speaking ? 'Stop Luma’s narration' : 'Read aloud with Luma');
     get('speak').innerHTML = `${icon(speaking ? 'pause' : 'speaker', 16)} ${speaking ? 'Stop voice' : 'Read aloud'}`;

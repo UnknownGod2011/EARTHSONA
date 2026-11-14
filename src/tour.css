@@ -28,8 +28,6 @@
   gap: 8px;
   align-items: center;
 }
-.tour-character { display: grid; justify-items: center; }
-.tour-character small { color: var(--muted); font: 500 .54rem/1 var(--mono); white-space: nowrap; }
 .tour-portrait {
   --tour-sprite-size: 48px;
   width: var(--tour-sprite-size);
@@ -84,7 +82,6 @@
   margin-top: 10px;
 }
 .tour-navigation { padding-top: 8px; border-top: 1px solid var(--line); }
-.tour-voice-credit { margin-left: auto; color: var(--muted); font-size: .65rem; }
 .tour-coach :is(.tour-extras, .tour-navigation) button { display: inline-flex; align-items: center; gap: 5px; padding: 6px 9px; min-height: 35px; border: 1px solid var(--line); border-radius: 8px; color: var(--ink); background: transparent; font-size: .75rem; font-weight: 700; }
 .tour-coach button:not(:disabled):hover { background: var(--accent-wash); }
 .tour-coach button:disabled { opacity: .45; cursor: default; }
