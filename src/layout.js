@@ -5,13 +5,13 @@ export function layout(first, last) {
     <header class="site-header"><div class="shell header-inner">
       <a class="brand" href="#top"><span class="brand-mark">${icon('wave', 23)}</span> EARTHSONA</a>
       <nav aria-label="Main navigation"><a href="#observatory">Observatory</a><a href="#findings">Discoveries</a><a href="#method">Method & sources</a></nav>
-      <div class="header-actions"><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false" title="Dark mode"></button><button type="button" class="header-cta" data-open-guide>Guided listen ${icon('arrow', 17)}</button></div>
+      <div class="header-actions"><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false" title="Dark mode"></button><button type="button" class="header-cta" data-open-tour>Take the tour ${icon('arrow', 17)}</button></div>
     </div></header>
     <main class="shell" id="top">
       <section class="hero" aria-labelledby="hero-title">
         <div><div class="eyebrow"><span class="signal-dot"></span> THE EARTH INFORMATION JUKEBOX</div>
         <h1 id="hero-title">Hear the <em>Earth.</em></h1></div>
-        <div class="hero-right"><p>Hear a NASA map, then compare how the Arctic and the world have warmed using more than a century of temperature records.</p><div class="hero-actions"><button id="start-guide" class="guide-cta" type="button" data-open-guide>${icon('play', 18)} Listen with Luma</button><a href="#observatory" class="primary-link">Explore freely ${icon('down', 16)}</a></div></div>
+        <div class="hero-right"><p>Hear a NASA map, then compare how the Arctic and the world have warmed using more than a century of temperature records.</p><div class="hero-actions"><button id="start-tour" class="guide-cta" type="button" data-open-tour>${icon('arrow', 18)} Tour with Luma</button><button id="start-guide" class="primary-link listen-shortcut" type="button" data-open-guide>${icon('play', 17)} Listen with Luma</button></div></div>
       </section>
       <section id="observatory" class="observatory" tabindex="-1" aria-label="Listening observatory">
         <div class="workspace">

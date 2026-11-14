@@ -24,7 +24,7 @@ Public captioned demonstration, 29.60 seconds. [Watch the demo](https://unknowng
 
 **Link to Final Project**
 
-Public interactive project and repository. [Interactive project](https://unknowngod2011.github.io/EARTHSONA/) · [Source code](https://github.com/UnknownGod2011/EARTHSONA)
+Public interactive project and repository. [Vercel](https://earthsona.vercel.app/) · [GitHub Pages](https://unknowngod2011.github.io/EARTHSONA/) · [Source code](https://github.com/UnknownGod2011/EARTHSONA)
 
 **Detailed Project Description**
 

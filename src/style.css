@@ -55,6 +55,7 @@ em { color: var(--purple); font-weight: 400; }
 .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 13px 16px; }
 .guide-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 13px; border: 1px solid #372753; border-radius: 9px; background: #372753; color: #fff; font-size: .82rem; font-weight: 600; }
 .guide-cta:hover { background: #503573; }
+.listen-shortcut { border: 0; padding: 6px 0; background: transparent; }
 .primary-link { color: var(--purple); }
 .primary-link:hover, .text-link:hover { text-decoration: underline; text-underline-offset: 4px; }
 

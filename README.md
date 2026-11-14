@@ -4,10 +4,11 @@
 
 EARTHSONA is an interactive Earth Information Jukebox built for NASA Space Apps Challenge 2026. Use it to hear the colors of NASA Earth Information Center maps and compare surface-temperature changes across latitude bands on one pitch scale.
 
-[Open the observatory](https://unknowngod2011.github.io/EARTHSONA/) · [Watch the demo](https://unknowngod2011.github.io/EARTHSONA/demo/earthsona.mp4) · [Official challenge](https://www.spaceappschallenge.org/2026/challenges/the-earth-information-jukebox/)
+[Open on Vercel](https://earthsona.vercel.app/) · [GitHub Pages](https://unknowngod2011.github.io/EARTHSONA/) · [Watch the demo](https://unknowngod2011.github.io/EARTHSONA/demo/earthsona.mp4) · [Official challenge](https://www.spaceappschallenge.org/2026/challenges/the-earth-information-jukebox/)
 
 ## Listen and explore
 
+- **Tour with Luma** opens a guided tour of the real observatory, from the NASA frame and sonification controls to the climate chart, findings, and sources. The roaming companion offers the same tour and can be paused. Visitors can skip the tour or go back at any stage.
 - **Listen with Luma** guides a first-time visitor through an official NASA map scan and a controlled four-note comparison. The same instrument plays Arctic and global ten-year mean anomalies before the guide reveals the values and their source. Optional read-aloud uses a local browser voice when one is available.
 - **NASA frames** turns six north-to-south stripes of each official 2023, 2024, and 2025 NASA map into tones. Select **Frame colors** for the rendered map or **GISTEMP annual reading** for that year’s global numeric value.
 - **Climate globe** shows annual temperature anomalies from 1880–2025 across eight latitude bands on a rotating Blue Marble sphere, with a NASA star map backdrop. Compare two tracks, change the playback range and speed, use the chart or year slider to inspect exact values, and open the data table for a text view.
@@ -29,7 +30,7 @@ npm run test:browser
 npm run build
 ```
 
-Vite produces `dist/` for any static host. GitHub Actions validates the data, runs the unit and browser suites, and deploys `main` to GitHub Pages. To rebuild the browser JSON from the pinned CSV, run `node scripts/build-climate.mjs`. The [data guide](docs/DATASET_RESEARCH.md) explains how to refresh the upstream download and preserve its checksum and provenance.
+Vite produces `dist/` for static hosting. The Vercel project is linked to this GitHub repository, and GitHub Actions validates the data, runs the unit and browser suites, and deploys `main` to GitHub Pages. To rebuild the browser JSON from the pinned CSV, run `node scripts/build-climate.mjs`. The [data guide](docs/DATASET_RESEARCH.md) explains how to refresh the upstream download and preserve its checksum and provenance.
 
 ## Data and design
 

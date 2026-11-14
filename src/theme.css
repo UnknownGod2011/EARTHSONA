@@ -35,8 +35,8 @@ html[data-theme=dark] {
 @keyframes brand-orbit { to { transform: rotate(360deg); } }
 
 .hero #hero-title { position: relative; isolation: isolate; }
-.title-reveal-text { position: relative; z-index: 1; }
-.title-particles { position: absolute; z-index: 0; inset: -16px auto auto -16px; display: block; pointer-events: none; }
+.title-reveal-text { position: relative; z-index: 1; display: inline-block; }
+.title-particles { position: absolute; z-index: 0; inset: -32px auto auto -32px; display: block; pointer-events: none; }
 
 [data-theme=dark] .site-header { background: #10121e; }
 [data-theme=dark] .hero-right p,

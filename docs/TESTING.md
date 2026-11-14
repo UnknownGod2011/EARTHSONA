@@ -32,6 +32,7 @@ The scope covers Chromium on desktop and touch emulation. Native iOS and Safari,
 ## Guided listen and visual update
 
 - In Chrome, opened the guide by keyboard, played the actual 2025 NASA frame scan, heard both decade pairs, checked the reported changes and mean table, and confirmed Escape returns focus to the launch control.
-- Checked the optional dark preference across reload and at 320 CSS pixels. Verified the particle intro appears on the first visit, stays off on later visits in the same browser, and respects reduced motion. Reduced motion also keeps the star field static while the globe remains controllable.
+- Checked the optional dark preference across reload and at 320 CSS pixels. Verified the particle intro advances letter by letter, replays on reload, fits the narrow viewport, and respects reduced motion. Reduced motion also keeps the star field static while the globe remains controllable.
+- Opened the roaming Luma greeting by keyboard, started the six-step tour, played the map scan through the highlighted app controls, and opened the Arctic comparison. Verified the tour resumes at Discoveries after the result, focuses the methodology on completion, and restores launch focus on Escape. The callouts fit at 320 and 1440 CSS pixels.
 - The Read aloud control depends on an available English voice marked as local by the browser. Listening and the written walkthrough remain available independently of speech synthesis.
 - Verified the final 29.60-second, 1600 × 900 demo decodes with stereo audio. Frequency analysis of its audio track confirmed all six 2025 scan tones and the four comparison tones at their original pitches. [Recording details](DEMO_SCRIPT.md)

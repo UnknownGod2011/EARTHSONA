@@ -34,10 +34,14 @@ The globe exposes its viewing angles to pan the NASA Deep Star Maps 2020 backdro
 
 ## Guided listen and motion
 
-The Luma guide is a native dialog with three steps and focus return. It uses the shipped NASA image and the same scanner and audio engine as the main explorer. It calculates the equal-window comparison from the annual observations in the browser. The four notes use the same waveform and volume so that the pitch interval is the comparison cue. The text reveal keeps the result accessible without listening. The existing keyboard.wtf Luma artwork is bundled as four cropped sprite strips. Optional read-aloud uses a local browser voice and yields to scientific audio. No microphone or API credentials are needed.
+The roaming Luma launcher uses the existing keyboard.wtf sprite and samples possible paths along the viewport edges. Movement pauses on hover, keyboard focus, or when a callout opens. The pet and main-page launchers open the same spotlight tour. The tour calls the app’s real view and playback functions and focuses the callout for each stage. Visitors can skip directly to the focused listening challenge from the hero.
 
-The theme choice is stored locally. Light mode is the default. The title particles run on the first visit in the browser, then leave the original text in the page. Reduced motion skips the reveal and disables the optional decorative motion. The crystal-orb mark is original SVG with a focus or hover animation.
+The listening challenge is a native dialog with focus return. It reuses the NASA image, frame scanner and Web Audio engine. It calculates the equal-window comparison from the annual observations. The four notes have identical waveform and volume so the interval is the comparison cue. The written reveal keeps the result accessible without listening. Both guides can read instructions aloud using a local English browser voice when available. Speech stops when user-triggered scientific playback begins. No microphone or runtime credentials are needed.
+
+The theme choice is stored locally. Light mode is the default. The title reveal sequences particles using the rendered bounds of each letter from left to right. It runs again on reload and restores the original styled heading when it ends. Reduced motion skips the reveal, parks Luma and stops optional backdrop movement. The crystal-orb mark is original SVG with a focus or hover animation.
 
 ## Deployment and maintenance
 
 Install from the npm lockfile with `npm ci`. `npm run build` writes a relative-base static bundle. `.github/workflows/pages.yml` validates the bundled snapshots and exercises Chromium before publishing `main`. No server secrets, trackers, third-party runtime calls, database or service worker are required. The host serves normal HTTP cache headers and Vite fingerprints its bundled JS and CSS. After a snapshot refresh, review changed insights and the README’s stated end year before deploying.
+
+Vercel hosts the same static build at `earthsona.vercel.app` using its Vite preset and the linked GitHub repo. Both hosts use the bundled NASA data and local Web Speech when available. [Vercel site](https://earthsona.vercel.app/) · [GitHub Pages site](https://unknowngod2011.github.io/EARTHSONA/)

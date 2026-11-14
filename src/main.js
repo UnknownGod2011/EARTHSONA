@@ -18,6 +18,8 @@ import { icon } from './icons.js';
 import { initBrand } from './brand.js';
 import { initTheme, initTitleReveal } from './intro.js';
 import { createGuide } from './guide.js';
+import { createPet } from './pet.js';
+import { createTour } from './tour.js';
 
 const { source, series, observations, insights } = climate;
 const { first, last } = source.years;
@@ -328,19 +330,43 @@ $('insight-grid').onclick = (event) => {
   $('observatory').scrollIntoView();
 };
 
+function showTourFrame() {
+  setMode('frame');
+  if (state.frame !== 2025) selectFrame(2025);
+  $('frame-audio').value = 'pixels';
+  $('frame-audio').onchange();
+}
+
+function showArcticComparison() {
+  applyInsight(insights.find(({ id }) => id === 'arctic-shift'));
+}
+
+function visitSources() {
+  $('method').focus({ preventScroll: true });
+  $('method').scrollIntoView();
+}
+
 const guide = createGuide({
   observations,
   frame: eic.frames.find(({ year }) => year === 2025),
   onOpen: stopPlayback,
-  onFrame() {
-    setMode('frame');
-    if (state.frame !== 2025) selectFrame(2025);
-  },
-  onCompare() { applyInsight(insights.find(({ id }) => id === 'arctic-shift')); },
-  onSources() {
-    $('method').focus({ preventScroll: true });
-    $('method').scrollIntoView();
-  },
+  onFrame: showTourFrame,
+  onCompare: showArcticComparison,
+  onSources: visitSources,
+});
+
+const tour = createTour({
+  stopAudio: stopPlayback,
+  showFrame: showTourFrame,
+  playFrame: playSelection,
+  showComparison: showArcticComparison,
+  openEvidence: (trigger, resume) => guide.open(trigger, 1, resume),
+  onActiveChange: (active) => pet.setTourActive(active),
+});
+const pet = createPet({ onTour: (trigger) => tour.open(trigger) });
+
+document.querySelectorAll('[data-open-tour]').forEach((button) => {
+  button.addEventListener('click', () => tour.open(button));
 });
 
 document.querySelectorAll('[data-open-guide]').forEach((button) => {

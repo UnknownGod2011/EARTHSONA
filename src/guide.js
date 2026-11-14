@@ -1,6 +1,7 @@
 import './guide.css';
 import { extractFrameScan } from './frame-scan.js';
 import { icon } from './icons.js';
+import { createNarration } from './narration.js';
 import { anomalyFrequency, Player, scanScore } from './sonification.js';
 
 const windows = [[1980, 1989], [2016, 2025]];
@@ -102,14 +103,14 @@ export function createGuide({ observations, frame, onFrame, onCompare, onOpen, o
   const get = (name) => dialog.querySelector(`#guide-${name}`);
   const pet = dialog.querySelector('.guide-pet');
   const player = new Player();
-  const speech = window.speechSynthesis;
   let step = 0;
   let trigger;
   let scan;
   let isPlaying = false;
   let run = 0;
   let afterClose;
-  let speaking;
+  let returnToTour;
+  const narration = createNarration(showSpeakControl);
   const intros = [
     'Can you hear a map? Six notes follow the colors of a NASA temperature map from north to south. Redder stripes play higher pitches. The palette affects the sound, so use the next step to compare temperatures.',
     'Listen to the Arctic band and the global mean for each period. Every note uses the same voice and pitch scale. Which pair sounds farther apart?',
@@ -121,23 +122,10 @@ export function createGuide({ observations, frame, onFrame, onCompare, onOpen, o
     get('listen').innerHTML = `${icon(isPlaying ? 'pause' : 'play', 20)} ${isPlaying ? 'Stop audio' : labels[step]}`;
   }
 
-  function localVoice() {
-    const voices = speech?.getVoices().filter((voice) => voice.localService && /^en(?:[-_]|$)/i.test(voice.lang)) || [];
-    return voices.find((voice) => voice.default) || voices[0];
-  }
-
-  function showSpeakControl() {
-    const speakingNow = Boolean(speaking);
+  function showSpeakControl({ available, speaking }) {
     const control = get('speak');
-    control.hidden = !localVoice() || typeof SpeechSynthesisUtterance !== 'function';
-    control.innerHTML = `${icon(speakingNow ? 'mute' : 'speaker', 17)} ${speakingNow ? 'Stop reading' : 'Read aloud'}`;
-  }
-
-  function stopSpeech() {
-    if (!speaking) return;
-    speaking = undefined;
-    speech.cancel();
-    showSpeakControl();
+    control.hidden = !available;
+    control.innerHTML = `${icon(speaking ? 'mute' : 'speaker', 17)} ${speaking ? 'Stop reading' : 'Read aloud'}`;
   }
 
   function restStatus() {
@@ -181,14 +169,13 @@ export function createGuide({ observations, frame, onFrame, onCompare, onOpen, o
     get('sources').hidden = step !== 2;
     get('status').textContent = restStatus();
     showListenControl();
-    showSpeakControl();
     pet.dataset.pose = step === 0 ? 'wave' : step === 2 ? 'react' : 'idle';
     get('heading').focus({ preventScroll: true });
     dialog.scrollTop = 0;
   }
 
   function changeStep(next) {
-    stopSpeech();
+    narration.stop();
     stopAudio();
     step = next;
     if (step === 0) onFrame?.();
@@ -219,7 +206,7 @@ export function createGuide({ observations, frame, onFrame, onCompare, onOpen, o
   }
 
   async function listen() {
-    stopSpeech();
+    narration.stop();
     if (isPlaying) {
       stopAudio();
       return;
@@ -256,12 +243,10 @@ export function createGuide({ observations, frame, onFrame, onCompare, onOpen, o
   }
 
   function readAloud() {
-    if (speaking) {
-      stopSpeech();
+    if (narration.speaking) {
+      narration.stop();
       return;
     }
-    const voice = localVoice();
-    if (!voice) return;
     stopAudio();
     const [early, recent] = periods;
     const spokenChange = (index) => {
@@ -272,18 +257,7 @@ export function createGuide({ observations, frame, onFrame, onCompare, onOpen, o
       ? ` From the earlier to the later period, the Arctic anomaly ${spokenChange(0)} and the global anomaly ${spokenChange(1)}.`
       : '';
     const heading = get('heading').textContent;
-    const utterance = new SpeechSynthesisUtterance(`${heading}${heading.endsWith('?') ? '' : '.'} ${intros[step]}${explanation}`);
-    utterance.voice = voice;
-    utterance.lang = voice.lang;
-    utterance.rate = 0.95;
-    utterance.onend = utterance.onerror = () => {
-      if (speaking !== utterance) return;
-      speaking = undefined;
-      showSpeakControl();
-    };
-    speaking = utterance;
-    showSpeakControl();
-    speech.speak(utterance);
+    narration.speak(`${heading}${heading.endsWith('?') ? '' : '.'} ${intros[step]}${explanation}`);
   }
 
   get('listen').addEventListener('click', listen);
@@ -292,30 +266,31 @@ export function createGuide({ observations, frame, onFrame, onCompare, onOpen, o
   get('back').addEventListener('click', () => changeStep(step - 1));
   get('close').addEventListener('click', () => dialog.close());
   get('sources').addEventListener('click', () => {
-    afterClose = onSources;
+    afterClose = returnToTour || onSources;
     dialog.close();
   });
-  speech?.addEventListener('voiceschanged', showSpeakControl);
   pet.addEventListener('animationend', () => { pet.dataset.pose = 'idle'; });
   dialog.addEventListener('close', () => {
-    stopSpeech();
+    narration.stop();
     stopAudio();
     document.documentElement.classList.remove('guide-open');
-    if (afterClose) afterClose();
+    const leave = afterClose || returnToTour;
+    if (leave) leave();
     else trigger?.focus({ preventScroll: true });
     afterClose = undefined;
+    returnToTour = undefined;
   });
 
   return {
-    open(source) {
+    open(source, firstStep = 0, resume) {
       if (dialog.open) return;
       trigger = source || document.activeElement;
+      returnToTour = resume;
       onOpen?.();
-      onFrame?.();
-      step = 0;
       document.documentElement.classList.add('guide-open');
       dialog.showModal();
-      renderStep();
+      changeStep(firstStep);
+      get('sources').innerHTML = `${resume ? 'Continue the tour' : 'Visit method &amp; sources'} ${icon('arrow', 17)}`;
     },
   };
 }

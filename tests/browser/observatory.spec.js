@@ -17,9 +17,14 @@ test('plays and compares actual NASA records', async ({ page }) => {
   await expect(page.getByRole('row').filter({ hasText: '2016' })).toContainText('+3.23°C');
   await page.getByText('Playback range and speed').click();
   await page.getByLabel('Years / sec').selectOption('2');
+  await page.locator('#year-output').evaluate((element) => {
+    const playedYears = [];
+    new MutationObserver(() => playedYears.push(element.textContent)).observe(element, { childList: true });
+    window.earthsonaPlayedYears = playedYears;
+  });
   await page.getByRole('button', { name: 'Play', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Pause', exact: true })).toBeVisible();
-  await expect(page.locator('#year-output')).toHaveText('2014');
+  await expect.poll(() => page.evaluate(() => window.earthsonaPlayedYears[0])).toBe('2014');
   await page.getByRole('button', { name: 'Pause', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Resume', exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Mute', exact: true }).click();
@@ -101,18 +106,63 @@ test('dark mode persists and reduced motion keeps the title and sky stable', asy
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(320);
 });
 
-test('title particles appear only on the first visit and the sky tracks globe rotation', async ({ page, context }) => {
+test('the staggered title reveal replays on reload and the sky tracks globe rotation', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'no-preference' });
   await page.goto('/');
   await expect(page.locator('.title-particles')).toHaveCount(1);
-  await expect(page.locator('.title-particles')).toHaveCount(0, { timeout: 4000 });
-  const again = await context.newPage();
-  await again.goto('/');
-  await expect(again.locator('#hero-title')).toHaveText('Hear the Earth.');
-  await expect(again.locator('.title-particles')).toHaveCount(0);
-  const sky = again.locator('#sky-backdrop');
+  const text = page.locator('.title-reveal-text');
+  const firstMask = await text.evaluate((element) => element.style.maskImage);
+  await expect.poll(() => text.evaluate((element) => element.style.maskImage)).not.toBe(firstMask);
+  await expect(page.locator('.title-particles')).toHaveCount(0, { timeout: 6000 });
+  await page.reload();
+  await expect(page.locator('.title-particles')).toHaveCount(1);
+  await expect(page.locator('#hero-title')).toHaveText('Hear the Earth.');
+  const sky = page.locator('#sky-backdrop');
   await expect(sky).toHaveCSS('background-position', '50% 50%, 50% 50%');
-  await again.locator('#earth').focus();
-  await again.keyboard.press('ArrowRight');
+  await page.locator('#earth').focus();
+  await page.keyboard.press('ArrowRight');
   await expect(sky).not.toHaveCSS('background-position', '50% 50%, 50% 50%');
+});
+
+test('roaming Luma opens the tour, highlights the app and resumes after the experiment', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/');
+  const pet = page.getByRole('complementary', { name: 'Luma companion' });
+  const launcher = pet.getByRole('button', { name: 'Meet Luma' });
+  await launcher.focus();
+  await page.keyboard.press('Enter');
+  await pet.getByRole('button', { name: 'Take the tour' }).click();
+  const tour = page.locator('#luma-tour');
+  await expect(tour.locator('#tour-title')).toBeFocused();
+  await expect(tour).toHaveAttribute('data-step', '1');
+  await tour.getByRole('button', { name: 'Next' }).click();
+  await expect(tour).toHaveAttribute('data-target', '.frame-mat');
+  await tour.getByRole('button', { name: 'Play the map scan' }).click();
+  await expect(page.locator('#frame-beam')).toBeVisible();
+  await tour.getByRole('button', { name: 'Next' }).click();
+  await expect(page.locator('#comparison')).toHaveValue('global');
+  await tour.getByRole('button', { name: 'Next' }).click();
+  await tour.getByRole('button', { name: 'Hear the two periods' }).click();
+  const experiment = page.locator('#luma-guide');
+  await expect(experiment.getByRole('heading', { name: 'Hear the Arctic pull away' })).toBeFocused();
+  await experiment.getByRole('button', { name: 'Reveal the result' }).click();
+  await expect(experiment.locator('#guide-evidence')).toContainText('+2.38°C');
+  await experiment.getByRole('button', { name: 'Continue the tour' }).click();
+  await expect(tour).toHaveAttribute('data-step', '5');
+  await tour.getByRole('button', { name: 'Next' }).click();
+  await expect(tour).toHaveAttribute('data-step', '6');
+  await tour.getByRole('button', { name: 'Finish tour' }).click();
+  await expect(page.locator('#method')).toBeFocused();
+  await expect(tour).toBeHidden();
+  await expect(launcher).toBeVisible();
+});
+
+test('the particle canvas stays within the narrowest supported viewport', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.setViewportSize({ width: 320, height: 740 });
+  await page.goto('/');
+  await expect(page.locator('.title-particles')).toHaveCount(1);
+  await expect.poll(() => page.locator('.title-particles').evaluate((element) => element.width)).toBeGreaterThan(310);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(320);
 });
