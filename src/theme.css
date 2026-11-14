@@ -37,6 +37,9 @@ html[data-theme=dark] {
 .hero #hero-title { position: relative; isolation: isolate; }
 .title-reveal-text { position: relative; z-index: 1; display: inline-block; }
 .title-particles { position: absolute; z-index: 0; inset: -32px auto auto -32px; display: block; pointer-events: none; }
+@media (max-width: 520px) {
+  #hero-title:has(.title-particles) { overflow: clip; }
+}
 
 [data-theme=dark] .site-header { background: #10121e; }
 [data-theme=dark] .hero-right p,
