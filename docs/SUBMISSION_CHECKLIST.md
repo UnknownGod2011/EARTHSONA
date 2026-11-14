@@ -36,7 +36,7 @@ Keyboard-accessible playback controls, map descriptions, exact readings, and dat
 
 **Use of Super Intelligence (SI)**
 
-The participant supplied the Earth-data listening concept and commissioned a geographic, explanatory jukebox. OpenAI Codex assisted with source research, implementation, tests, documentation and demo editing. NASA supplied the climate data, maps and Blue Marble imagery. The guide reuses the participant’s AI-assisted Luma artwork and labels it on screen. The demo records real browser interactions and live deterministic Web Audio from NASA values and pixels. The app offers optional local browser read-aloud, while the demo uses captions. Provenance is embedded in the recording metadata. [Official SI rules](https://www.spaceappschallenge.org/resources/project-submission-guide/#project-page-form-field-instructions)
+The participant supplied the Earth-data listening concept and commissioned a geographic, explanatory jukebox. OpenAI Codex assisted with source research, implementation, tests, documentation and demo editing. NASA supplied the climate data, maps and Blue Marble imagery. The guide reuses the participant’s AI-assisted Luma artwork and labels it on screen. The demo records real browser interactions and live deterministic Web Audio from NASA values and pixels. Provenance is embedded in the recording metadata. Update this disclosure if generated narration is added. [Official SI rules](https://www.spaceappschallenge.org/resources/project-submission-guide/#project-page-form-field-instructions)
 
 **NASA Data**
 

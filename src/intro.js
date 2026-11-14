@@ -1,6 +1,6 @@
 const THEME_KEY = 'earthsona.theme';
-const LETTER_DELAY = 270;
-const LETTER_SETTLE = 820;
+const LETTER_DELAY = 360;
+const LETTER_SETTLE = 720;
 const SUN = '<svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19m-14 0 1.5-1.5m11-11L19 5"/></svg>';
 const MOON = '<svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.3A8.8 8.8 0 0 1 9.7 3.5a8.8 8.8 0 1 0 10.8 10.8Z"/></svg>';
 
@@ -108,7 +108,7 @@ export async function initTitleReveal() {
   canvas.className = 'title-particles';
   canvas.setAttribute('aria-hidden', 'true');
   title.append(canvas);
-  text.style.maskImage = 'linear-gradient(to right, #0003, #0003)';
+  text.style.maskImage = 'linear-gradient(transparent, transparent)';
 
   let frame;
   let cancelled = false;
@@ -163,12 +163,15 @@ export async function initTitleReveal() {
       context.fillStyle = particle.accent ? accent : ink;
       context.fillRect(particle.x + particle.dx * distance, particle.y + particle.dy * distance, particle.size, particle.size);
     }
-    const revealed = Math.max(0, (elapsed - 430) / LETTER_DELAY);
-    const letterIndex = Math.min(letters.length - 1, Math.floor(revealed));
-    const left = letters[letterIndex - 1]?.right ?? 0;
-    const right = letters[letterIndex].right;
-    const edge = Math.max(0, left + (right - left) * Math.min(1, revealed - letterIndex));
-    text.style.maskImage = `linear-gradient(to right, #000 ${edge}px, #0003 ${edge + 8}px)`;
+    const revealed = (elapsed - 430) / LETTER_DELAY;
+    if (revealed > 0) {
+      const letterIndex = Math.min(letters.length - 1, Math.floor(revealed));
+      const left = letters[letterIndex - 1]?.right ?? 0;
+      const right = letters[letterIndex].right;
+      const edge = Math.max(0, left + (right - left) * Math.min(1, revealed - letterIndex));
+      const solid = Math.max(0, edge - 6);
+      text.style.maskImage = `linear-gradient(to right, #000 ${solid}px, transparent ${edge}px)`;
+    }
     if (elapsed < duration) frame = requestAnimationFrame(draw);
     else finish();
   }

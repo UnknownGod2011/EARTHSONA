@@ -4,7 +4,11 @@ export function layout(first, last) {
   return `
     <header class="site-header"><div class="shell header-inner">
       <a class="brand" href="#top"><span class="brand-mark">${icon('wave', 23)}</span> EARTHSONA</a>
-      <nav aria-label="Main navigation"><a href="#observatory">Observatory</a><a href="#findings">Discoveries</a><a href="#method">Method & sources</a></nav>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="#observatory">${icon('globe', 16)} <span>Observatory</span></a>
+        <a href="#findings">${icon('wave', 16)} <span>Discoveries</span></a>
+        <a href="#method">${icon('file', 16)} <span>Sources</span></a>
+      </nav>
       <div class="header-actions"><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false" title="Dark mode"></button><button type="button" class="header-cta" data-open-tour>Take the tour ${icon('arrow', 17)}</button></div>
     </div></header>
     <main class="shell" id="top">

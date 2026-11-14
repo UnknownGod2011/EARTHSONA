@@ -97,7 +97,8 @@ export function createGuide({ observations, frame, onFrame, onCompare, onOpen, o
         <button id="guide-next" type="button" class="guide-next">Continue ${icon('arrow', 17)}</button>
         <button id="guide-sources" type="button" class="guide-next" hidden>Visit method &amp; sources ${icon('arrow', 17)}</button>
       </div>
-    </div>`;
+    </div>
+    <small id="guide-voice-credit" class="guide-voice-credit" hidden>AI voice by ElevenLabs</small>`;
   document.body.append(dialog);
 
   const get = (name) => dialog.querySelector(`#guide-${name}`);
@@ -125,6 +126,7 @@ export function createGuide({ observations, frame, onFrame, onCompare, onOpen, o
   function showSpeakControl({ available, speaking }) {
     const control = get('speak');
     control.hidden = !available;
+    get('voice-credit').hidden = !available;
     control.innerHTML = `${icon(speaking ? 'mute' : 'speaker', 17)} ${speaking ? 'Stop reading' : 'Read aloud'}`;
   }
 
@@ -168,6 +170,7 @@ export function createGuide({ observations, frame, onFrame, onCompare, onOpen, o
     get('next').innerHTML = `${step === 1 ? 'Reveal the result' : 'Continue'} ${icon('arrow', 17)}`;
     get('sources').hidden = step !== 2;
     get('status').textContent = restStatus();
+    narration.setClip(`listen-0${step + 1}`);
     showListenControl();
     pet.dataset.pose = step === 0 ? 'wave' : step === 2 ? 'react' : 'idle';
     get('heading').focus({ preventScroll: true });
@@ -248,16 +251,7 @@ export function createGuide({ observations, frame, onFrame, onCompare, onOpen, o
       return;
     }
     stopAudio();
-    const [early, recent] = periods;
-    const spokenChange = (index) => {
-      const change = recent.tones[index].mean - early.tones[index].mean;
-      return `${change < 0 ? 'fell' : 'rose'} ${Math.abs(change).toFixed(2)} degrees Celsius`;
-    };
-    const explanation = step === 2
-      ? ` From the earlier to the later period, the Arctic anomaly ${spokenChange(0)} and the global anomaly ${spokenChange(1)}.`
-      : '';
-    const heading = get('heading').textContent;
-    narration.speak(`${heading}${heading.endsWith('?') ? '' : '.'} ${intros[step]}${explanation}`);
+    narration.play();
   }
 
   get('listen').addEventListener('click', listen);

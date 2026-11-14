@@ -111,8 +111,7 @@ test('the staggered title reveal replays on reload and the sky tracks globe rota
   await page.goto('/');
   await expect(page.locator('.title-particles')).toHaveCount(1);
   const text = page.locator('.title-reveal-text');
-  const firstMask = await text.evaluate((element) => element.style.maskImage);
-  await expect.poll(() => text.evaluate((element) => element.style.maskImage)).not.toBe(firstMask);
+  await expect.poll(() => text.evaluate((element) => element.style.maskImage)).toMatch(/transparent [\d.]+px/);
   await expect(page.locator('.title-particles')).toHaveCount(0, { timeout: 6000 });
   await page.reload();
   await expect(page.locator('.title-particles')).toHaveCount(1);
@@ -165,4 +164,18 @@ test('the particle canvas stays within the narrowest supported viewport', async 
   await expect(page.locator('.title-particles')).toHaveCount(1);
   await expect.poll(() => page.locator('.title-particles').evaluate((element) => element.width)).toBeGreaterThan(310);
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(320);
+});
+
+test('mobile navigation exposes all sections and guides use written copy without bundled voice', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.setViewportSize({ width: 320, height: 720 });
+  await page.goto('/');
+  const navigation = page.getByRole('navigation', { name: 'Main navigation' });
+  await expect(navigation.getByRole('link', { name: 'Observatory' })).toBeVisible();
+  await expect(navigation.getByRole('link', { name: 'Discoveries' })).toBeVisible();
+  await navigation.getByRole('link', { name: 'Sources' }).click();
+  await expect(page).toHaveURL(/#method$/);
+  await page.getByRole('button', { name: 'Tour with Luma' }).click();
+  await expect(page.locator('#tour-copy')).toContainText('NASA map into sound');
+  await expect(page.locator('#tour-speak')).toBeHidden();
 });

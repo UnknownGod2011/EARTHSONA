@@ -11,3 +11,5 @@ Captured in Chrome from the running app on November 14–15, 2026.
 7. [Luma guide’s evidence reveal](07-luma-guide.png)
 8. [Dark theme with the NASA star backdrop](08-dark-mode.png)
 9. [Luma’s live map spotlight](09-luma-spotlight.png)
+10. [Letter-by-letter particle reveal](10-title-reveal.png)
+11. [Standalone Luma greeting](11-luma-companion.png)

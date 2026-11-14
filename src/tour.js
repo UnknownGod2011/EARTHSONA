@@ -5,51 +5,55 @@ import { createNarration } from './narration.js';
 const gap = 14;
 const edge = 12;
 
-function buildSteps({ showFrame, playFrame, showComparison, openEvidence, showSources, arcticSummary }) {
+function buildSteps({ showFrame, playFrame: playSelection, showComparison, openEvidence, showSources, arcticSummary }) {
   return [
     {
       target: '#hero-title',
-      chapter: 'First contact',
+      chapter: 'Welcome',
       title: 'Hello, I’m Luma.',
-      copy: 'Can you hear a warming planet? I’ll show you how a NASA map becomes sound, then we’ll listen to how the Arctic and the world have changed.',
+      copy: 'Come with me. We’ll turn a NASA map into sound, find a pattern in the temperature record, and see exactly where the numbers came from.',
+      pose: 'wave',
     },
     {
       target: '.frame-mat',
       chapter: 'NASA map scan',
       title: 'Listen from north to south.',
-      copy: 'Play six notes made from the pixels of NASA’s 2025 map. The highlighted stripe shows where each note comes from. Redder stripes sound higher.',
+      copy: 'Press Play and follow the stripe across NASA’s 2025 map. Each of the six notes comes from the colors in that stripe. Redder stripes sound higher.',
       enter: showFrame,
-      action: { text: 'Play the map scan', run: playFrame, audio: true },
+      action: { text: 'Play the map scan', pauseText: 'Pause map scan', run: playSelection },
       controls: ['#frame-source'],
     },
     {
       target: '#globe-controls',
       chapter: 'Climate tracks',
       title: 'Compare on one scale.',
-      copy: 'Choose two tracks and move Year to compare the Arctic and global mean. Both tracks use the same pitch scale and their own 1951–1980 average as a baseline.',
+      copy: 'Now listen to the numbers behind the maps. Move the year slider to compare the Arctic band and the global mean. Each number shows how far that year was above or below its 1951–1980 average.',
       enter: showComparison,
+      action: { text: 'Play the climate tracks', pauseText: 'Pause climate tracks', run: playSelection },
       controls: ['#primary', '#comparison', '#year'],
     },
     {
       target: '#chart',
       chapter: 'Arctic and global',
       title: 'Hear the gap open.',
-      copy: arcticSummary ?? 'Compare the Arctic band and the global mean across two ten-year windows. Hear how the gap changes when each reading uses the same instrument and pitch scale.',
+      copy: arcticSummary ?? 'Hear the Arctic and the world in the 1980s, then in 2016–2025. Both pairs use the same instrument. Which pair sounds farther apart?',
       enter: showComparison,
       action: { text: 'Hear the two periods', run: openEvidence, handoff: true },
+      pose: 'listen',
     },
     {
       target: '#findings .section-heading',
       chapter: 'Discoveries',
       title: 'Follow another pattern.',
-      copy: 'Every discovery opens its own tracks and time window. Try the 2016 polar comparison, or listen to the three warmest annual estimates in our NASA record.',
+      copy: 'Pick a discovery to set up its comparison. Here you can hear how the polar bands differed in 2016 or revisit the three warmest annual estimates in our NASA record.',
+      pose: 'react',
       controls: ['#insight-grid .insight-link'],
     },
     {
       target: '#method-title',
       chapter: 'Method and sources',
       title: 'Trace what you heard.',
-      copy: 'The maps come from NASA’s Earth Information Center. The temperature comparisons use published NASA GISTEMP values. Here you can check the pitch formula and download the data.',
+      copy: 'The map tones come from image colors. The climate comparisons use NASA’s published GISTEMP values. You can check the pitch formula and download the data here.',
       enter: showSources,
       controls: ['#method .text-link[href]'],
     },
@@ -68,9 +72,9 @@ export function createTour(options = {}) {
   host.hidden = true;
   host.innerHTML = `
     <div class="tour-spotlight" aria-hidden="true"></div>
-    <section class="tour-coach" role="dialog" aria-labelledby="tour-title" aria-describedby="tour-copy">
+    <section class="tour-coach" role="dialog" aria-labelledby="tour-title" aria-describedby="tour-chapter tour-copy">
       <div class="tour-header">
-        <span class="tour-portrait" aria-hidden="true"><span></span></span>
+        <span class="tour-portrait" aria-hidden="true"></span>
         <div><p class="tour-kicker">Luma <span>· AI artwork</span></p><p id="tour-chapter" class="tour-chapter"></p></div>
         <button id="tour-close" class="tour-close" type="button" aria-label="Close tour">×</button>
       </div>
@@ -80,8 +84,10 @@ export function createTour(options = {}) {
       <div id="tour-extras" class="tour-extras">
         <button id="tour-action" class="tour-action" type="button" hidden></button>
         <button id="tour-speak" class="tour-speak" type="button" hidden></button>
+        <span id="tour-voice-credit" class="tour-voice-credit" hidden>Voice by ElevenLabs</span>
       </div>
       <div class="tour-navigation">
+        <button id="tour-explore" type="button">Explore on my own</button>
         <button id="tour-back" type="button">Back</button>
         <button id="tour-next" type="button">Next ${icon('arrow', 17)}</button>
       </div>
@@ -92,6 +98,7 @@ export function createTour(options = {}) {
   const coach = host.querySelector('.tour-coach');
   const spotlight = host.querySelector('.tour-spotlight');
   const progress = host.querySelector('.tour-progress');
+  const portrait = host.querySelector('.tour-portrait');
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
   const mainPlay = document.getElementById('play');
   let trigger;
@@ -105,6 +112,8 @@ export function createTour(options = {}) {
 
   const narration = createNarration(({ available, speaking }) => {
     get('speak').hidden = !available;
+    get('voice-credit').hidden = !available;
+    get('speak').setAttribute('aria-label', speaking ? 'Stop Luma’s narration' : 'Read aloud with Luma');
     get('speak').innerHTML = `${icon(speaking ? 'mute' : 'speaker', 16)} ${speaking ? 'Stop reading' : 'Read aloud'}`;
     updateExtras();
     requestPosition();
@@ -168,10 +177,12 @@ export function createTour(options = {}) {
 
   function updateAction() {
     const action = steps[stage].action;
-    const playing = action?.audio && mainPlay?.getAttribute('aria-label') === 'Pause';
+    const playing = action?.pauseText && mainPlay?.getAttribute('aria-label') === 'Pause';
+    const pose = playing ? 'listen' : steps[stage].pose || 'idle';
+    if (portrait.dataset.pose !== pose) portrait.dataset.pose = pose;
     get('action').hidden = !action?.run;
     if (!action) return;
-    get('action').innerHTML = `${icon(action.audio ? (playing ? 'pause' : 'play') : 'wave', 17)} ${playing ? 'Pause map scan' : action.text}`;
+    get('action').innerHTML = `${icon(action.pauseText ? (playing ? 'pause' : 'play') : 'wave', 17)} ${playing ? action.pauseText : action.text}`;
     updateExtras();
   }
 
@@ -181,11 +192,13 @@ export function createTour(options = {}) {
     anchor = document.querySelector(step.target);
     host.dataset.step = String(stage + 1);
     host.dataset.target = step.target;
-    get('chapter').textContent = `${String(stage + 1).padStart(2, '0')} / ${String(steps.length).padStart(2, '0')} · ${step.chapter}`;
+    get('chapter').textContent = `Step ${stage + 1} of ${steps.length} · ${step.chapter}`;
     get('title').textContent = step.title;
     get('copy').textContent = step.copy;
+    narration.setClip(`tour-0${stage + 1}`);
     for (const [index, bar] of [...progress.children].entries()) bar.dataset.state = index === stage ? 'current' : index < stage ? 'done' : 'next';
-    get('back').disabled = stage === 0;
+    get('back').hidden = stage === 0;
+    get('explore').hidden = stage !== 0;
     get('next').innerHTML = stage === steps.length - 1 ? 'Finish tour' : `Next ${icon('arrow', 17)}`;
     updateAction();
     updateExtras();
@@ -259,11 +272,17 @@ export function createTour(options = {}) {
   get('next').onclick = () => go(stage + 1);
   get('back').onclick = () => go(stage - 1);
   get('close').onclick = () => close();
+  portrait.addEventListener('animationend', () => {
+    if (['wave', 'react'].includes(portrait.dataset.pose)) portrait.dataset.pose = 'idle';
+  });
+  get('explore').onclick = () => {
+    close({ restoreFocus: false });
+    document.getElementById('observatory')?.focus();
+  };
   get('speak').onclick = () => {
     if (narration.speaking) return narration.stop();
     options.stopAudio?.();
-    const { title, copy } = steps[stage];
-    narration.speak(`${title} ${copy}`);
+    narration.play();
   };
   get('action').onclick = () => {
     const { action } = steps[stage];
