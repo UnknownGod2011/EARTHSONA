@@ -9,7 +9,7 @@ Captured in Chrome from the running app on November 14–15, 2026.
 5. [Method, limits and data provenance](05-method.png)
 6. [Mobile observatory at a 390 px viewport](06-mobile.png)
 7. [Luma guide’s evidence reveal](07-luma-guide.png)
-8. [Dark theme with the NASA star backdrop](08-dark-mode.png)
+8. [Black theme, galaxy hero and NASA star map](08-dark-mode.png)
 9. [Luma’s live map spotlight](09-luma-spotlight.png)
 10. [Letter-by-letter particle reveal](10-title-reveal.png)
 11. [Standalone Luma greeting](11-luma-companion.png)

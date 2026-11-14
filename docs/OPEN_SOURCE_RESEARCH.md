@@ -31,3 +31,5 @@ EARTHSONA's own code implements the frame sampling, fixed-scale note mapping, li
 ## Visual references for the mark
 
 React Bits’ Crystalized Ball and Orb informed the crystal, orbit and halo in the EARTHSONA brand mark. Its MIT + Commons Clause license conditions the redistribution of standalone components and ports. The shipped mark uses original SVG geometry and CSS with no imported React Bits code or shaders. [Crystalized Ball](https://reactbits.dev/animations/crystalized-ball) · [Orb](https://reactbits.dev/c/backgrounds/orb) · [React Bits license](https://github.com/DavidHDev/react-bits/blob/main/LICENSE.md)
+
+React Bits’ Galaxy informed the dark-mode star field. The site uses its own SVG and CSS for the decorative stars. NASA’s catalog image is credited separately and remains the backdrop inside the scientific globe. [Galaxy](https://reactbits.dev/c/backgrounds/galaxy) · [NASA backdrop attribution](../public/earth/README.md)

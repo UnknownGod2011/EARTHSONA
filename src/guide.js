@@ -78,8 +78,8 @@ export function createGuide({ observations, frame, onFrame, onCompare, onOpen, o
   dialog.setAttribute('aria-labelledby', 'guide-heading');
   dialog.innerHTML = `
     <div class="guide-header">
-      <div class="guide-character" aria-hidden="true"><div class="guide-pet" data-pose="idle"></div></div>
-      <div class="guide-heading-block"><p class="guide-kicker">Listen with Luma <span>· AI artwork</span></p><h2 id="guide-heading" tabindex="-1"></h2></div>
+      <div class="guide-character"><div class="guide-pet" data-pose="idle" aria-hidden="true"></div><span class="guide-art-note">AI art</span></div>
+      <div class="guide-heading-block"><p class="guide-kicker">Listen with Luma</p><h2 id="guide-heading" tabindex="-1"></h2></div>
       <button id="guide-close" class="guide-close" type="button" aria-label="Close guide">×</button>
     </div>
     <ol class="guide-progress" aria-label="Walkthrough progress">${stepLabels.map((label) => `<li>${label}</li>`).join('')}</ol>
@@ -98,7 +98,7 @@ export function createGuide({ observations, frame, onFrame, onCompare, onOpen, o
         <button id="guide-sources" type="button" class="guide-next" hidden>Visit method &amp; sources ${icon('arrow', 17)}</button>
       </div>
     </div>
-    <small id="guide-voice-credit" class="guide-voice-credit" hidden>AI voice by ElevenLabs</small>`;
+    <small id="guide-voice-credit" class="guide-voice-credit" hidden>Voice · elevenlabs.io</small>`;
   document.body.append(dialog);
 
   const get = (name) => dialog.querySelector(`#guide-${name}`);
@@ -111,6 +111,7 @@ export function createGuide({ observations, frame, onFrame, onCompare, onOpen, o
   let run = 0;
   let afterClose;
   let returnToTour;
+  let autoNarrate = false;
   const narration = createNarration(showSpeakControl);
   const intros = [
     'Can you hear a map? Six notes follow the colors of a NASA temperature map from north to south. Redder stripes play higher pitches. The palette affects the sound, so use the next step to compare temperatures.',
@@ -127,7 +128,7 @@ export function createGuide({ observations, frame, onFrame, onCompare, onOpen, o
     const control = get('speak');
     control.hidden = !available;
     get('voice-credit').hidden = !available;
-    control.innerHTML = `${icon(speaking ? 'mute' : 'speaker', 17)} ${speaking ? 'Stop reading' : 'Read aloud'}`;
+    control.innerHTML = `${icon(speaking ? 'mute' : 'speaker', 17)} ${speaking ? 'Quiet Luma' : 'Hear Luma'}`;
   }
 
   function restStatus() {
@@ -184,6 +185,7 @@ export function createGuide({ observations, frame, onFrame, onCompare, onOpen, o
     if (step === 0) onFrame?.();
     else if (step === 1) onCompare?.();
     renderStep();
+    if (autoNarrate) narration.play();
   }
 
   function scanStep(id) {
@@ -247,6 +249,7 @@ export function createGuide({ observations, frame, onFrame, onCompare, onOpen, o
 
   function readAloud() {
     if (narration.speaking) {
+      autoNarrate = false;
       narration.stop();
       return;
     }
@@ -276,10 +279,11 @@ export function createGuide({ observations, frame, onFrame, onCompare, onOpen, o
   });
 
   return {
-    open(source, firstStep = 0, resume) {
+    open(source, firstStep = 0, resume, narrate = false) {
       if (dialog.open) return;
       trigger = source || document.activeElement;
       returnToTour = resume;
+      autoNarrate = narrate;
       onOpen?.();
       document.documentElement.classList.add('guide-open');
       dialog.showModal();

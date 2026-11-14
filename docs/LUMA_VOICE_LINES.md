@@ -1,6 +1,6 @@
 # Luma’s website voice lines
 
-Paste one line at a time into [ElevenLabs Text to Speech](https://elevenlabs.io/app/speech-synthesis/text-to-speech). Use the same warm, curious voice at normal speed. Download each clip as MP3 and give it the exact filename below. These are website clips.
+The site bundles these nine clips, generated in ElevenLabs with Jessica and Eleven v4. To regenerate a clip, paste the line into [ElevenLabs Text to Speech](https://elevenlabs.io/app/speech-synthesis/text-to-speech), select Jessica, download it as MP3, and give it the exact filename below. These are website clips.
 
 | Filename | Text to paste |
 | --- | --- |
@@ -14,6 +14,6 @@ Paste one line at a time into [ElevenLabs Text to Speech](https://elevenlabs.io/
 | `listen-02.mp3` | Listen to the Arctic band and the global mean for each period. Every note uses the same voice and pitch scale. Which pair sounds farther apart? |
 | `listen-03.mp3` | The Arctic and global notes were almost the same in the nineteen eighties. The Arctic note sits much higher in twenty sixteen through twenty twenty-five. Between the two periods, the Arctic band’s mean anomaly rose two point three eight degrees Celsius. The global mean rose zero point seven seven. |
 
-The six tour clips cover the walkthrough. The three listening clips cover the optional experiment. Supply the clips as a ZIP or as individual files. When bundled under `src/voice/`, an available clip enables **Read aloud** on its matching screen. The guide text stays visible and the data tones play independently.
+The six tour clips cover the walkthrough. The three listening clips cover the optional experiment. Assets under `src/voice/` are loaded on demand. The tour speaks after visitors choose to start it and offers a voice toggle. The text remains visible, and the app stops narration when the visitor plays the data tones.
 
 For noncommercial free-plan use, ElevenLabs requires `elevenlabs.io` or `11.ai` in the published title. Include `elevenlabs.io` in each audio title and identify the AI narration in audio metadata and in the project disclosure when the clips ship. [ElevenLabs publication rules](https://elevenlabs.io/docs/help-center/legal/can-i-publish-the-content-i-generate-on-the-platform) · [Space Apps disclosure guidance](https://www.spaceappschallenge.org/resources/project-submission-guide/#project-page-form-field-instructions)

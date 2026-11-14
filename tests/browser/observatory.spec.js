@@ -96,6 +96,8 @@ test('dark mode persists and reduced motion keeps the title and sky stable', asy
   await page.reload();
   await expect(toggle).toHaveAttribute('aria-pressed', 'true');
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+  await expect(page.locator('html')).toHaveCSS('background-color', 'rgb(0, 0, 0)');
+  expect(await page.locator('.hero').evaluate((element) => getComputedStyle(element, '::before').backgroundImage)).toMatch(/hero-galaxy\.svg/);
   const starMap = page.locator('#sky-backdrop');
   const position = () => starMap.evaluate((element) => getComputedStyle(element).backgroundPosition);
   const initialPosition = await position();
@@ -157,6 +159,38 @@ test('roaming Luma opens the tour, highlights the app and resumes after the expe
   await expect(launcher).toBeVisible();
 });
 
+test('Luma runs in from the right, follows the pointer and walks while dragged', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto('/');
+  const pet = page.locator('.roaming-luma');
+  const launcher = page.getByRole('button', { name: 'Meet Luma' });
+  await expect(pet).toHaveAttribute('data-pose', 'left');
+  await expect(pet.locator('.luma-hello')).toBeVisible();
+  const earth = await page.locator('#hero-title em').boundingBox();
+  const start = await pet.boundingBox();
+  expect(start.x - (earth.x + earth.width)).toBeGreaterThanOrEqual(0);
+  expect(start.x - (earth.x + earth.width)).toBeLessThan(30);
+
+  await expect(pet).toHaveAttribute('data-pose', 'idle');
+  await page.mouse.move(start.x - 70, start.y + 28);
+  await expect(pet).toHaveAttribute('data-pose', 'gaze');
+  await expect(pet).toHaveCSS('--luma-look-row', '-1');
+  await page.mouse.move(start.x + start.width + 70, start.y + 28);
+  await expect(pet).toHaveCSS('--luma-look-row', '0');
+
+  const x = start.x + start.width / 2;
+  const y = start.y + start.height / 2;
+  await page.mouse.move(x, y);
+  await page.mouse.down();
+  await page.mouse.move(x - 120, y + 18, { steps: 8 });
+  expect(await pet.getAttribute('data-pose')).toBe('left');
+  await page.mouse.up();
+  await expect(pet).toHaveAttribute('data-pose', /idle|gaze/);
+  expect((await pet.boundingBox()).x).toBeLessThan(start.x - 80);
+  await expect(launcher).toHaveAttribute('aria-expanded', 'false');
+});
+
 test('the particle canvas stays within the narrowest supported viewport', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'no-preference' });
   await page.setViewportSize({ width: 320, height: 740 });
@@ -166,7 +200,23 @@ test('the particle canvas stays within the narrowest supported viewport', async 
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(320);
 });
 
-test('mobile navigation exposes all sections and guides use written copy without bundled voice', async ({ page }) => {
+test('mobile navigation exposes all sections and the tour speaks only after opening', async ({ page }) => {
+  await page.addInitScript(() => {
+    const play = HTMLMediaElement.prototype.play;
+    const pause = HTMLMediaElement.prototype.pause;
+    window.earthsonaVoiceEvents = [];
+    HTMLMediaElement.prototype.play = function () {
+      const result = play.call(this);
+      if (this instanceof HTMLAudioElement) {
+        result.then(() => window.earthsonaVoiceEvents.push(['play', this.src]), () => {});
+      }
+      return result;
+    };
+    HTMLMediaElement.prototype.pause = function () {
+      if (this instanceof HTMLAudioElement && !this.paused) window.earthsonaVoiceEvents.push(['pause', this.src]);
+      return pause.call(this);
+    };
+  });
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.setViewportSize({ width: 320, height: 720 });
   await page.goto('/');
@@ -175,7 +225,19 @@ test('mobile navigation exposes all sections and guides use written copy without
   await expect(navigation.getByRole('link', { name: 'Discoveries' })).toBeVisible();
   await navigation.getByRole('link', { name: 'Sources' }).click();
   await expect(page).toHaveURL(/#method$/);
+  const events = () => page.evaluate(() => window.earthsonaVoiceEvents);
+  expect(await events()).toEqual([]);
   await page.getByRole('button', { name: 'Tour with Luma' }).click();
   await expect(page.locator('#tour-copy')).toContainText('NASA map into sound');
-  await expect(page.locator('#tour-speak')).toBeHidden();
+  await expect.poll(events).toEqual(expect.arrayContaining([['play', expect.stringMatching(/tour-01.*\.mp3/)]]));
+  const tour = page.locator('#luma-tour');
+  await tour.getByRole('button', { name: 'Next' }).click();
+  await expect.poll(events).toEqual(expect.arrayContaining([['play', expect.stringMatching(/tour-02.*\.mp3/)]]));
+  await tour.getByRole('button', { name: 'Play the map scan' }).click();
+  await expect.poll(events).toEqual(expect.arrayContaining([['pause', expect.stringMatching(/tour-02.*\.mp3/)]]));
+  await expect(page.locator('#frame-beam')).toBeVisible();
+  await tour.getByRole('button', { name: 'Automatic Luma narration' }).click();
+  await tour.getByRole('button', { name: 'Next' }).click();
+  await expect(tour).toHaveAttribute('data-step', '3');
+  expect(await events()).not.toEqual(expect.arrayContaining([['play', expect.stringMatching(/tour-03.*\.mp3/)]]));
 });

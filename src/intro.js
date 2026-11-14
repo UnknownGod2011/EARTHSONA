@@ -17,7 +17,7 @@ export function initTheme() {
   function apply() {
     const dark = theme === 'dark';
     document.documentElement.dataset.theme = theme;
-    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#0c0e19' : '#f6f5f0');
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#000000' : '#f6f5f0');
     button.setAttribute('aria-pressed', String(dark));
     button.title = dark ? 'Switch to light mode' : 'Switch to dark mode';
     button.innerHTML = dark ? SUN : MOON;

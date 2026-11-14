@@ -4,6 +4,7 @@ import { createNarration } from './narration.js';
 
 const gap = 14;
 const edge = 12;
+const voicePreference = 'earthsona.tour-auto-voice';
 
 function buildSteps({ showFrame, playFrame: playSelection, showComparison, openEvidence, showSources, arcticSummary }) {
   return [
@@ -74,8 +75,9 @@ export function createTour(options = {}) {
     <div class="tour-spotlight" aria-hidden="true"></div>
     <section class="tour-coach" role="dialog" aria-labelledby="tour-title" aria-describedby="tour-chapter tour-copy">
       <div class="tour-header">
-        <span class="tour-portrait" aria-hidden="true"></span>
-        <div><p class="tour-kicker">Luma <span>· AI artwork</span></p><p id="tour-chapter" class="tour-chapter"></p></div>
+        <span class="tour-character"><span class="tour-portrait" aria-hidden="true"></span><small>AI art</small></span>
+        <div><p class="tour-kicker">Luma</p><p id="tour-chapter" class="tour-chapter"></p></div>
+        <button id="tour-voice-toggle" class="tour-header-button" type="button" aria-label="Automatic Luma narration" aria-pressed="true" hidden></button>
         <button id="tour-close" class="tour-close" type="button" aria-label="Close tour">×</button>
       </div>
       <div class="tour-progress" aria-hidden="true">${steps.map(() => '<i></i>').join('')}</div>
@@ -84,7 +86,7 @@ export function createTour(options = {}) {
       <div id="tour-extras" class="tour-extras">
         <button id="tour-action" class="tour-action" type="button" hidden></button>
         <button id="tour-speak" class="tour-speak" type="button" hidden></button>
-        <span id="tour-voice-credit" class="tour-voice-credit" hidden>Voice by ElevenLabs</span>
+        <span id="tour-voice-credit" class="tour-voice-credit" hidden>Voice · elevenlabs.io</span>
       </div>
       <div class="tour-navigation">
         <button id="tour-explore" type="button">Explore on my own</button>
@@ -105,6 +107,8 @@ export function createTour(options = {}) {
   let anchor;
   let stage = 0;
   let frame = 0;
+  let voiceEnabled = true;
+  try { voiceEnabled = sessionStorage.getItem(voicePreference) !== 'off'; } catch { /* Narration still works when storage is disabled. */ }
 
   function updateExtras() {
     get('extras').hidden = get('action').hidden && get('speak').hidden;
@@ -113,11 +117,20 @@ export function createTour(options = {}) {
   const narration = createNarration(({ available, speaking }) => {
     get('speak').hidden = !available;
     get('voice-credit').hidden = !available;
+    get('voice-toggle').hidden = !available;
     get('speak').setAttribute('aria-label', speaking ? 'Stop Luma’s narration' : 'Read aloud with Luma');
-    get('speak').innerHTML = `${icon(speaking ? 'mute' : 'speaker', 16)} ${speaking ? 'Stop reading' : 'Read aloud'}`;
+    get('speak').innerHTML = `${icon(speaking ? 'pause' : 'speaker', 16)} ${speaking ? 'Stop voice' : 'Read aloud'}`;
+    updateVoiceToggle();
     updateExtras();
     requestPosition();
   });
+
+  function updateVoiceToggle() {
+    const button = get('voice-toggle');
+    button.setAttribute('aria-pressed', String(voiceEnabled));
+    button.title = voiceEnabled ? 'Turn off automatic narration' : 'Turn on automatic narration';
+    button.innerHTML = icon(voiceEnabled ? 'speaker' : 'mute', 16);
+  }
 
   function requestPosition() {
     if (!host.hidden && !frame) frame = requestAnimationFrame(position);
@@ -240,6 +253,7 @@ export function createTour(options = {}) {
     stopCues();
     stage = index;
     render();
+    if (voiceEnabled) narration.play();
   }
 
   function loopFocus(event) {
@@ -259,6 +273,7 @@ export function createTour(options = {}) {
     new MutationObserver(updateAction).observe(mainPlay, { attributes: true, attributeFilter: ['aria-label'] });
     mainPlay.addEventListener('click', () => narration.stop(), { capture: true });
   }
+  document.getElementById('restart')?.addEventListener('click', () => narration.stop(), { capture: true });
   window.addEventListener('resize', requestPosition);
   window.addEventListener('scroll', requestPosition, { passive: true });
   document.addEventListener('keydown', (event) => {
@@ -284,6 +299,12 @@ export function createTour(options = {}) {
     options.stopAudio?.();
     narration.play();
   };
+  get('voice-toggle').onclick = () => {
+    voiceEnabled = !voiceEnabled;
+    try { sessionStorage.setItem(voicePreference, voiceEnabled ? 'on' : 'off'); } catch { /* Keep the in-memory preference. */ }
+    if (!voiceEnabled) narration.stop();
+    updateVoiceToggle();
+  };
   get('action').onclick = () => {
     const { action } = steps[stage];
     if (!action?.run) return;
@@ -292,13 +313,13 @@ export function createTour(options = {}) {
       const source = trigger;
       const stepToResume = stage + 1;
       close({ restoreFocus: false });
-      action.run(source, () => open(source, stepToResume));
+      action.run(source, () => open(source, stepToResume, false), voiceEnabled);
     } else {
       action.run(trigger);
     }
   };
 
-  function open(source, initialStage = 0) {
+  function open(source, initialStage = 0, narrate = true) {
     if (!host.hidden) return;
     trigger = source || document.activeElement;
     stopCues();
@@ -306,6 +327,7 @@ export function createTour(options = {}) {
     stage = initialStage;
     options.onActiveChange?.(true);
     render();
+    if (voiceEnabled && narrate) narration.play();
   }
 
   return {

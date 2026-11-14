@@ -24,10 +24,12 @@
 
 .tour-header {
   display: grid;
-  grid-template-columns: 48px minmax(0, 1fr) 34px;
+  grid-template-columns: 48px minmax(0, 1fr) auto 34px;
   gap: 8px;
   align-items: center;
 }
+.tour-character { display: grid; justify-items: center; }
+.tour-character small { color: var(--muted); font: 500 .54rem/1 var(--mono); white-space: nowrap; }
 .tour-portrait {
   --tour-sprite-size: 48px;
   width: var(--tour-sprite-size);
@@ -51,9 +53,8 @@
 @keyframes tour-luma-five { to { background-position-x: calc(var(--tour-sprite-size) * -5); } }
 @keyframes tour-luma-six { to { background-position-x: calc(var(--tour-sprite-size) * -6); } }
 .tour-kicker { color: var(--purple); font: 700 .84rem var(--mono); }
-.tour-kicker span { color: var(--muted); font-weight: 400; font-size: .68rem; }
 .tour-chapter { margin-top: 4px; color: var(--muted); font-size: .72rem; }
-.tour-close {
+.tour-close, .tour-header-button {
   width: 34px;
   height: 34px;
   padding: 0 0 2px;
@@ -64,6 +65,8 @@
   color: var(--ink);
   background: transparent;
 }
+.tour-header-button { display: grid; place-items: center; padding: 0; }
+.tour-coach .tour-header-button[aria-pressed=false] { color: var(--muted); }
 
 .tour-progress { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 4px; margin: 10px 0 12px; }
 .tour-progress i { height: 3px; border-radius: 2px; background: var(--line); }
@@ -82,7 +85,7 @@
 }
 .tour-navigation { padding-top: 8px; border-top: 1px solid var(--line); }
 .tour-voice-credit { margin-left: auto; color: var(--muted); font-size: .65rem; }
-.tour-coach button:not(.tour-close) { display: inline-flex; align-items: center; gap: 5px; padding: 6px 9px; min-height: 35px; border: 1px solid var(--line); border-radius: 8px; color: var(--ink); background: transparent; font-size: .75rem; font-weight: 700; }
+.tour-coach :is(.tour-extras, .tour-navigation) button { display: inline-flex; align-items: center; gap: 5px; padding: 6px 9px; min-height: 35px; border: 1px solid var(--line); border-radius: 8px; color: var(--ink); background: transparent; font-size: .75rem; font-weight: 700; }
 .tour-coach button:not(:disabled):hover { background: var(--accent-wash); }
 .tour-coach button:disabled { opacity: .45; cursor: default; }
 .tour-coach #tour-next { color: var(--paper); background: var(--purple); border-color: var(--purple); }

@@ -8,7 +8,7 @@ EARTHSONA is an interactive Earth Information Jukebox built for NASA Space Apps 
 
 ## Listen and explore
 
-- **Tour with Luma** opens a guided tour of the real observatory, from the NASA frame and sonification controls to the climate chart, findings, and sources. The roaming companion offers the same tour and can be paused. Visitors can skip the tour or go back at any stage.
+- **Tour with Luma** opens a narrated tour of the real observatory, from the NASA frame and sonification controls to the climate chart, findings, and sources. Visitors can mute the voice, skip the tour, or go back at any stage. The crystal runs in beside the title, looks toward the pointer, wanders, naps, peeks around the screen edge, and walks when dragged.
 - **Listen with Luma** guides a first-time visitor through an official NASA map scan and a controlled four-note comparison. The same instrument plays Arctic and global ten-year mean anomalies before the guide reveals the values and their source. [Website narration script and asset instructions](docs/LUMA_VOICE_LINES.md)
 - **NASA frames** turns six north-to-south stripes of each official 2023, 2024, and 2025 NASA map into tones. Select **Frame colors** for the rendered map or **GISTEMP annual reading** for that year’s global numeric value.
 - **Climate globe** shows annual temperature anomalies from 1880–2025 across eight latitude bands on a rotating Blue Marble sphere, with a NASA star map backdrop. Compare two tracks, change the playback range and speed, use the chart or year slider to inspect exact values, and open the data table for a text view.

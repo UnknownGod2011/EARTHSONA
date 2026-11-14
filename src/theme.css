@@ -8,19 +8,19 @@
 
 html[data-theme=dark] {
   color-scheme: dark;
-  color: #eef0f9;
-  background: #0c0e19;
-  --ink: #eef0f9;
-  --muted: #b8b7cc;
-  --paper: #161827;
-  --line: #35364b;
+  color: #f5f2f8;
+  background: #000;
+  --ink: #f5f2f8;
+  --muted: #c2bdc8;
+  --paper: #101010;
+  --line: #363636;
   --purple: #c2a8ff;
   --lilac: #ccb9fb;
   --gold: #ffcc7e;
   --teal: #8ee4d4;
-  --surface: #1d2032;
-  --accent-wash: #29213f;
-  --accent-border: #514167;
+  --surface: #191919;
+  --accent-wash: #241b32;
+  --accent-border: #59456d;
   --accent-ink: #d0b8f7;
   --lab-ink: #c4b0e1;
 }
@@ -41,10 +41,40 @@ html[data-theme=dark] {
   #hero-title:has(.title-particles) { overflow: clip; }
 }
 
-[data-theme=dark] .site-header { background: #10121e; }
+[data-theme=dark] .site-header { background: #000; }
+[data-theme=dark] .hero { position: relative; isolation: isolate; }
+/* Original decorative field; the globe uses a separate NASA sky map. */
+[data-theme=dark] .hero::before,
+[data-theme=dark] .hero::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0 -12px;
+  pointer-events: none;
+  mask-image: radial-gradient(ellipse 73% 81% at 58% 47%, #000 51%, transparent 100%);
+}
+[data-theme=dark] .hero::before { background: url('/visual/hero-galaxy.svg') 55% 46% / cover no-repeat; }
+[data-theme=dark] .hero::after {
+  background:
+    radial-gradient(circle at 24% 61%, #d5c3ff8c 0, #ba9bf848 .8px, transparent 3px),
+    radial-gradient(circle at 58% 24%, #eee7ff8c 0, #cfc0f542 1px, transparent 4px),
+    radial-gradient(circle at 67% 69%, #fff9ff90 0, #ddc9f960 1px, transparent 4.5px),
+    radial-gradient(circle at 90% 25%, #d5c3ffa0 0, #bfacf050 .8px, transparent 3px);
+  opacity: .5;
+  animation: galaxy-twinkle 8s ease-in-out infinite alternate;
+}
+@keyframes galaxy-twinkle { from { opacity: .3; } to { opacity: .72; } }
 [data-theme=dark] .hero-right p,
 [data-theme=dark] .range-endpoints,
 [data-theme=dark] .transport-text span { color: var(--muted); }
+[data-theme=dark] .viewport { color: var(--ink); background: #0a0a0a; }
+[data-theme=dark] :is(.viewport-bar, .viewport-footer, .view-switch, .globe-tools button) { border-color: var(--line); }
+[data-theme=dark] :is(.viewport-type, .viewport-footer, .frame-credit, .view-switch button) { color: var(--muted); }
+[data-theme=dark] .view-switch { background: var(--surface); }
+[data-theme=dark] .view-switch button:is(:hover, [aria-pressed=true]) { background: var(--accent-wash); color: var(--ink); }
+[data-theme=dark] .globe-tools button { background: #161419eb; }
+[data-theme=dark] .globe-tools button:hover { background: var(--accent-wash); }
+[data-theme=dark] .frame-mat { background: #000; }
 [data-theme=dark] .header-cta { border-color: var(--line); }
 [data-theme=dark] .header-cta:hover { background: var(--accent-wash); }
 [data-theme=dark] .skip { background: var(--surface); }
@@ -61,7 +91,7 @@ html[data-theme=dark] {
 [data-theme=dark] .frame-picker button:is(:hover,[aria-pressed=true]) { background: #382a55; border-color: var(--accent-border); color: #e6d8ff; }
 [data-theme=dark] .status-text { color: #ffabd4; }
 [data-theme=dark] .data-table thead { background: var(--surface); }
-[data-theme=dark] .grid-line { stroke: #33354c; }
+[data-theme=dark] .grid-line { stroke: #383638; }
 [data-theme=dark] .grid-line.baseline { stroke: #858298; }
 [data-theme=dark] :is(.chart-x, .chart-y) { fill: var(--muted); }
 [data-theme=dark] .chart-a { stroke: var(--gold); }
@@ -77,6 +107,7 @@ html[data-theme=dark] {
   .header-actions { gap: 7px; }
   .theme-toggle { width: 36px; height: 36px; }
   .brand .brand-mark { width: 33px; height: 33px; }
+  [data-theme=dark] .hero::before { background-position: 64% 45%; }
 }
 
 @media (max-width: 375px) {
@@ -88,4 +119,5 @@ html[data-theme=dark] {
 @media (prefers-reduced-motion: reduce) {
   .brand-orbit { animation: none; }
   .title-particles { display: none; }
+  [data-theme=dark] .hero::after { animation: none; }
 }

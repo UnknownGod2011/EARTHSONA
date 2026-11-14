@@ -360,7 +360,7 @@ const tour = createTour({
   showFrame: showTourFrame,
   playFrame: playSelection,
   showComparison: showArcticComparison,
-  openEvidence: (trigger, resume) => guide.open(trigger, 1, resume),
+  openEvidence: (trigger, resume, narrate) => guide.open(trigger, 1, resume, narrate),
   onActiveChange: (active) => pet.setTourActive(active),
 });
 const pet = createPet({ onTour: (trigger) => tour.open(trigger) });
