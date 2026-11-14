@@ -46,10 +46,12 @@ test('scans all three official NASA maps then plays a numeric observation', asyn
 });
 
 test('mobile layout and the missing-texture fallback keep data available', async ({ page }) => {
-  await page.setViewportSize({ width: 390, height: 844 });
+  await page.setViewportSize({ width: 320, height: 844 });
   await page.route('**/blue-marble-july-2004.webp', (route) => route.abort());
   await page.goto('/');
   await expect(page.getByText(/BASEMAP UNAVAILABLE/)).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(320);
+  await page.setViewportSize({ width: 390, height: 844 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(390);
   await page.getByLabel('Primary track').selectOption('global');
   await expect(page.locator('#primary-value')).toHaveText('+1.19°C');

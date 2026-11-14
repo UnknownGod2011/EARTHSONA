@@ -194,7 +194,7 @@ footer { border-top: 1px solid var(--line); }
   .header-inner { height: 58px; }
   .header-inner nav { display: none; }
   .hero { grid-template-columns: 1fr; gap: 12px; padding-top: 29px; padding-bottom: 23px; }
-  .hero h1 { font-size: clamp(4.3rem, 13.5vw, 6.3rem); margin-top: 12px; }
+  .hero h1 { font-size: clamp(3.75rem, 17.5vw, 6.3rem); margin-top: 12px; }
   .hero-right { justify-self: start; max-width: 480px; }
   .hero-right p { font-size: .9rem; margin-bottom: 10px; }
   .workspace { grid-template-columns: 1fr; }
