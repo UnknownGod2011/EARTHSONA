@@ -45,3 +45,5 @@ The theme choice is stored locally. Light mode is the default. Dark mode uses a 
 Install from the npm lockfile with `npm ci`. `npm run build` writes a relative-base static bundle. `.github/workflows/pages.yml` validates the bundled snapshots and exercises Chromium before publishing `main`. No server secrets, trackers, third-party runtime calls, database or service worker are required. The host serves normal HTTP cache headers and Vite fingerprints its bundled JS and CSS. After a snapshot refresh, review changed insights and the README’s stated end year before deploying.
 
 Vercel hosts the same static build at `earthsona.vercel.app` using its Vite preset and the linked GitHub repo. Both hosts use the bundled NASA data. [Vercel site](https://earthsona.vercel.app/) · [GitHub Pages site](https://unknowngod2011.github.io/EARTHSONA/)
+
+The public `/demo/` page links to `?view=map#observatory`, which opens the 2025 NASA frame in map-color mode. The viewer presses Play to start sonification.

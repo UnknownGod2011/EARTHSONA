@@ -50,6 +50,16 @@ test('scans all three official NASA maps then plays a numeric observation', asyn
   await expect(page.locator('#audio-message')).toBeHidden();
 });
 
+test('the map deep link opens the 2025 NASA map ready to play', async ({ page }) => {
+  await page.goto('/?view=map#observatory');
+  await expect(page.getByRole('button', { name: 'NASA frames' })).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.locator('#eic-image')).toHaveAttribute('alt', /2025/);
+  await expect(page.getByRole('button', { name: '2025', exact: true })).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.getByLabel('Sound source')).toHaveValue('pixels');
+  await expect(page.locator('#frame-beam')).toBeHidden();
+  await expect(page.getByRole('button', { name: 'Play', exact: true })).toBeVisible();
+});
+
 test('mobile layout and the missing-texture fallback keep data available', async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 844 });
   await page.route('**/blue-marble-july-2004.webp', (route) => route.abort());

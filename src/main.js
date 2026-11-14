@@ -378,6 +378,8 @@ updateRange();
 renderTimeline();
 updatePlayback();
 
+if (new URLSearchParams(location.search).get('view') === 'map') showTourFrame();
+
 new ResizeObserver(() => {
   if (state.mode === 'globe') renderTimeline();
 }).observe($('chart'));
