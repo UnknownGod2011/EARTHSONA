@@ -1,0 +1,29 @@
+# Testing
+
+## Reproduce
+
+```sh
+npm ci
+npm run data:check
+npm test
+npx playwright install chromium
+npm run test:browser
+npm run build
+```
+
+To run the Playwright tests against an existing Chrome binary, set `EARTHSONA_CHROME` to its full path. The tests start or reuse a Vite server on `127.0.0.1:4174`. CI runs Chromium on Ubuntu and publishes only after the checks and production build succeed.
+
+## Evidence collected November 14, 2026
+
+| Check | Coverage |
+| --- | --- |
+| Provenance | Verified the pinned CSV, processed data and three NASA EIC image hashes. The CSV has 146 calendar years and nine shipped series. The global readings match all 146 corresponding entries in NASA’s separate calendar-year table. |
+| Unit tests | Verified shared pitch scale, clipping, silence for missing inputs, timing-independent pitch, frame stripe order, image masks, older layout support and invalid source rejection. |
+| Chrome interaction | Verified the landing view, exact 2016 polar comparison readings, keyboard globe selection, pointer drag, zoom/reset, chart and table, range and speed, play/pause/resume state, mute and switching to solo. |
+| Real frame scans | Decoded each shipped EIC image in Chromium, played the browser-generated scan, and verified the active stripe and frequency. 2023, 2024 and 2025 all yielded six valid notes. Checked the separate global annual reading. |
+| Mobile and fallback | Inspected a narrow layout at 390 CSS pixels. Verified tap selection, pinch zoom and page scrolling with emulated touch. Deliberately blocked the basemap asset and verified the banded fallback and numeric controls. |
+| Media | Captured the actual browser app and exported the screenshots in [`screenshots`](../screenshots/). The demo captures the running browser and its Web Audio output. |
+
+During integration, the comparison label remained stale after selecting solo playback. The browser suite reproduced it, and the transport now refreshes whenever a selection changes. Source review also caught an image-decode delay before AudioContext activation and a dependency on the latest CSV year for frame selection. Playback unlocks synchronously on interaction, and the frame picker now initializes from its separate catalog.
+
+The scope covers Chromium on desktop and touch emulation. Native iOS and Safari, subjective listening studies, and formal assistive-technology audits remain unverified.

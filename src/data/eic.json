@@ -1,0 +1,46 @@
+{
+  "catalogUrl": "https://svs.gsfc.nasa.gov/api/search/?studio=SVS&made_for=EIC",
+  "credit": "NASA’s Scientific Visualization Studio. Data provided by Robert B. Schmunk (NASA/GSFC GISS).",
+  "accessed": "2026-11-14",
+  "frames": [
+    {
+      "year": 2023,
+      "svsId": 5207,
+      "title": "Global Temperature Anomalies from 1880 to 2023",
+      "image": "data/nasa-svs-5207-2023.jpg",
+      "sourceUrl": "https://svs.gsfc.nasa.gov/5207/",
+      "downloadUrl": "https://svs.gsfc.nasa.gov/vis/a000000/a005200/a005207/2023GISTEMP_Map.00899_print.jpg",
+      "alt": "NASA's 2023 world map of surface temperature anomalies, with warm anomalies in red and cool anomalies in blue.",
+      "details": "NASA identifies this final map as the 2023 annual anomaly. The preceding frames in the source movie use a running 24-month window. Robinson projection, 1951–1980 baseline.",
+      "width": 1024,
+      "height": 576,
+      "sha256": "8e7883a981ca6b904adba080828e321e756938bf07e373f5c32312748417f9b8"
+    },
+    {
+      "year": 2024,
+      "svsId": 5450,
+      "title": "Global Temperature Anomalies from 1880 to 2024",
+      "image": "data/nasa-svs-5450-2024.png",
+      "sourceUrl": "https://svs.gsfc.nasa.gov/5450/",
+      "downloadUrl": "https://svs.gsfc.nasa.gov/vis/a000000/a005400/a005450/2024GISTEMPMap_2K.png",
+      "alt": "NASA's 2024 world map of surface temperature anomalies, with widespread red and orange areas.",
+      "details": "NASA identifies this final map as the 2024 annual anomaly. The preceding frames in the source movie use a running 24-month window. Robinson projection, 1951–1980 baseline.",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "ddbd57640789b4d60fe1dd0c57bd7563d7ad9d109732dcada2d814c3fa957cbe"
+    },
+    {
+      "year": 2025,
+      "svsId": 5603,
+      "title": "Global Temperature Anomalies from 1880 to 2025",
+      "image": "data/nasa-svs-5603-2025.png",
+      "sourceUrl": "https://svs.gsfc.nasa.gov/5603/",
+      "downloadUrl": "https://svs.gsfc.nasa.gov/vis/a000000/a005600/a005603/Map_HD_2025_nosmoothing.png",
+      "alt": "NASA's unsmoothed 2025 world map of surface temperature anomalies, with orange and red patches and smaller blue regions.",
+      "details": "NASA's 2025 annual map without spatial smoothing, in Robinson projection. Colors follow NASA's published vik scale and the 1951–1980 baseline.",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "f7e91510919ef18318c2687f1787ff2f755734cef45295742a50be402bd7487b"
+    }
+  ]
+}

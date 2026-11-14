@@ -1,0 +1,2 @@
+# Preserve the downloaded CSV bytes and their recorded SHA-256 on every OS.
+gistemp-zonal-annual.csv -text

@@ -1,0 +1,2176 @@
+{
+  "source": {
+    "title": "GISS Surface Temperature Analysis (GISTEMP v4)",
+    "agency": "NASA Goddard Institute for Space Studies",
+    "product": "Annual Land–Ocean Temperature Index (L-OTI)",
+    "landingUrl": "https://data.giss.nasa.gov/gistemp/",
+    "downloadUrl": "https://data.giss.nasa.gov/gistemp/tabledata_v4/ZonAnn.Ts+dSST.csv",
+    "citationUrl": "https://doi.org/10.1029/2023JD040179",
+    "accessed": "2026-11-14",
+    "baseline": "1951–1980",
+    "units": "°C",
+    "sha256": "aed658e38791951f46f5d5a84554ba4f71e4fb5b569f90715429a261f40b8e21",
+    "years": {
+      "first": 1880,
+      "last": 2025
+    }
+  },
+  "series": [
+    {
+      "id": "global",
+      "label": "Global mean",
+      "shortLabel": "Global",
+      "minLatitude": -90,
+      "maxLatitude": 90,
+      "column": "Glob"
+    },
+    {
+      "id": "arctic",
+      "label": "Arctic band · 64–90°N",
+      "shortLabel": "Arctic",
+      "minLatitude": 64.2,
+      "maxLatitude": 90,
+      "column": "64N-90N"
+    },
+    {
+      "id": "north-mid",
+      "label": "44–64°N",
+      "shortLabel": "44–64°N",
+      "minLatitude": 44.4,
+      "maxLatitude": 64.2,
+      "column": "44N-64N"
+    },
+    {
+      "id": "north-subtropical",
+      "label": "24–44°N",
+      "shortLabel": "24–44°N",
+      "minLatitude": 23.6,
+      "maxLatitude": 44.4,
+      "column": "24N-44N"
+    },
+    {
+      "id": "north-tropical",
+      "label": "0–24°N",
+      "shortLabel": "0–24°N",
+      "minLatitude": 0,
+      "maxLatitude": 23.6,
+      "column": "EQU-24N"
+    },
+    {
+      "id": "south-tropical",
+      "label": "0–24°S",
+      "shortLabel": "0–24°S",
+      "minLatitude": -23.6,
+      "maxLatitude": 0,
+      "column": "24S-EQU"
+    },
+    {
+      "id": "south-subtropical",
+      "label": "24–44°S",
+      "shortLabel": "24–44°S",
+      "minLatitude": -44.4,
+      "maxLatitude": -23.6,
+      "column": "44S-24S"
+    },
+    {
+      "id": "south-mid",
+      "label": "44–64°S",
+      "shortLabel": "44–64°S",
+      "minLatitude": -64.2,
+      "maxLatitude": -44.4,
+      "column": "64S-44S"
+    },
+    {
+      "id": "antarctic",
+      "label": "Antarctic band · 64–90°S",
+      "shortLabel": "Antarctic",
+      "minLatitude": -90,
+      "maxLatitude": -64.2,
+      "column": "90S-64S"
+    }
+  ],
+  "observations": [
+    {
+      "year": 1880,
+      "values": {
+        "global": -0.18,
+        "arctic": -0.75,
+        "north-mid": -0.51,
+        "north-subtropical": -0.32,
+        "north-tropical": -0.16,
+        "south-tropical": -0.1,
+        "south-subtropical": -0.04,
+        "south-mid": 0.05,
+        "antarctic": 0.69
+      }
+    },
+    {
+      "year": 1881,
+      "values": {
+        "global": -0.09,
+        "arctic": -0.87,
+        "north-mid": -0.47,
+        "north-subtropical": -0.24,
+        "north-tropical": 0.09,
+        "south-tropical": 0.11,
+        "south-subtropical": -0.06,
+        "south-mid": -0.07,
+        "antarctic": 0.62
+      }
+    },
+    {
+      "year": 1882,
+      "values": {
+        "global": -0.11,
+        "arctic": -1.37,
+        "north-mid": -0.28,
+        "north-subtropical": -0.18,
+        "north-tropical": -0.06,
+        "south-tropical": -0.04,
+        "south-subtropical": 0.01,
+        "south-mid": 0.04,
+        "antarctic": 0.65
+      }
+    },
+    {
+      "year": 1883,
+      "values": {
+        "global": -0.17,
+        "arctic": -0.15,
+        "north-mid": -0.56,
+        "north-subtropical": -0.27,
+        "north-tropical": -0.18,
+        "south-tropical": -0.15,
+        "south-subtropical": -0.04,
+        "south-mid": 0.07,
+        "antarctic": 0.52
+      }
+    },
+    {
+      "year": 1884,
+      "values": {
+        "global": -0.28,
+        "arctic": -1.27,
+        "north-mid": -0.65,
+        "north-subtropical": -0.49,
+        "north-tropical": -0.13,
+        "south-tropical": -0.16,
+        "south-subtropical": -0.19,
+        "south-mid": -0.02,
+        "antarctic": 0.67
+      }
+    },
+    {
+      "year": 1885,
+      "values": {
+        "global": -0.33,
+        "arctic": -1.47,
+        "north-mid": -0.7,
+        "north-subtropical": -0.48,
+        "north-tropical": -0.07,
+        "south-tropical": -0.19,
+        "south-subtropical": -0.34,
+        "south-mid": -0.15,
+        "antarctic": 0.84
+      }
+    },
+    {
+      "year": 1886,
+      "values": {
+        "global": -0.31,
+        "arctic": -1.55,
+        "north-mid": -0.52,
+        "north-subtropical": -0.42,
+        "north-tropical": -0.21,
+        "south-tropical": -0.17,
+        "south-subtropical": -0.2,
+        "south-mid": -0.2,
+        "antarctic": 0.61
+      }
+    },
+    {
+      "year": 1887,
+      "values": {
+        "global": -0.36,
+        "arctic": -1.73,
+        "north-mid": -0.52,
+        "north-subtropical": -0.31,
+        "north-tropical": -0.3,
+        "south-tropical": -0.3,
+        "south-subtropical": -0.28,
+        "south-mid": -0.26,
+        "antarctic": 0.34
+      }
+    },
+    {
+      "year": 1888,
+      "values": {
+        "global": -0.18,
+        "arctic": -1.27,
+        "north-mid": -0.45,
+        "north-subtropical": -0.25,
+        "north-tropical": 0.06,
+        "south-tropical": 0.13,
+        "south-subtropical": -0.31,
+        "south-mid": -0.22,
+        "antarctic": 0.18
+      }
+    },
+    {
+      "year": 1889,
+      "values": {
+        "global": -0.11,
+        "arctic": -0.65,
+        "north-mid": -0.24,
+        "north-subtropical": -0.29,
+        "north-tropical": 0.01,
+        "south-tropical": 0.14,
+        "south-subtropical": -0.16,
+        "south-mid": -0.15,
+        "antarctic": 0.47
+      }
+    },
+    {
+      "year": 1890,
+      "values": {
+        "global": -0.36,
+        "arctic": -1.11,
+        "north-mid": -0.59,
+        "north-subtropical": -0.29,
+        "north-tropical": -0.27,
+        "south-tropical": -0.47,
+        "south-subtropical": -0.18,
+        "south-mid": -0.27,
+        "antarctic": 0.17
+      }
+    },
+    {
+      "year": 1891,
+      "values": {
+        "global": -0.22,
+        "arctic": -1.08,
+        "north-mid": -0.34,
+        "north-subtropical": -0.38,
+        "north-tropical": 0,
+        "south-tropical": -0.16,
+        "south-subtropical": -0.18,
+        "south-mid": -0.23,
+        "antarctic": -0.13
+      }
+    },
+    {
+      "year": 1892,
+      "values": {
+        "global": -0.27,
+        "arctic": -1.06,
+        "north-mid": -0.66,
+        "north-subtropical": -0.18,
+        "north-tropical": -0.33,
+        "south-tropical": -0.26,
+        "south-subtropical": 0.02,
+        "south-mid": -0.21,
+        "antarctic": 0.11
+      }
+    },
+    {
+      "year": 1893,
+      "values": {
+        "global": -0.31,
+        "arctic": -0.58,
+        "north-mid": -0.54,
+        "north-subtropical": -0.48,
+        "north-tropical": -0.42,
+        "south-tropical": -0.31,
+        "south-subtropical": 0.06,
+        "south-mid": -0.2,
+        "antarctic": -0.02
+      }
+    },
+    {
+      "year": 1894,
+      "values": {
+        "global": -0.3,
+        "arctic": -0.88,
+        "north-mid": -0.33,
+        "north-subtropical": -0.2,
+        "north-tropical": -0.48,
+        "south-tropical": -0.2,
+        "south-subtropical": -0.15,
+        "south-mid": -0.35,
+        "antarctic": -0.35
+      }
+    },
+    {
+      "year": 1895,
+      "values": {
+        "global": -0.23,
+        "arctic": -0.61,
+        "north-mid": -0.53,
+        "north-subtropical": -0.28,
+        "north-tropical": -0.14,
+        "south-tropical": 0,
+        "south-subtropical": -0.2,
+        "south-mid": -0.31,
+        "antarctic": -0.56
+      }
+    },
+    {
+      "year": 1896,
+      "values": {
+        "global": -0.11,
+        "arctic": -0.8,
+        "north-mid": -0.37,
+        "north-subtropical": -0.23,
+        "north-tropical": 0.05,
+        "south-tropical": 0.14,
+        "south-subtropical": -0.16,
+        "south-mid": -0.13,
+        "antarctic": 0.28
+      }
+    },
+    {
+      "year": 1897,
+      "values": {
+        "global": -0.11,
+        "arctic": -0.49,
+        "north-mid": -0.47,
+        "north-subtropical": -0.25,
+        "north-tropical": 0.13,
+        "south-tropical": 0.2,
+        "south-subtropical": -0.2,
+        "south-mid": -0.27,
+        "antarctic": 0.42
+      }
+    },
+    {
+      "year": 1898,
+      "values": {
+        "global": -0.28,
+        "arctic": -1.11,
+        "north-mid": -0.25,
+        "north-subtropical": -0.24,
+        "north-tropical": -0.18,
+        "south-tropical": -0.27,
+        "south-subtropical": -0.28,
+        "south-mid": -0.21,
+        "antarctic": 0.4
+      }
+    },
+    {
+      "year": 1899,
+      "values": {
+        "global": -0.18,
+        "arctic": -0.98,
+        "north-mid": -0.11,
+        "north-subtropical": -0.16,
+        "north-tropical": -0.16,
+        "south-tropical": -0.09,
+        "south-subtropical": -0.16,
+        "south-mid": -0.21,
+        "antarctic": 0.6
+      }
+    },
+    {
+      "year": 1900,
+      "values": {
+        "global": -0.08,
+        "arctic": -0.5,
+        "north-mid": -0.17,
+        "north-subtropical": -0.16,
+        "north-tropical": 0.1,
+        "south-tropical": 0.25,
+        "south-subtropical": -0.29,
+        "south-mid": -0.29,
+        "antarctic": 0.29
+      }
+    },
+    {
+      "year": 1901,
+      "values": {
+        "global": -0.16,
+        "arctic": -0.31,
+        "north-mid": -0.11,
+        "north-subtropical": -0.16,
+        "north-tropical": -0.07,
+        "south-tropical": -0.02,
+        "south-subtropical": -0.27,
+        "south-mid": -0.33,
+        "antarctic": 0.28
+      }
+    },
+    {
+      "year": 1902,
+      "values": {
+        "global": -0.28,
+        "arctic": -1.47,
+        "north-mid": -0.51,
+        "north-subtropical": -0.33,
+        "north-tropical": -0.02,
+        "south-tropical": -0.06,
+        "south-subtropical": -0.28,
+        "south-mid": -0.43,
+        "antarctic": -0.03
+      }
+    },
+    {
+      "year": 1903,
+      "values": {
+        "global": -0.37,
+        "arctic": -0.18,
+        "north-mid": -0.43,
+        "north-subtropical": -0.57,
+        "north-tropical": -0.25,
+        "south-tropical": -0.34,
+        "south-subtropical": -0.36,
+        "south-mid": -0.4,
+        "antarctic": -0.48
+      }
+    },
+    {
+      "year": 1904,
+      "values": {
+        "global": -0.47,
+        "arctic": -0.17,
+        "north-mid": -0.61,
+        "north-subtropical": -0.56,
+        "north-tropical": -0.45,
+        "south-tropical": -0.48,
+        "south-subtropical": -0.37,
+        "south-mid": -0.49,
+        "antarctic": -1.31
+      }
+    },
+    {
+      "year": 1905,
+      "values": {
+        "global": -0.26,
+        "arctic": 0.01,
+        "north-mid": -0.24,
+        "north-subtropical": -0.63,
+        "north-tropical": -0.11,
+        "south-tropical": -0.04,
+        "south-subtropical": -0.33,
+        "south-mid": -0.37,
+        "antarctic": -0.33
+      }
+    },
+    {
+      "year": 1906,
+      "values": {
+        "global": -0.22,
+        "arctic": -0.21,
+        "north-mid": -0.07,
+        "north-subtropical": -0.4,
+        "north-tropical": -0.2,
+        "south-tropical": -0.16,
+        "south-subtropical": -0.21,
+        "south-mid": -0.22,
+        "antarctic": -0.7
+      }
+    },
+    {
+      "year": 1907,
+      "values": {
+        "global": -0.38,
+        "arctic": -0.5,
+        "north-mid": -0.72,
+        "north-subtropical": -0.52,
+        "north-tropical": -0.31,
+        "south-tropical": -0.29,
+        "south-subtropical": -0.21,
+        "south-mid": -0.37,
+        "antarctic": -1.19
+      }
+    },
+    {
+      "year": 1908,
+      "values": {
+        "global": -0.42,
+        "arctic": -0.17,
+        "north-mid": -0.55,
+        "north-subtropical": -0.52,
+        "north-tropical": -0.42,
+        "south-tropical": -0.44,
+        "south-subtropical": -0.29,
+        "south-mid": -0.48,
+        "antarctic": 0.68
+      }
+    },
+    {
+      "year": 1909,
+      "values": {
+        "global": -0.48,
+        "arctic": -0.68,
+        "north-mid": -0.63,
+        "north-subtropical": -0.45,
+        "north-tropical": -0.45,
+        "south-tropical": -0.5,
+        "south-subtropical": -0.37,
+        "south-mid": -0.52,
+        "antarctic": -0.56
+      }
+    },
+    {
+      "year": 1910,
+      "values": {
+        "global": -0.43,
+        "arctic": -0.56,
+        "north-mid": -0.25,
+        "north-subtropical": -0.5,
+        "north-tropical": -0.49,
+        "south-tropical": -0.48,
+        "south-subtropical": -0.33,
+        "south-mid": -0.45,
+        "antarctic": 0.17
+      }
+    },
+    {
+      "year": 1911,
+      "values": {
+        "global": -0.44,
+        "arctic": -0.24,
+        "north-mid": -0.43,
+        "north-subtropical": -0.48,
+        "north-tropical": -0.44,
+        "south-tropical": -0.43,
+        "south-subtropical": -0.44,
+        "south-mid": -0.52,
+        "antarctic": 0.06
+      }
+    },
+    {
+      "year": 1912,
+      "values": {
+        "global": -0.37,
+        "arctic": -0.46,
+        "north-mid": -0.8,
+        "north-subtropical": -0.51,
+        "north-tropical": -0.29,
+        "south-tropical": -0.1,
+        "south-subtropical": -0.37,
+        "south-mid": -0.29,
+        "antarctic": -1.62
+      }
+    },
+    {
+      "year": 1913,
+      "values": {
+        "global": -0.35,
+        "arctic": -0.45,
+        "north-mid": -0.34,
+        "north-subtropical": -0.52,
+        "north-tropical": -0.4,
+        "south-tropical": -0.14,
+        "south-subtropical": -0.28,
+        "south-mid": -0.4,
+        "antarctic": -1.03
+      }
+    },
+    {
+      "year": 1914,
+      "values": {
+        "global": -0.15,
+        "arctic": -0.31,
+        "north-mid": -0.17,
+        "north-subtropical": -0.29,
+        "north-tropical": -0.12,
+        "south-tropical": -0.02,
+        "south-subtropical": -0.15,
+        "south-mid": -0.18,
+        "antarctic": -0.35
+      }
+    },
+    {
+      "year": 1915,
+      "values": {
+        "global": -0.14,
+        "arctic": -0.53,
+        "north-mid": -0.17,
+        "north-subtropical": -0.19,
+        "north-tropical": -0.01,
+        "south-tropical": -0.02,
+        "south-subtropical": -0.15,
+        "south-mid": -0.23,
+        "antarctic": -1.97
+      }
+    },
+    {
+      "year": 1916,
+      "values": {
+        "global": -0.36,
+        "arctic": -0.45,
+        "north-mid": -0.55,
+        "north-subtropical": -0.25,
+        "north-tropical": -0.51,
+        "south-tropical": -0.41,
+        "south-subtropical": -0.23,
+        "south-mid": -0.17,
+        "antarctic": -1.04
+      }
+    },
+    {
+      "year": 1917,
+      "values": {
+        "global": -0.46,
+        "arctic": -0.75,
+        "north-mid": -0.5,
+        "north-subtropical": -0.44,
+        "north-tropical": -0.7,
+        "south-tropical": -0.58,
+        "south-subtropical": -0.23,
+        "south-mid": -0.09,
+        "antarctic": 0.07
+      }
+    },
+    {
+      "year": 1918,
+      "values": {
+        "global": -0.3,
+        "arctic": -0.96,
+        "north-mid": -0.27,
+        "north-subtropical": -0.36,
+        "north-tropical": -0.4,
+        "south-tropical": -0.28,
+        "south-subtropical": -0.06,
+        "south-mid": -0.22,
+        "antarctic": -0.27
+      }
+    },
+    {
+      "year": 1919,
+      "values": {
+        "global": -0.28,
+        "arctic": -0.63,
+        "north-mid": -0.56,
+        "north-subtropical": -0.31,
+        "north-tropical": -0.24,
+        "south-tropical": -0.18,
+        "south-subtropical": -0.14,
+        "south-mid": -0.31,
+        "antarctic": 0.21
+      }
+    },
+    {
+      "year": 1920,
+      "values": {
+        "global": -0.27,
+        "arctic": 0.07,
+        "north-mid": -0.21,
+        "north-subtropical": -0.36,
+        "north-tropical": -0.38,
+        "south-tropical": -0.13,
+        "south-subtropical": -0.19,
+        "south-mid": -0.48,
+        "antarctic": -1.13
+      }
+    },
+    {
+      "year": 1921,
+      "values": {
+        "global": -0.19,
+        "arctic": 0.04,
+        "north-mid": 0.17,
+        "north-subtropical": -0.1,
+        "north-tropical": -0.3,
+        "south-tropical": -0.21,
+        "south-subtropical": -0.23,
+        "south-mid": -0.38,
+        "antarctic": -0.83
+      }
+    },
+    {
+      "year": 1922,
+      "values": {
+        "global": -0.28,
+        "arctic": -0.24,
+        "north-mid": -0.41,
+        "north-subtropical": -0.14,
+        "north-tropical": -0.33,
+        "south-tropical": -0.33,
+        "south-subtropical": -0.24,
+        "south-mid": -0.28,
+        "antarctic": -0.27
+      }
+    },
+    {
+      "year": 1923,
+      "values": {
+        "global": -0.27,
+        "arctic": 0.23,
+        "north-mid": -0.15,
+        "north-subtropical": -0.26,
+        "north-tropical": -0.33,
+        "south-tropical": -0.28,
+        "south-subtropical": -0.26,
+        "south-mid": -0.41,
+        "antarctic": -0.54
+      }
+    },
+    {
+      "year": 1924,
+      "values": {
+        "global": -0.27,
+        "arctic": 0.57,
+        "north-mid": -0.25,
+        "north-subtropical": -0.24,
+        "north-tropical": -0.27,
+        "south-tropical": -0.25,
+        "south-subtropical": -0.39,
+        "south-mid": -0.45,
+        "antarctic": -0.52
+      }
+    },
+    {
+      "year": 1925,
+      "values": {
+        "global": -0.22,
+        "arctic": -0.02,
+        "north-mid": 0.17,
+        "north-subtropical": -0.19,
+        "north-tropical": -0.28,
+        "south-tropical": -0.21,
+        "south-subtropical": -0.24,
+        "south-mid": -0.54,
+        "antarctic": -0.85
+      }
+    },
+    {
+      "year": 1926,
+      "values": {
+        "global": -0.11,
+        "arctic": 0.58,
+        "north-mid": 0.15,
+        "north-subtropical": -0.23,
+        "north-tropical": 0,
+        "south-tropical": 0.03,
+        "south-subtropical": -0.34,
+        "south-mid": -0.45,
+        "antarctic": -0.63
+      }
+    },
+    {
+      "year": 1927,
+      "values": {
+        "global": -0.22,
+        "arctic": 0.05,
+        "north-mid": -0.23,
+        "north-subtropical": -0.13,
+        "north-tropical": -0.15,
+        "south-tropical": -0.18,
+        "south-subtropical": -0.3,
+        "south-mid": -0.45,
+        "antarctic": -1.37
+      }
+    },
+    {
+      "year": 1928,
+      "values": {
+        "global": -0.2,
+        "arctic": 0.68,
+        "north-mid": -0.18,
+        "north-subtropical": -0.23,
+        "north-tropical": -0.15,
+        "south-tropical": -0.16,
+        "south-subtropical": -0.28,
+        "south-mid": -0.48,
+        "antarctic": -2.11
+      }
+    },
+    {
+      "year": 1929,
+      "values": {
+        "global": -0.36,
+        "arctic": 0.14,
+        "north-mid": -0.61,
+        "north-subtropical": -0.39,
+        "north-tropical": -0.28,
+        "south-tropical": -0.28,
+        "south-subtropical": -0.42,
+        "south-mid": -0.44,
+        "antarctic": -1.07
+      }
+    },
+    {
+      "year": 1930,
+      "values": {
+        "global": -0.16,
+        "arctic": 0.52,
+        "north-mid": 0.04,
+        "north-subtropical": -0.11,
+        "north-tropical": -0.1,
+        "south-tropical": -0.12,
+        "south-subtropical": -0.32,
+        "south-mid": -0.46,
+        "antarctic": -2.59
+      }
+    },
+    {
+      "year": 1931,
+      "values": {
+        "global": -0.09,
+        "arctic": 0.57,
+        "north-mid": -0.04,
+        "north-subtropical": -0.14,
+        "north-tropical": 0.1,
+        "south-tropical": 0.05,
+        "south-subtropical": -0.42,
+        "south-mid": -0.4,
+        "antarctic": -0.4
+      }
+    },
+    {
+      "year": 1932,
+      "values": {
+        "global": -0.16,
+        "arctic": 0.47,
+        "north-mid": 0.19,
+        "north-subtropical": -0.22,
+        "north-tropical": -0.19,
+        "south-tropical": -0.14,
+        "south-subtropical": -0.21,
+        "south-mid": -0.53,
+        "antarctic": -0.98
+      }
+    },
+    {
+      "year": 1933,
+      "values": {
+        "global": -0.29,
+        "arctic": -0.14,
+        "north-mid": -0.47,
+        "north-subtropical": -0.13,
+        "north-tropical": -0.28,
+        "south-tropical": -0.28,
+        "south-subtropical": -0.22,
+        "south-mid": -0.48,
+        "antarctic": -1.14
+      }
+    },
+    {
+      "year": 1934,
+      "values": {
+        "global": -0.13,
+        "arctic": 0.9,
+        "north-mid": 0.31,
+        "north-subtropical": -0.14,
+        "north-tropical": -0.27,
+        "south-tropical": -0.25,
+        "south-subtropical": -0.15,
+        "south-mid": -0.38,
+        "antarctic": -0.56
+      }
+    },
+    {
+      "year": 1935,
+      "values": {
+        "global": -0.2,
+        "arctic": 0.33,
+        "north-mid": -0.05,
+        "north-subtropical": -0.17,
+        "north-tropical": -0.16,
+        "south-tropical": -0.2,
+        "south-subtropical": -0.3,
+        "south-mid": -0.41,
+        "antarctic": -1.7
+      }
+    },
+    {
+      "year": 1936,
+      "values": {
+        "global": -0.15,
+        "arctic": 0.41,
+        "north-mid": 0.11,
+        "north-subtropical": -0.26,
+        "north-tropical": -0.05,
+        "south-tropical": -0.21,
+        "south-subtropical": -0.26,
+        "south-mid": -0.32,
+        "antarctic": -0.03
+      }
+    },
+    {
+      "year": 1937,
+      "values": {
+        "global": -0.03,
+        "arctic": 1.23,
+        "north-mid": 0.03,
+        "north-subtropical": -0.03,
+        "north-tropical": 0,
+        "south-tropical": -0.12,
+        "south-subtropical": -0.19,
+        "south-mid": -0.25,
+        "antarctic": 0.37
+      }
+    },
+    {
+      "year": 1938,
+      "values": {
+        "global": 0,
+        "arctic": 1.52,
+        "north-mid": 0.39,
+        "north-subtropical": 0.02,
+        "north-tropical": -0.19,
+        "south-tropical": -0.28,
+        "south-subtropical": -0.06,
+        "south-mid": -0.11,
+        "antarctic": -0.86
+      }
+    },
+    {
+      "year": 1939,
+      "values": {
+        "global": -0.02,
+        "arctic": 0.55,
+        "north-mid": 0.28,
+        "north-subtropical": 0.08,
+        "north-tropical": -0.13,
+        "south-tropical": -0.13,
+        "south-subtropical": -0.04,
+        "south-mid": -0.18,
+        "antarctic": -1.59
+      }
+    },
+    {
+      "year": 1940,
+      "values": {
+        "global": 0.12,
+        "arctic": 0.99,
+        "north-mid": -0.02,
+        "north-subtropical": -0.1,
+        "north-tropical": 0.26,
+        "south-tropical": 0.29,
+        "south-subtropical": 0.03,
+        "south-mid": -0.2,
+        "antarctic": -0.05
+      }
+    },
+    {
+      "year": 1941,
+      "values": {
+        "global": 0.18,
+        "arctic": 0.01,
+        "north-mid": -0.1,
+        "north-subtropical": 0.08,
+        "north-tropical": 0.54,
+        "south-tropical": 0.43,
+        "south-subtropical": 0.03,
+        "south-mid": -0.15,
+        "antarctic": -0.46
+      }
+    },
+    {
+      "year": 1942,
+      "values": {
+        "global": 0.06,
+        "arctic": 0.72,
+        "north-mid": -0.07,
+        "north-subtropical": 0.06,
+        "north-tropical": 0.11,
+        "south-tropical": 0.03,
+        "south-subtropical": 0.06,
+        "south-mid": -0.05,
+        "antarctic": -0.89
+      }
+    },
+    {
+      "year": 1943,
+      "values": {
+        "global": 0.09,
+        "arctic": 1.43,
+        "north-mid": 0.28,
+        "north-subtropical": 0.1,
+        "north-tropical": -0.11,
+        "south-tropical": -0.07,
+        "south-subtropical": 0.07,
+        "south-mid": 0,
+        "antarctic": 1.15
+      }
+    },
+    {
+      "year": 1944,
+      "values": {
+        "global": 0.2,
+        "arctic": 1.19,
+        "north-mid": 0.47,
+        "north-subtropical": 0.09,
+        "north-tropical": 0.11,
+        "south-tropical": 0.26,
+        "south-subtropical": 0.19,
+        "south-mid": -0.09,
+        "antarctic": -0.98
+      }
+    },
+    {
+      "year": 1945,
+      "values": {
+        "global": 0.09,
+        "arctic": 0.66,
+        "north-mid": -0.02,
+        "north-subtropical": 0.04,
+        "north-tropical": 0.1,
+        "south-tropical": 0.24,
+        "south-subtropical": 0.04,
+        "south-mid": 0,
+        "antarctic": -1.82
+      }
+    },
+    {
+      "year": 1946,
+      "values": {
+        "global": -0.07,
+        "arctic": -0.03,
+        "north-mid": -0.05,
+        "north-subtropical": 0.16,
+        "north-tropical": -0.02,
+        "south-tropical": -0.07,
+        "south-subtropical": -0.22,
+        "south-mid": -0.24,
+        "antarctic": -0.21
+      }
+    },
+    {
+      "year": 1947,
+      "values": {
+        "global": -0.03,
+        "arctic": 1.06,
+        "north-mid": -0.13,
+        "north-subtropical": 0.04,
+        "north-tropical": -0.03,
+        "south-tropical": -0.1,
+        "south-subtropical": -0.19,
+        "south-mid": -0.08,
+        "antarctic": -0.24
+      }
+    },
+    {
+      "year": 1948,
+      "values": {
+        "global": -0.11,
+        "arctic": 0.12,
+        "north-mid": 0.31,
+        "north-subtropical": 0,
+        "north-tropical": -0.22,
+        "south-tropical": -0.14,
+        "south-subtropical": -0.19,
+        "south-mid": -0.19,
+        "antarctic": -1.42
+      }
+    },
+    {
+      "year": 1949,
+      "values": {
+        "global": -0.11,
+        "arctic": 0.2,
+        "north-mid": 0.17,
+        "north-subtropical": 0.05,
+        "north-tropical": -0.23,
+        "south-tropical": -0.15,
+        "south-subtropical": -0.17,
+        "south-mid": -0.15,
+        "antarctic": -2.02
+      }
+    },
+    {
+      "year": 1950,
+      "values": {
+        "global": -0.17,
+        "arctic": 0.18,
+        "north-mid": -0.31,
+        "north-subtropical": 0.03,
+        "north-tropical": -0.3,
+        "south-tropical": -0.28,
+        "south-subtropical": -0.06,
+        "south-mid": -0.16,
+        "antarctic": -0.86
+      }
+    },
+    {
+      "year": 1951,
+      "values": {
+        "global": -0.07,
+        "arctic": 0.07,
+        "north-mid": 0.01,
+        "north-subtropical": 0.12,
+        "north-tropical": 0,
+        "south-tropical": -0.12,
+        "south-subtropical": -0.21,
+        "south-mid": -0.16,
+        "antarctic": -0.7
+      }
+    },
+    {
+      "year": 1952,
+      "values": {
+        "global": 0.01,
+        "arctic": 0.27,
+        "north-mid": -0.1,
+        "north-subtropical": 0.19,
+        "north-tropical": -0.01,
+        "south-tropical": 0.04,
+        "south-subtropical": -0.1,
+        "south-mid": -0.02,
+        "antarctic": -0.54
+      }
+    },
+    {
+      "year": 1953,
+      "values": {
+        "global": 0.08,
+        "arctic": 1.03,
+        "north-mid": 0.35,
+        "north-subtropical": 0.14,
+        "north-tropical": 0.08,
+        "south-tropical": 0.06,
+        "south-subtropical": -0.08,
+        "south-mid": -0.24,
+        "antarctic": -1.15
+      }
+    },
+    {
+      "year": 1954,
+      "values": {
+        "global": -0.13,
+        "arctic": 0.8,
+        "north-mid": -0.21,
+        "north-subtropical": 0,
+        "north-tropical": -0.14,
+        "south-tropical": -0.29,
+        "south-subtropical": -0.17,
+        "south-mid": -0.2,
+        "antarctic": -0.82
+      }
+    },
+    {
+      "year": 1955,
+      "values": {
+        "global": -0.14,
+        "arctic": -0.23,
+        "north-mid": -0.11,
+        "north-subtropical": 0.23,
+        "north-tropical": -0.29,
+        "south-tropical": -0.38,
+        "south-subtropical": -0.16,
+        "south-mid": -0.08,
+        "antarctic": 1.21
+      }
+    },
+    {
+      "year": 1956,
+      "values": {
+        "global": -0.19,
+        "arctic": 0.01,
+        "north-mid": -0.48,
+        "north-subtropical": -0.09,
+        "north-tropical": -0.28,
+        "south-tropical": -0.37,
+        "south-subtropical": -0.14,
+        "south-mid": 0.03,
+        "antarctic": 0.77
+      }
+    },
+    {
+      "year": 1957,
+      "values": {
+        "global": 0.05,
+        "arctic": 0.09,
+        "north-mid": 0.22,
+        "north-subtropical": -0.11,
+        "north-tropical": 0.06,
+        "south-tropical": 0.1,
+        "south-subtropical": -0.09,
+        "south-mid": -0.02,
+        "antarctic": 0.49
+      }
+    },
+    {
+      "year": 1958,
+      "values": {
+        "global": 0.06,
+        "arctic": -0.18,
+        "north-mid": 0.14,
+        "north-subtropical": 0.12,
+        "north-tropical": 0.26,
+        "south-tropical": 0.15,
+        "south-subtropical": -0.08,
+        "south-mid": -0.08,
+        "antarctic": -0.56
+      }
+    },
+    {
+      "year": 1959,
+      "values": {
+        "global": 0.03,
+        "arctic": 0.49,
+        "north-mid": 0.18,
+        "north-subtropical": 0.05,
+        "north-tropical": 0.07,
+        "south-tropical": 0.08,
+        "south-subtropical": -0.03,
+        "south-mid": -0.26,
+        "antarctic": -0.39
+      }
+    },
+    {
+      "year": 1960,
+      "values": {
+        "global": -0.03,
+        "arctic": 0.34,
+        "north-mid": -0.07,
+        "north-subtropical": 0.11,
+        "north-tropical": 0.07,
+        "south-tropical": -0.03,
+        "south-subtropical": -0.1,
+        "south-mid": -0.07,
+        "antarctic": -0.78
+      }
+    },
+    {
+      "year": 1961,
+      "values": {
+        "global": 0.06,
+        "arctic": -0.16,
+        "north-mid": 0.37,
+        "north-subtropical": 0.18,
+        "north-tropical": -0.07,
+        "south-tropical": 0,
+        "south-subtropical": 0.14,
+        "south-mid": -0.17,
+        "antarctic": 0.2
+      }
+    },
+    {
+      "year": 1962,
+      "values": {
+        "global": 0.03,
+        "arctic": 0.44,
+        "north-mid": 0.31,
+        "north-subtropical": 0.14,
+        "north-tropical": -0.04,
+        "south-tropical": -0.05,
+        "south-subtropical": 0.09,
+        "south-mid": -0.07,
+        "antarctic": -0.66
+      }
+    },
+    {
+      "year": 1963,
+      "values": {
+        "global": 0.05,
+        "arctic": -0.16,
+        "north-mid": 0.31,
+        "north-subtropical": 0.13,
+        "north-tropical": 0.14,
+        "south-tropical": 0.1,
+        "south-subtropical": -0.1,
+        "south-mid": -0.17,
+        "antarctic": -0.03
+      }
+    },
+    {
+      "year": 1964,
+      "values": {
+        "global": -0.2,
+        "arctic": -0.66,
+        "north-mid": -0.2,
+        "north-subtropical": -0.12,
+        "north-tropical": -0.14,
+        "south-tropical": -0.14,
+        "south-subtropical": -0.3,
+        "south-mid": -0.07,
+        "antarctic": -0.37
+      }
+    },
+    {
+      "year": 1965,
+      "values": {
+        "global": -0.11,
+        "arctic": -0.28,
+        "north-mid": -0.24,
+        "north-subtropical": -0.12,
+        "north-tropical": -0.08,
+        "south-tropical": 0.02,
+        "south-subtropical": -0.23,
+        "south-mid": -0.03,
+        "antarctic": 0
+      }
+    },
+    {
+      "year": 1966,
+      "values": {
+        "global": -0.06,
+        "arctic": -0.76,
+        "north-mid": -0.19,
+        "north-subtropical": 0.09,
+        "north-tropical": 0.16,
+        "south-tropical": -0.01,
+        "south-subtropical": -0.23,
+        "south-mid": -0.14,
+        "antarctic": 0.12
+      }
+    },
+    {
+      "year": 1967,
+      "values": {
+        "global": -0.02,
+        "arctic": 0.36,
+        "north-mid": 0.26,
+        "north-subtropical": -0.05,
+        "north-tropical": -0.11,
+        "south-tropical": -0.17,
+        "south-subtropical": -0.09,
+        "south-mid": -0.02,
+        "antarctic": 0.31
+      }
+    },
+    {
+      "year": 1968,
+      "values": {
+        "global": -0.08,
+        "arctic": -0.33,
+        "north-mid": -0.02,
+        "north-subtropical": -0.09,
+        "north-tropical": -0.02,
+        "south-tropical": -0.11,
+        "south-subtropical": -0.14,
+        "south-mid": 0,
+        "antarctic": -0.07
+      }
+    },
+    {
+      "year": 1969,
+      "values": {
+        "global": 0.05,
+        "arctic": -0.03,
+        "north-mid": -0.61,
+        "north-subtropical": -0.17,
+        "north-tropical": 0.35,
+        "south-tropical": 0.32,
+        "south-subtropical": 0,
+        "south-mid": 0.13,
+        "antarctic": -0.16
+      }
+    },
+    {
+      "year": 1970,
+      "values": {
+        "global": 0.03,
+        "arctic": -0.2,
+        "north-mid": -0.13,
+        "north-subtropical": -0.06,
+        "north-tropical": 0.07,
+        "south-tropical": 0.07,
+        "south-subtropical": 0.11,
+        "south-mid": 0.03,
+        "antarctic": 0.36
+      }
+    },
+    {
+      "year": 1971,
+      "values": {
+        "global": -0.08,
+        "arctic": -0.08,
+        "north-mid": 0.01,
+        "north-subtropical": -0.1,
+        "north-tropical": -0.3,
+        "south-tropical": -0.22,
+        "south-subtropical": 0.03,
+        "south-mid": 0.16,
+        "antarctic": 0.49
+      }
+    },
+    {
+      "year": 1972,
+      "values": {
+        "global": 0.01,
+        "arctic": -0.37,
+        "north-mid": -0.47,
+        "north-subtropical": -0.24,
+        "north-tropical": 0.06,
+        "south-tropical": 0.27,
+        "south-subtropical": 0.16,
+        "south-mid": -0.02,
+        "antarctic": 0.48
+      }
+    },
+    {
+      "year": 1973,
+      "values": {
+        "global": 0.16,
+        "arctic": 0.06,
+        "north-mid": 0.27,
+        "north-subtropical": 0.02,
+        "north-tropical": 0.07,
+        "south-tropical": 0.3,
+        "south-subtropical": 0.21,
+        "south-mid": 0.07,
+        "antarctic": 0.35
+      }
+    },
+    {
+      "year": 1974,
+      "values": {
+        "global": -0.07,
+        "arctic": -0.18,
+        "north-mid": -0.07,
+        "north-subtropical": -0.18,
+        "north-tropical": -0.23,
+        "south-tropical": -0.17,
+        "south-subtropical": 0.21,
+        "south-mid": -0.09,
+        "antarctic": 0.66
+      }
+    },
+    {
+      "year": 1975,
+      "values": {
+        "global": -0.01,
+        "arctic": 0.1,
+        "north-mid": 0.39,
+        "north-subtropical": -0.05,
+        "north-tropical": -0.31,
+        "south-tropical": -0.17,
+        "south-subtropical": 0.13,
+        "south-mid": 0.14,
+        "antarctic": 0.31
+      }
+    },
+    {
+      "year": 1976,
+      "values": {
+        "global": -0.1,
+        "arctic": -0.07,
+        "north-mid": -0.32,
+        "north-subtropical": -0.28,
+        "north-tropical": -0.13,
+        "south-tropical": -0.1,
+        "south-subtropical": 0.1,
+        "south-mid": 0.22,
+        "antarctic": -0.21
+      }
+    },
+    {
+      "year": 1977,
+      "values": {
+        "global": 0.18,
+        "arctic": 0.16,
+        "north-mid": 0.24,
+        "north-subtropical": 0.06,
+        "north-tropical": 0.09,
+        "south-tropical": 0.22,
+        "south-subtropical": 0.21,
+        "south-mid": 0.31,
+        "antarctic": 0.29
+      }
+    },
+    {
+      "year": 1978,
+      "values": {
+        "global": 0.07,
+        "arctic": -0.16,
+        "north-mid": 0.04,
+        "north-subtropical": -0.04,
+        "north-tropical": 0.1,
+        "south-tropical": 0.05,
+        "south-subtropical": 0.21,
+        "south-mid": 0.13,
+        "antarctic": 0.03
+      }
+    },
+    {
+      "year": 1979,
+      "values": {
+        "global": 0.16,
+        "arctic": -0.61,
+        "north-mid": 0.07,
+        "north-subtropical": 0.09,
+        "north-tropical": 0.25,
+        "south-tropical": 0.27,
+        "south-subtropical": 0.29,
+        "south-mid": 0.33,
+        "antarctic": -0.2
+      }
+    },
+    {
+      "year": 1980,
+      "values": {
+        "global": 0.26,
+        "arctic": 0.26,
+        "north-mid": 0.02,
+        "north-subtropical": 0.02,
+        "north-tropical": 0.32,
+        "south-tropical": 0.29,
+        "south-subtropical": 0.35,
+        "south-mid": 0.37,
+        "antarctic": 0.56
+      }
+    },
+    {
+      "year": 1981,
+      "values": {
+        "global": 0.32,
+        "arctic": 1.09,
+        "north-mid": 0.79,
+        "north-subtropical": 0.08,
+        "north-tropical": 0.21,
+        "south-tropical": 0.15,
+        "south-subtropical": 0.28,
+        "south-mid": 0.39,
+        "antarctic": 0.62
+      }
+    },
+    {
+      "year": 1982,
+      "values": {
+        "global": 0.14,
+        "arctic": -0.4,
+        "north-mid": 0.09,
+        "north-subtropical": -0.08,
+        "north-tropical": 0.25,
+        "south-tropical": 0.29,
+        "south-subtropical": 0.18,
+        "south-mid": 0.32,
+        "antarctic": -0.1
+      }
+    },
+    {
+      "year": 1983,
+      "values": {
+        "global": 0.31,
+        "arctic": 0.19,
+        "north-mid": 0.69,
+        "north-subtropical": -0.07,
+        "north-tropical": 0.29,
+        "south-tropical": 0.57,
+        "south-subtropical": 0.21,
+        "south-mid": 0.41,
+        "antarctic": 0.1
+      }
+    },
+    {
+      "year": 1984,
+      "values": {
+        "global": 0.16,
+        "arctic": 0.36,
+        "north-mid": 0.08,
+        "north-subtropical": -0.13,
+        "north-tropical": 0.06,
+        "south-tropical": 0.3,
+        "south-subtropical": 0.16,
+        "south-mid": 0.32,
+        "antarctic": 0.54
+      }
+    },
+    {
+      "year": 1985,
+      "values": {
+        "global": 0.12,
+        "arctic": 0.39,
+        "north-mid": -0.27,
+        "north-subtropical": -0.01,
+        "north-tropical": 0.04,
+        "south-tropical": 0.14,
+        "south-subtropical": 0.3,
+        "south-mid": 0.44,
+        "antarctic": 0.07
+      }
+    },
+    {
+      "year": 1986,
+      "values": {
+        "global": 0.18,
+        "arctic": 0,
+        "north-mid": 0.28,
+        "north-subtropical": 0.03,
+        "north-tropical": 0.17,
+        "south-tropical": 0.28,
+        "south-subtropical": 0.25,
+        "south-mid": 0.25,
+        "antarctic": -0.1
+      }
+    },
+    {
+      "year": 1987,
+      "values": {
+        "global": 0.32,
+        "arctic": -0.36,
+        "north-mid": 0.13,
+        "north-subtropical": 0.12,
+        "north-tropical": 0.55,
+        "south-tropical": 0.62,
+        "south-subtropical": 0.32,
+        "south-mid": 0.25,
+        "antarctic": 0.01
+      }
+    },
+    {
+      "year": 1988,
+      "values": {
+        "global": 0.39,
+        "arctic": 0.59,
+        "north-mid": 0.57,
+        "north-subtropical": 0.24,
+        "north-tropical": 0.32,
+        "south-tropical": 0.43,
+        "south-subtropical": 0.38,
+        "south-mid": 0.2,
+        "antarctic": 0.94
+      }
+    },
+    {
+      "year": 1989,
+      "values": {
+        "global": 0.27,
+        "arctic": 0.32,
+        "north-mid": 0.69,
+        "north-subtropical": 0.25,
+        "north-tropical": 0.06,
+        "south-tropical": 0.19,
+        "south-subtropical": 0.36,
+        "south-mid": 0.3,
+        "antarctic": 0.38
+      }
+    },
+    {
+      "year": 1990,
+      "values": {
+        "global": 0.45,
+        "arctic": 0.58,
+        "north-mid": 0.88,
+        "north-subtropical": 0.49,
+        "north-tropical": 0.38,
+        "south-tropical": 0.36,
+        "south-subtropical": 0.37,
+        "south-mid": 0.37,
+        "antarctic": 0.37
+      }
+    },
+    {
+      "year": 1991,
+      "values": {
+        "global": 0.41,
+        "arctic": 0.75,
+        "north-mid": 0.66,
+        "north-subtropical": 0.26,
+        "north-tropical": 0.32,
+        "south-tropical": 0.41,
+        "south-subtropical": 0.31,
+        "south-mid": 0.29,
+        "antarctic": 0.98
+      }
+    },
+    {
+      "year": 1992,
+      "values": {
+        "global": 0.22,
+        "arctic": -0.17,
+        "north-mid": 0.44,
+        "north-subtropical": -0.03,
+        "north-tropical": 0.19,
+        "south-tropical": 0.37,
+        "south-subtropical": 0.2,
+        "south-mid": 0.33,
+        "antarctic": 0.42
+      }
+    },
+    {
+      "year": 1993,
+      "values": {
+        "global": 0.23,
+        "arctic": 0.54,
+        "north-mid": 0.29,
+        "north-subtropical": -0.11,
+        "north-tropical": 0.28,
+        "south-tropical": 0.35,
+        "south-subtropical": 0.26,
+        "south-mid": 0.39,
+        "antarctic": -0.28
+      }
+    },
+    {
+      "year": 1994,
+      "values": {
+        "global": 0.31,
+        "arctic": 0.34,
+        "north-mid": 0.5,
+        "north-subtropical": 0.42,
+        "north-tropical": 0.27,
+        "south-tropical": 0.34,
+        "south-subtropical": 0.26,
+        "south-mid": 0.23,
+        "antarctic": -0.03
+      }
+    },
+    {
+      "year": 1995,
+      "values": {
+        "global": 0.44,
+        "arctic": 1.31,
+        "north-mid": 0.98,
+        "north-subtropical": 0.32,
+        "north-tropical": 0.4,
+        "south-tropical": 0.45,
+        "south-subtropical": 0.29,
+        "south-mid": 0.15,
+        "antarctic": 0.15
+      }
+    },
+    {
+      "year": 1996,
+      "values": {
+        "global": 0.33,
+        "arctic": 0.77,
+        "north-mid": 0.17,
+        "north-subtropical": 0.11,
+        "north-tropical": 0.3,
+        "south-tropical": 0.33,
+        "south-subtropical": 0.32,
+        "south-mid": 0.28,
+        "antarctic": 1.31
+      }
+    },
+    {
+      "year": 1997,
+      "values": {
+        "global": 0.46,
+        "arctic": 0.77,
+        "north-mid": 0.9,
+        "north-subtropical": 0.23,
+        "north-tropical": 0.49,
+        "south-tropical": 0.52,
+        "south-subtropical": 0.42,
+        "south-mid": 0.36,
+        "antarctic": 0.02
+      }
+    },
+    {
+      "year": 1998,
+      "values": {
+        "global": 0.61,
+        "arctic": 0.87,
+        "north-mid": 0.94,
+        "north-subtropical": 0.66,
+        "north-tropical": 0.59,
+        "south-tropical": 0.79,
+        "south-subtropical": 0.39,
+        "south-mid": 0.31,
+        "antarctic": 0.14
+      }
+    },
+    {
+      "year": 1999,
+      "values": {
+        "global": 0.38,
+        "arctic": 0.42,
+        "north-mid": 0.8,
+        "north-subtropical": 0.74,
+        "north-tropical": 0.15,
+        "south-tropical": 0.25,
+        "south-subtropical": 0.46,
+        "south-mid": 0.19,
+        "antarctic": 0.02
+      }
+    },
+    {
+      "year": 2000,
+      "values": {
+        "global": 0.39,
+        "arctic": 0.98,
+        "north-mid": 0.8,
+        "north-subtropical": 0.55,
+        "north-tropical": 0.2,
+        "south-tropical": 0.28,
+        "south-subtropical": 0.41,
+        "south-mid": 0.1,
+        "antarctic": 0.27
+      }
+    },
+    {
+      "year": 2001,
+      "values": {
+        "global": 0.53,
+        "arctic": 1.08,
+        "north-mid": 0.86,
+        "north-subtropical": 0.68,
+        "north-tropical": 0.39,
+        "south-tropical": 0.44,
+        "south-subtropical": 0.58,
+        "south-mid": 0.24,
+        "antarctic": 0.23
+      }
+    },
+    {
+      "year": 2002,
+      "values": {
+        "global": 0.63,
+        "arctic": 1.27,
+        "north-mid": 1,
+        "north-subtropical": 0.58,
+        "north-tropical": 0.54,
+        "south-tropical": 0.64,
+        "south-subtropical": 0.49,
+        "south-mid": 0.32,
+        "antarctic": 0.78
+      }
+    },
+    {
+      "year": 2003,
+      "values": {
+        "global": 0.61,
+        "arctic": 1.51,
+        "north-mid": 0.98,
+        "north-subtropical": 0.54,
+        "north-tropical": 0.6,
+        "south-tropical": 0.67,
+        "south-subtropical": 0.44,
+        "south-mid": 0.24,
+        "antarctic": 0.34
+      }
+    },
+    {
+      "year": 2004,
+      "values": {
+        "global": 0.53,
+        "arctic": 0.48,
+        "north-mid": 0.95,
+        "north-subtropical": 0.66,
+        "north-tropical": 0.56,
+        "south-tropical": 0.54,
+        "south-subtropical": 0.48,
+        "south-mid": 0.23,
+        "antarctic": -0.07
+      }
+    },
+    {
+      "year": 2005,
+      "values": {
+        "global": 0.68,
+        "arctic": 2,
+        "north-mid": 1.22,
+        "north-subtropical": 0.57,
+        "north-tropical": 0.62,
+        "south-tropical": 0.63,
+        "south-subtropical": 0.49,
+        "south-mid": 0.18,
+        "antarctic": 0.67
+      }
+    },
+    {
+      "year": 2006,
+      "values": {
+        "global": 0.64,
+        "arctic": 1.77,
+        "north-mid": 1.06,
+        "north-subtropical": 0.7,
+        "north-tropical": 0.56,
+        "south-tropical": 0.55,
+        "south-subtropical": 0.51,
+        "south-mid": 0.19,
+        "antarctic": 0.47
+      }
+    },
+    {
+      "year": 2007,
+      "values": {
+        "global": 0.66,
+        "arctic": 2.1,
+        "north-mid": 1.31,
+        "north-subtropical": 0.69,
+        "north-tropical": 0.44,
+        "south-tropical": 0.49,
+        "south-subtropical": 0.5,
+        "south-mid": 0.07,
+        "antarctic": 1.27
+      }
+    },
+    {
+      "year": 2008,
+      "values": {
+        "global": 0.54,
+        "arctic": 1.55,
+        "north-mid": 1.07,
+        "north-subtropical": 0.61,
+        "north-tropical": 0.33,
+        "south-tropical": 0.42,
+        "south-subtropical": 0.52,
+        "south-mid": 0.09,
+        "antarctic": 0.62
+      }
+    },
+    {
+      "year": 2009,
+      "values": {
+        "global": 0.66,
+        "arctic": 1.43,
+        "north-mid": 0.6,
+        "north-subtropical": 0.68,
+        "north-tropical": 0.64,
+        "south-tropical": 0.71,
+        "south-subtropical": 0.6,
+        "south-mid": 0.15,
+        "antarctic": 0.97
+      }
+    },
+    {
+      "year": 2010,
+      "values": {
+        "global": 0.72,
+        "arctic": 2.25,
+        "north-mid": 0.87,
+        "north-subtropical": 0.74,
+        "north-tropical": 0.71,
+        "south-tropical": 0.65,
+        "south-subtropical": 0.63,
+        "south-mid": 0.2,
+        "antarctic": 0.51
+      }
+    },
+    {
+      "year": 2011,
+      "values": {
+        "global": 0.61,
+        "arctic": 2.34,
+        "north-mid": 0.93,
+        "north-subtropical": 0.58,
+        "north-tropical": 0.38,
+        "south-tropical": 0.35,
+        "south-subtropical": 0.64,
+        "south-mid": 0.19,
+        "antarctic": 1.07
+      }
+    },
+    {
+      "year": 2012,
+      "values": {
+        "global": 0.64,
+        "arctic": 2.12,
+        "north-mid": 0.92,
+        "north-subtropical": 0.74,
+        "north-tropical": 0.47,
+        "south-tropical": 0.57,
+        "south-subtropical": 0.56,
+        "south-mid": 0.2,
+        "antarctic": 0.44
+      }
+    },
+    {
+      "year": 2013,
+      "values": {
+        "global": 0.67,
+        "arctic": 1.52,
+        "north-mid": 1.04,
+        "north-subtropical": 0.69,
+        "north-tropical": 0.58,
+        "south-tropical": 0.58,
+        "south-subtropical": 0.62,
+        "south-mid": 0.24,
+        "antarctic": 0.84
+      }
+    },
+    {
+      "year": 2014,
+      "values": {
+        "global": 0.75,
+        "arctic": 2.05,
+        "north-mid": 1.14,
+        "north-subtropical": 0.73,
+        "north-tropical": 0.69,
+        "south-tropical": 0.65,
+        "south-subtropical": 0.72,
+        "south-mid": 0.2,
+        "antarctic": 0.53
+      }
+    },
+    {
+      "year": 2015,
+      "values": {
+        "global": 0.9,
+        "arctic": 1.99,
+        "north-mid": 1.47,
+        "north-subtropical": 0.99,
+        "north-tropical": 0.97,
+        "south-tropical": 0.94,
+        "south-subtropical": 0.74,
+        "south-mid": 0.2,
+        "antarctic": -0.36
+      }
+    },
+    {
+      "year": 2016,
+      "values": {
+        "global": 1.01,
+        "arctic": 3.23,
+        "north-mid": 1.42,
+        "north-subtropical": 1.06,
+        "north-tropical": 0.95,
+        "south-tropical": 1.07,
+        "south-subtropical": 0.67,
+        "south-mid": 0.28,
+        "antarctic": 0.35
+      }
+    },
+    {
+      "year": 2017,
+      "values": {
+        "global": 0.91,
+        "arctic": 2.47,
+        "north-mid": 1.37,
+        "north-subtropical": 1.03,
+        "north-tropical": 0.85,
+        "south-tropical": 0.76,
+        "south-subtropical": 0.76,
+        "south-mid": 0.38,
+        "antarctic": 0.51
+      }
+    },
+    {
+      "year": 2018,
+      "values": {
+        "global": 0.85,
+        "arctic": 2.14,
+        "north-mid": 1.09,
+        "north-subtropical": 1.05,
+        "north-tropical": 0.73,
+        "south-tropical": 0.63,
+        "south-subtropical": 0.79,
+        "south-mid": 0.41,
+        "antarctic": 0.93
+      }
+    },
+    {
+      "year": 2019,
+      "values": {
+        "global": 0.98,
+        "arctic": 2.75,
+        "north-mid": 1.43,
+        "north-subtropical": 0.99,
+        "north-tropical": 0.9,
+        "south-tropical": 0.9,
+        "south-subtropical": 0.73,
+        "south-mid": 0.41,
+        "antarctic": 0.81
+      }
+    },
+    {
+      "year": 2020,
+      "values": {
+        "global": 1.01,
+        "arctic": 2.85,
+        "north-mid": 1.8,
+        "north-subtropical": 1.18,
+        "north-tropical": 0.87,
+        "south-tropical": 0.83,
+        "south-subtropical": 0.58,
+        "south-mid": 0.4,
+        "antarctic": 0.85
+      }
+    },
+    {
+      "year": 2021,
+      "values": {
+        "global": 0.85,
+        "arctic": 2.05,
+        "north-mid": 1.35,
+        "north-subtropical": 1.26,
+        "north-tropical": 0.72,
+        "south-tropical": 0.59,
+        "south-subtropical": 0.72,
+        "south-mid": 0.34,
+        "antarctic": 0.3
+      }
+    },
+    {
+      "year": 2022,
+      "values": {
+        "global": 0.89,
+        "arctic": 2.34,
+        "north-mid": 1.49,
+        "north-subtropical": 1.26,
+        "north-tropical": 0.62,
+        "south-tropical": 0.51,
+        "south-subtropical": 0.78,
+        "south-mid": 0.41,
+        "antarctic": 1.05
+      }
+    },
+    {
+      "year": 2023,
+      "values": {
+        "global": 1.17,
+        "arctic": 2.55,
+        "north-mid": 1.86,
+        "north-subtropical": 1.46,
+        "north-tropical": 1.07,
+        "south-tropical": 1.05,
+        "south-subtropical": 0.9,
+        "south-mid": 0.46,
+        "antarctic": 0.59
+      }
+    },
+    {
+      "year": 2024,
+      "values": {
+        "global": 1.28,
+        "arctic": 2.88,
+        "north-mid": 1.95,
+        "north-subtropical": 1.65,
+        "north-tropical": 1.21,
+        "south-tropical": 1.17,
+        "south-subtropical": 0.88,
+        "south-mid": 0.54,
+        "antarctic": 0.71
+      }
+    },
+    {
+      "year": 2025,
+      "values": {
+        "global": 1.19,
+        "arctic": 2.93,
+        "north-mid": 1.94,
+        "north-subtropical": 1.53,
+        "north-tropical": 0.85,
+        "south-tropical": 0.86,
+        "south-subtropical": 0.96,
+        "south-mid": 0.55,
+        "antarctic": 1.55
+      }
+    }
+  ],
+  "insights": [
+    {
+      "id": "polar-split",
+      "title": "The poles sound different",
+      "description": "In 2016 the Arctic band was +3.23°C relative to its baseline. The Antarctic band was +0.35°C. Listen as the interval between them changes.",
+      "metric": "2.88°C gap in 2016",
+      "series": [
+        "arctic",
+        "antarctic"
+      ],
+      "from": 2014,
+      "to": 2025
+    },
+    {
+      "id": "arctic-shift",
+      "title": "A larger shift in the Arctic",
+      "description": "From the 1980s to 2016–2025, the Arctic band’s decade mean rose +2.38°C. The global mean rose +0.77°C over the same windows.",
+      "metric": "+2.38°C Arctic · +0.77°C global",
+      "series": [
+        "arctic",
+        "global"
+      ],
+      "from": 1980,
+      "to": 2025
+    },
+    {
+      "id": "recent-global",
+      "title": "Three unusually warm years",
+      "description": "The global annual estimates for 2023, 2024 and 2025 are +1.17°C, +1.28°C and +1.19°C. NASA describes 2023 and 2025 as effectively tied within uncertainty.",
+      "metric": "+1.28°C global in 2024",
+      "series": [
+        "global",
+        "arctic"
+      ],
+      "from": 2023,
+      "to": 2025
+    }
+  ]
+}
