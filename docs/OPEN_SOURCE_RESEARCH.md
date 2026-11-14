@@ -27,3 +27,7 @@
 - The numerical data and official frames retain their source credits. The Blue Marble derivative records its NASA source file, hash and transformation. [Dataset research](DATASET_RESEARCH.md) · [Basemap attribution](../public/earth/README.md) · [NASA media usage](https://www.nasa.gov/nasa-brand-center/images-and-media/)
 
 EARTHSONA's own code implements the frame sampling, fixed-scale note mapping, linked data controls and sphere renderer. Code licenses and source image use follow the scope and credits in the repository.
+
+## Visual references for the mark
+
+React Bits’ Crystalized Ball and Orb informed the crystal, orbit and halo in the EARTHSONA brand mark. Its MIT + Commons Clause license conditions the redistribution of standalone components and ports. The shipped mark uses original SVG geometry and CSS with no imported React Bits code or shaders. [Crystalized Ball](https://reactbits.dev/animations/crystalized-ball) · [Orb](https://reactbits.dev/c/backgrounds/orb) · [React Bits license](https://github.com/DavidHDev/react-bits/blob/main/LICENSE.md)

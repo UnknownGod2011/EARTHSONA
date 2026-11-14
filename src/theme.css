@@ -1,0 +1,88 @@
+:root {
+  --surface: #ffffff;
+  --accent-wash: #f0e9f9;
+  --accent-border: #dfd2f1;
+  --accent-ink: #51396c;
+  --lab-ink: #5c4777;
+}
+
+html[data-theme=dark] {
+  color-scheme: dark;
+  color: #eef0f9;
+  background: #0c0e19;
+  --ink: #eef0f9;
+  --muted: #b8b7cc;
+  --paper: #161827;
+  --line: #35364b;
+  --purple: #c2a8ff;
+  --lilac: #ccb9fb;
+  --gold: #ffcc7e;
+  --teal: #8ee4d4;
+  --surface: #1d2032;
+  --accent-wash: #29213f;
+  --accent-border: #514167;
+  --accent-ink: #d0b8f7;
+  --lab-ink: #c4b0e1;
+}
+
+.header-actions { display: flex; flex: none; align-items: center; gap: 9px; }
+.theme-toggle { width: 41px; height: 41px; display: grid; place-items: center; border: 1px solid var(--accent-border); background: var(--surface); color: var(--accent-ink); border-radius: 9px; }
+.theme-toggle:hover { background: var(--accent-wash); }
+.brand .brand-mark { width: 38px; height: 38px; flex: none; background: none; color: inherit; border-radius: 50%; }
+.brand .brand-mark svg { width: 100%; height: 100%; }
+.brand-orbit { transform-origin: 24px 24px; animation: brand-orbit 5s linear infinite paused; }
+.brand:is(:hover, :focus-visible) .brand-orbit { animation-play-state: running; }
+@keyframes brand-orbit { to { transform: rotate(360deg); } }
+
+.hero #hero-title { position: relative; isolation: isolate; }
+.title-reveal-text { position: relative; z-index: 1; }
+.title-particles { position: absolute; z-index: 0; inset: -16px auto auto -16px; display: block; pointer-events: none; }
+
+[data-theme=dark] .site-header { background: #10121e; }
+[data-theme=dark] .hero-right p,
+[data-theme=dark] .range-endpoints,
+[data-theme=dark] .transport-text span { color: var(--muted); }
+[data-theme=dark] .header-cta { border-color: var(--line); }
+[data-theme=dark] .header-cta:hover { background: var(--accent-wash); }
+[data-theme=dark] .skip { background: var(--surface); }
+[data-theme=dark] :is(.hero, .timeline-heading, .section-heading) .eyebrow,
+[data-theme=dark] :is(.console-heading, .info-link, .insight-metric, .scan-status) { color: var(--lab-ink); }
+[data-theme=dark] .signal-dot { background: #b293ee; box-shadow: 0 0 0 4px #35284b; }
+[data-theme=dark] :is(.track, .settings-grid input, .settings-grid select, .frame-mode select, .frame-picker button) { background: var(--surface); }
+[data-theme=dark] :is(.settings-grid input, .settings-grid select, .frame-mode select, .frame-picker button) { color: var(--ink); }
+[data-theme=dark] .transport { background: var(--accent-wash); border-color: var(--accent-border); }
+[data-theme=dark] .play { background: #ba9ff4; color: #221434; }
+[data-theme=dark] .play:hover { background: #d2baff; }
+[data-theme=dark] .icon-button { color: var(--accent-ink); }
+[data-theme=dark] .icon-button:hover,
+[data-theme=dark] .frame-picker button:is(:hover,[aria-pressed=true]) { background: #382a55; border-color: var(--accent-border); color: #e6d8ff; }
+[data-theme=dark] .status-text { color: #ffabd4; }
+[data-theme=dark] .data-table thead { background: var(--surface); }
+[data-theme=dark] .grid-line { stroke: #33354c; }
+[data-theme=dark] .grid-line.baseline { stroke: #858298; }
+[data-theme=dark] :is(.chart-x, .chart-y) { fill: var(--muted); }
+[data-theme=dark] .chart-a { stroke: var(--gold); }
+[data-theme=dark] .chart-b { stroke: var(--teal); }
+[data-theme=dark] .chart-cursor { stroke: #bcb0d4; }
+[data-theme=dark] .chart-dot.a { stroke: var(--paper); fill: var(--gold); }
+[data-theme=dark] .chart-dot.b { stroke: var(--paper); fill: var(--teal); }
+[data-theme=dark] .track-key::before { background: var(--gold); }
+[data-theme=dark] .track-key.key-1::before { background: var(--teal); }
+[data-theme=dark] :is(button, a, input, select, summary, canvas):focus-visible { outline-color: #d9bdff; }
+
+@media (max-width: 700px) {
+  .header-actions { gap: 7px; }
+  .theme-toggle { width: 36px; height: 36px; }
+  .brand .brand-mark { width: 33px; height: 33px; }
+}
+
+@media (max-width: 375px) {
+  .header-inner { gap: 8px; }
+  .header-cta { padding-inline: 9px; }
+  .header-cta svg { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-orbit { animation: none; }
+  .title-particles { display: none; }
+}

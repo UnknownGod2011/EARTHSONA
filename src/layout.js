@@ -5,13 +5,13 @@ export function layout(first, last) {
     <header class="site-header"><div class="shell header-inner">
       <a class="brand" href="#top"><span class="brand-mark">${icon('wave', 23)}</span> EARTHSONA</a>
       <nav aria-label="Main navigation"><a href="#observatory">Observatory</a><a href="#findings">Discoveries</a><a href="#method">Method & sources</a></nav>
-      <a class="header-cta" href="#observatory">Start listening ${icon('arrow', 17)}</a>
+      <div class="header-actions"><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false" title="Dark mode"></button><button type="button" class="header-cta" data-open-guide>Guided listen ${icon('arrow', 17)}</button></div>
     </div></header>
     <main class="shell" id="top">
       <section class="hero" aria-labelledby="hero-title">
         <div><div class="eyebrow"><span class="signal-dot"></span> THE EARTH INFORMATION JUKEBOX</div>
         <h1 id="hero-title">Hear the <em>Earth.</em></h1></div>
-        <div class="hero-right"><p>Explore more than a century of NASA temperature records, or listen to the colors of a NASA Earth Information Center map.</p><a href="#observatory" class="primary-link">Enter the observatory ${icon('down', 18)}</a></div>
+        <div class="hero-right"><p>Hear a NASA map, then compare how the Arctic and the world have warmed using more than a century of temperature records.</p><div class="hero-actions"><button id="start-guide" class="guide-cta" type="button" data-open-guide>${icon('play', 18)} Listen with Luma</button><a href="#observatory" class="primary-link">Explore freely ${icon('down', 16)}</a></div></div>
       </section>
       <section id="observatory" class="observatory" tabindex="-1" aria-label="Listening observatory">
         <div class="workspace">
@@ -24,7 +24,7 @@ export function layout(first, last) {
               <span class="viewport-type" id="view-caption">GISTEMP V4 / ANNUAL</span>
             </div>
             <div id="globe-view" class="globe-view">
-              <div class="stars" aria-hidden="true"></div>
+              <div class="stars" id="sky-backdrop" aria-hidden="true"></div>
               <div class="globe-year" aria-hidden="true"><span id="globe-year">${last}</span><small>°C ANOMALY</small></div>
               <canvas id="earth" aria-label="Interactive Earth showing latitude-band temperature anomalies. Use arrow keys to rotate and Enter to select the center band."></canvas>
               <div class="globe-tools" role="group" aria-label="Globe controls">
@@ -38,7 +38,7 @@ export function layout(first, last) {
               <div class="frame-mat"><img id="eic-image" alt=""/><div id="frame-beam" aria-hidden="true" hidden></div></div>
               <div class="frame-credit"><span>NASA SCIENTIFIC VISUALIZATION STUDIO</span><a id="frame-source" target="_blank" rel="noreferrer">Open source ${icon('external', 14)}</a></div>
             </div>
-            <div class="viewport-footer" id="globe-legend"><span>1951–1980 BASELINE</span><div class="legend"><span id="legend-min"></span><i></i><span id="legend-max"></span></div><span class="legend-unit">°C</span></div>
+            <div class="viewport-footer" id="globe-legend"><span>1951–1980 BASELINE</span><div class="legend" title="Band tint saturates at these values. The record keeps the full reading."><span id="legend-min"></span><i></i><span id="legend-max"></span></div><span class="legend-unit">°C</span></div>
           </div>
           <aside class="console" id="console" aria-labelledby="console-title">
             <div class="console-heading"><span class="eyebrow"><span class="signal-dot"></span> LISTENING STUDIO</span><a href="#method" class="info-link" aria-label="Read the methodology">${icon('info', 19)}</a></div>
@@ -64,7 +64,9 @@ export function layout(first, last) {
               <div class="frame-picker" id="frame-picker" role="group" aria-label="NASA frame year"></div>
               <label class="frame-mode" for="frame-audio">Sound source<select id="frame-audio"><option value="pixels">Frame colors</option><option value="data">GISTEMP annual reading</option></select></label>
               <p id="frame-description" class="frame-description"></p>
+              <p id="frame-limitation" class="frame-limitation muted">Pitch follows colors in this image. Compare temperatures across years in Climate globe.</p>
               <div id="scan-status" class="scan-status mono" aria-live="off"></div>
+              <details id="scan-readings" class="scan-readings" hidden><summary>Inspect the six scan notes ${icon('chevron', 16)}</summary><ol id="scan-note-list"></ol></details>
             </div>
             <div class="transport" aria-label="Playback controls">
               <button type="button" id="play" class="play" aria-label="Play">${icon('play', 24)}</button>
@@ -87,10 +89,10 @@ export function layout(first, last) {
         <div class="section-heading"><div><span class="eyebrow">DISCOVERIES</span><h2 id="findings-title">Patterns worth <em>hearing.</em></h2></div><p class="muted">Each comparison opens the same observations behind the finding.</p></div>
         <div class="insight-grid" id="insight-grid"></div>
       </section>
-      <section id="method" class="method" aria-labelledby="method-title">
+      <section id="method" class="method" tabindex="-1" aria-labelledby="method-title">
         <div class="section-heading"><div><span class="eyebrow">METHOD & SOURCES</span><h2 id="method-title">From data <em>to sound.</em></h2></div></div>
         <div class="method-grid">
-          <article><h3>Climate tracks</h3><p>One note represents one calendar year. Zero anomaly plays at 220 Hz. Every 2°C increases pitch by one octave, using a fixed −3.5°C to +3.5°C range. With two tracks, hear the primary tone first and the comparison tone just after it.</p><p>NASA GISTEMP combines land surface air temperatures and sea surface temperatures. The globe colors each whole latitude band by its annual mean. The Blue Marble basemap provides geographic context. Each band summarizes a broad region and cannot tell you a local temperature.</p><div id="data-provenance"></div></article>
+          <article><h3>Climate tracks</h3><p>One explorer note represents one calendar year. Zero anomaly plays at 220 Hz. Every 2°C increases pitch by one octave, using a fixed −3.5°C to +3.5°C range. With two tracks, hear the primary tone first and the comparison tone just after it.</p><p>NASA GISTEMP combines land surface air temperatures and sea surface temperatures. The globe tints each latitude band by its annual anomaly, capped at ±3°C for color. Blue Marble and the star field provide visual context. The sky moves as you explore the globe, without alignment to a particular place or time.</p><div id="data-provenance"></div></article>
           <article><h3>NASA frame scan</h3><p>Select a map and play the image colors from north to south. The scan uses red and blue channel differences from sampled map pixels. Redder samples raise the pitch and bluer samples lower it. Use Climate tracks to hear numeric anomalies in °C.</p><p>The three maps use Robinson projection. Layout, palette and processing vary by release. Use the official numeric series to compare years on one scale.</p><a id="catalog" class="text-link" target="_blank" rel="noreferrer">NASA Earth Information Center catalog ${icon('external', 16)}</a></article>
         </div>
       </section>

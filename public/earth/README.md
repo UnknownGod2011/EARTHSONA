@@ -11,3 +11,9 @@
 | --- | ---: | --- |
 | NASA source JPEG | 2,308,798 | `4f4240673a3a1b173d61b92ca4b07bac5fd17059ea5f725ba6da5a9c5386b7ba` |
 | EARTHSONA WebP | 272,436 | `f551ff204ea6c70cd2bacc38fb6dd3dff13bd5905fbaffb19c869b110d9c4dd5` |
+
+## Sky backdrop
+
+`nasa-deep-star-map.jpg` is the unmodified 1024 × 512 celestial-coordinate preview of NASA SVS *Deep Star Maps 2020*. The visualization plots Hipparcos-2, Tycho-2 and Gaia DR2 catalogs. Credit NASA/Goddard Space Flight Center Scientific Visualization Studio and ESA/Gaia/DPAC for Gaia DR2. Retrieved November 14, 2026. [NASA source and credits](https://svs.gsfc.nasa.gov/4851/) · [Original JPEG](https://svs.gsfc.nasa.gov/vis/a000000/a004800/a004851/starmap_2020_4k_print.jpg)
+
+SHA-256 `8d2e7e8d515e238deaf90e2b7fb11b2838b6e8db64f933a57540d894468148aa`. The globe controls shift the decorative backdrop with a wrapped horizontal pan and limited vertical movement. This view does not register celestial coordinates to the Earth, render a time-specific sky, or use the stars as inputs to sonification. Reduced motion leaves the sky fixed.

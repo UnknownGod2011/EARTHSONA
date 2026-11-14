@@ -8,8 +8,9 @@ EARTHSONA is an interactive Earth Information Jukebox built for NASA Space Apps 
 
 ## Listen and explore
 
+- **Listen with Luma** guides a first-time visitor through an official NASA map scan and a controlled four-note comparison. The same instrument plays Arctic and global ten-year mean anomalies before the guide reveals the values and their source. Optional read-aloud uses a local browser voice when one is available.
 - **NASA frames** turns six north-to-south stripes of each official 2023, 2024, and 2025 NASA map into tones. Select **Frame colors** for the rendered map or **GISTEMP annual reading** for that year’s global numeric value.
-- **Climate globe** shows annual temperature anomalies from 1880–2025 across eight latitude bands on a rotating Blue Marble sphere. Compare two tracks, change the playback range and speed, use the chart or year slider to inspect exact values, and open the data table for a text view.
+- **Climate globe** shows annual temperature anomalies from 1880–2025 across eight latitude bands on a rotating Blue Marble sphere, with a NASA star map backdrop. Compare two tracks, change the playback range and speed, use the chart or year slider to inspect exact values, and open the data table for a text view.
 - **Discoveries** opens comparisons calculated from the shipped NASA source table. In 2016, the Arctic band was +3.23°C above its baseline and the Antarctic band was +0.35°C. The app maps that 2.88°C gap to an audible interval.
 
 For the numeric tracks, 0°C anomaly plays at 220 Hz and every +2°C adds an octave. Both tracks use the same scale and a 1951–1980 reference period. The frame scan uses a separate color-to-pitch mapping, and its output depends on the source palette and projection. Compare temperatures across years with the numeric tracks. The globe displays regional averages rather than station readings, fine-grained rasters, or local forecasts.
@@ -40,4 +41,4 @@ Vite produces `dist/` for any static host. GitHub Actions validates the data, ru
 
 The numeric data comes from [NASA GISS GISTEMP v4](https://data.giss.nasa.gov/gistemp/). The maps come from [NASA’s Scientific Visualization Studio](https://svs.gsfc.nasa.gov/gallery/earth-information-center/), with data provided by Robert B. Schmunk (NASA/GSFC GISS). The basemap uses [NASA Earth Observatory Blue Marble Next Generation](https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/). Source-specific terms and credits apply to NASA material. The font distribution includes the three SIL OFL notices in [`public/fonts`](public/fonts/). Original project code and documentation are under [Apache 2.0](LICENSE).
 
-The participant defined the project concept and used OpenAI Codex for research, code, tests, documentation, and demo assembly. Browser audio is deterministic synthesis from NASA values or map pixels. See [submission disclosures](docs/SUBMISSION_CHECKLIST.md).
+The participant defined the project concept and used OpenAI Codex for research, code, tests, documentation, and demo assembly. Luma uses the participant’s existing AI-assisted keyboard.wtf sprite, with an in-product credit. The original EARTHSONA mark takes visual inspiration from React Bits’ Crystalized Ball and Orb. Browser sonification is deterministic synthesis from NASA values or map pixels. See [submission disclosures](docs/SUBMISSION_CHECKLIST.md).

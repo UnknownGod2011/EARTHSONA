@@ -75,7 +75,7 @@ function createSurface(width, height, zoom, context) {
   return { width, height, centerX, centerY, radius, sphere, rayDepth, surfaceLight, alpha };
 }
 
-export function createGlobe(canvas, { onSelect, onHover, overlay = true } = {}) {
+export function createGlobe(canvas, { onSelect, onHover, onView, overlay = true } = {}) {
   const context = canvas.getContext('2d');
   if (!context) {
     return {
@@ -269,6 +269,7 @@ export function createGlobe(canvas, { onSelect, onHover, overlay = true } = {}) 
     const geometry = getGeometry();
     if (!geometry) return;
 
+    onView?.({ longitude, latitude });
     const lat = latitude * RADIANS;
     paintSurface(geometry, Math.cos(lat), Math.sin(lat));
     drawAtmosphere(geometry);

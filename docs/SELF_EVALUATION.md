@@ -19,3 +19,7 @@
 - The EIC scan is based on RGB differences in rendered graphics. It has six approximate latitude stripes, ignores dark/gray samples, and uses no geographic area weighting. It cannot recover numeric temperatures or support a quantitative comparison between palettes.
 - Regional plots summarize broad latitude bands and include varying uncertainty, especially near the poles and early in the record. The app does not fit trends, model causality, or report significance. The snapshots need explicit refresh when NASA updates the source.
 - The two voices use stereo position, waveform, and note order so the comparison remains distinguishable on a mono speaker. How readily users perceive the encoding has not been evaluated with a participant study. [Testing details](TESTING.md)
+
+## Guided listen update
+
+The walkthrough poses one question before revealing the data. It plays the same instrument and level for all four notes so the listener can compare the two intervals. The last step gives the actual annual-mean calculation, two periods, source table and change values. The global reference includes the Arctic. Keyboard and browser operation are verified. Listener comprehension and assistive-technology usability have not been measured with participants.

@@ -28,3 +28,9 @@ To run the Playwright tests against an existing Chrome binary, set `EARTHSONA_CH
 During integration, the comparison label remained stale after selecting solo playback. The browser suite reproduced it, and the transport now refreshes whenever a selection changes. The production viewport sweep found a 13-pixel title overflow at 320 CSS pixels, fixed by reducing the minimum title size. Source review also caught an image-decode delay before AudioContext activation and a dependency on the latest CSV year for frame selection. Playback unlocks synchronously on interaction, and the frame picker initializes from its separate catalog.
 
 The scope covers Chromium on desktop and touch emulation. Native iOS and Safari, subjective listening studies, and formal assistive-technology audits remain unverified.
+
+## Guided listen and visual update
+
+- In Chrome, opened the guide by keyboard, played the actual 2025 NASA frame scan, heard both decade pairs, checked the reported changes and mean table, and confirmed Escape returns focus to the launch control.
+- Checked the optional dark preference across reload and at 320 CSS pixels. Verified the particle intro appears on the first visit, stays off on later visits in the same browser, and respects reduced motion. Reduced motion also keeps the star field static while the globe remains controllable.
+- The Read aloud control depends on an available English voice marked as local by the browser. Listening and the written walkthrough remain available independently of speech synthesis.

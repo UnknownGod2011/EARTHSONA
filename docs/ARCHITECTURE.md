@@ -30,6 +30,14 @@ flowchart LR
 
 The globe coalesces redraws with `requestAnimationFrame`, caps render resolution, and uses Canvas 2D so a dedicated GPU and WebGL are optional. Band coloring remains available if the basemap image fails. The frame scan caches the derived stripe plan for the selected image until the frame changes. Mobile users can rotate horizontally, pinch to zoom, and scroll vertically. Keyboard rotation, select menus, and the data table provide alternative paths.
 
+The globe exposes its viewing angles to pan the NASA Deep Star Maps 2020 backdrop. The view pans the original star catalog visualization for atmosphere. The sky stays fixed when reduced motion is enabled. [NASA star map](https://svs.gsfc.nasa.gov/4851/) · [Asset provenance and limits](../public/earth/README.md)
+
+## Guided listen and motion
+
+The Luma guide is a native dialog with three steps and focus return. It uses the shipped NASA image and the same scanner and audio engine as the main explorer. It calculates the equal-window comparison from the annual observations in the browser. The four notes use the same waveform and volume so that the pitch interval is the comparison cue. The text reveal keeps the result accessible without listening. The existing keyboard.wtf Luma artwork is bundled as four cropped sprite strips. Optional read-aloud uses a local browser voice and yields to scientific audio. No microphone or API credentials are needed.
+
+The theme choice is stored locally. Light mode is the default. The title particles run on the first visit in the browser, then leave the original text in the page. Reduced motion skips the reveal and disables the optional decorative motion. The crystal-orb mark is original SVG with a focus or hover animation.
+
 ## Deployment and maintenance
 
 Install from the npm lockfile with `npm ci`. `npm run build` writes a relative-base static bundle. `.github/workflows/pages.yml` validates the bundled snapshots and exercises Chromium before publishing `main`. No server secrets, trackers, third-party runtime calls, database or service worker are required. The host serves normal HTTP cache headers and Vite fingerprints its bundled JS and CSS. After a snapshot refresh, review changed insights and the README’s stated end year before deploying.

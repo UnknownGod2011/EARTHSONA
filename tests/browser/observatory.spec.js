@@ -57,3 +57,62 @@ test('mobile layout and the missing-texture fallback keep data available', async
   await expect(page.locator('#primary-value')).toHaveText('+1.19°C');
   await expect(page.getByRole('link', { name: 'Raw CSV' })).toHaveAttribute('download', '');
 });
+
+test('Luma opens by keyboard, plays NASA data, and reveals reproducible evidence', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/');
+  const launch = page.getByRole('button', { name: 'Listen with Luma' });
+  await launch.focus();
+  await page.keyboard.press('Enter');
+  const guide = page.getByRole('dialog');
+  await expect(guide.getByRole('heading', { name: 'Hear NASA’s map' })).toBeFocused();
+  await guide.getByRole('button', { name: 'Play 2025 map scan' }).click();
+  await expect(guide.locator('.guide-frame-beam')).toBeVisible();
+  await guide.getByRole('button', { name: 'Continue' }).click();
+  await guide.getByRole('button', { name: 'Hear both pairs' }).click();
+  await expect(guide.locator('[data-tone="1980-arctic"]')).toHaveAttribute('data-active', 'true');
+  await expect(guide.locator('[data-tone="2016-arctic"]')).toHaveAttribute('data-active', 'true');
+  await guide.getByRole('button', { name: 'Reveal the result' }).click();
+  await expect(guide.locator('.guide-finding')).toContainText('+2.38°C');
+  await expect(guide.locator('.guide-finding')).toContainText('+0.77°C');
+  await expect(guide.getByRole('table')).toContainText('+2.62°C');
+  await page.keyboard.press('Escape');
+  await expect(guide).toBeHidden();
+  await expect(launch).toBeFocused();
+});
+
+test('dark mode persists and reduced motion keeps the title and sky stable', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/');
+  await expect(page.locator('.title-particles')).toHaveCount(0);
+  const toggle = page.getByRole('button', { name: 'Dark mode' });
+  await expect(toggle).toHaveAttribute('aria-pressed', 'false');
+  await toggle.click();
+  await page.reload();
+  await expect(toggle).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+  const starMap = page.locator('#sky-backdrop');
+  const position = () => starMap.evaluate((element) => getComputedStyle(element).backgroundPosition);
+  const initialPosition = await position();
+  await page.locator('#earth').focus();
+  await page.keyboard.press('ArrowRight');
+  expect(await position()).toEqual(initialPosition);
+  await page.setViewportSize({ width: 320, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(320);
+});
+
+test('title particles appear only on the first visit and the sky tracks globe rotation', async ({ page, context }) => {
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.goto('/');
+  await expect(page.locator('.title-particles')).toHaveCount(1);
+  await expect(page.locator('.title-particles')).toHaveCount(0, { timeout: 4000 });
+  const again = await context.newPage();
+  await again.goto('/');
+  await expect(again.locator('#hero-title')).toHaveText('Hear the Earth.');
+  await expect(again.locator('.title-particles')).toHaveCount(0);
+  const sky = again.locator('#sky-backdrop');
+  await expect(sky).toHaveCSS('background-position', '50% 50%, 50% 50%');
+  await again.locator('#earth').focus();
+  await again.keyboard.press('ArrowRight');
+  await expect(sky).not.toHaveCSS('background-position', '50% 50%, 50% 50%');
+});

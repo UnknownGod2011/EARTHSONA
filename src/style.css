@@ -42,6 +42,7 @@ p, h1, h2, h3 { margin: 0; }
 .header-inner nav a:hover, .footer-inner a:hover { color: var(--purple); }
 .header-cta, .primary-link, .text-link { display: inline-flex; gap: 9px; align-items: center; font-size: .82rem; font-weight: 600; }
 .header-cta { padding: 9px 13px; border: 1px solid #d6d0e0; border-radius: 8px; }
+.header-cta { background: transparent; color: inherit; }
 .header-cta:hover { background: #ece5fa; }
 
 .hero { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); align-items: end; gap: 30px; padding: 52px 0 31px; }
@@ -51,6 +52,9 @@ p, h1, h2, h3 { margin: 0; }
 em { color: var(--purple); font-weight: 400; }
 .hero-right { max-width: 350px; justify-self: end; padding-bottom: 2px; }
 .hero-right p { margin-bottom: 17px; color: #45454e; font-size: 1.02rem; line-height: 1.55; }
+.hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 13px 16px; }
+.guide-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 13px; border: 1px solid #372753; border-radius: 9px; background: #372753; color: #fff; font-size: .82rem; font-weight: 600; }
+.guide-cta:hover { background: #503573; }
 .primary-link { color: var(--purple); }
 .primary-link:hover, .text-link:hover { text-decoration: underline; text-underline-offset: 4px; }
 
@@ -64,7 +68,7 @@ em { color: var(--purple); font-weight: 400; }
 .view-switch button:is(:hover, [aria-pressed=true]) { color: #fcf9ff; background: #353052; }
 .viewport-type, .viewport-footer, .frame-credit, .globe-caption { color: #b6b6cc; font-family: var(--mono); font-size: .64rem; letter-spacing: .05em; }
 .globe-view { position: relative; isolation: isolate; min-height: 373px; flex: 1; background: radial-gradient(ellipse at 46% 51%, #222642 0, #15172b 46%, #0e1020 76%); }
-.stars { position: absolute; inset: 0; pointer-events: none; opacity: .68; background-image: radial-gradient(1px 1px at 11% 23%, #ddd3ff 60%, transparent 100%), radial-gradient(1px 1px at 15% 61%, #f1efff 57%, transparent 100%), radial-gradient(1.2px 1.2px at 9% 78%, #eee6ff 60%, transparent 100%), radial-gradient(1px 1px at 26% 44%, #c3d8f5 50%, transparent 100%), radial-gradient(1.3px 1.3px at 31% 13%, #c6d0ff 63%, transparent 100%), radial-gradient(1px 1px at 33% 82%, #d8cbff 45%, transparent 100%), radial-gradient(1.3px 1.2px at 71% 17%, #fbddc8 60%, transparent 100%), radial-gradient(1.4px 1.4px at 83% 41%, #d9d0ff 55%, transparent 100%), radial-gradient(1px 1px at 77% 71%, #d8cbff 51%, transparent 100%), radial-gradient(1px 1px at 89% 56%, #d8cbff 51%, transparent 100%), radial-gradient(1.3px 1.3px at 90% 83%, #d8cbff 51%, transparent 100%), radial-gradient(1px 1px at 73% 89%, #cec3eb 50%, transparent 100%); }
+.stars { position: absolute; inset: 0; pointer-events: none; opacity: .92; background-image: linear-gradient(0deg,#0d1026a8,#161b3a10 43%,#11132738 73%,#0d102672), url('/earth/nasa-deep-star-map.jpg'); background-size: 100% 100%, 1280px 640px; background-repeat: no-repeat, repeat-x; background-position: center, calc(50% + var(--sky-x, 0px)) calc(50% + var(--sky-y, 0px)); }
 #earth { position: absolute; display: block; width: 100%; height: 100%; inset: 0; touch-action: pan-y; }
 #earth:focus-visible { outline-offset: -4px; }
 .globe-year { position: absolute; left: 22px; top: 22px; display: flex; flex-direction: column; gap: 4px; font: 2.15rem/1 var(--serif); color: #f9f5fb; z-index: 1; pointer-events: none; }
@@ -130,6 +134,9 @@ details[open] > summary svg { transform: rotate(180deg); }
 .frame-picker button:is(:hover,[aria-pressed=true]) { background: #ece4fb; border-color: #cab6ed; color: #503296; }
 .frame-mode { font-size: .75rem; font-weight: 600; }
 .frame-description { color: var(--muted); font-size: .76rem; line-height: 1.5; margin-top: 11px; }
+.frame-limitation { margin-top: 9px; font-size: .7rem; line-height: 1.45; }
+.scan-readings { border-top: 1px solid var(--line); padding-top: 8px; margin-bottom: 10px; }
+.scan-readings ol { margin: 6px 0 0; padding-left: 20px; font-size: .71rem; line-height: 1.7; color: var(--muted); }
 .scan-status { color: #574174; font-size: .68rem; margin: 10px 0; min-height: 1.4em; }
 
 .timeline { background: var(--paper); border: 1px solid var(--line); border-top: none; border-radius: 0 0 19px 19px; padding: 22px 23px 18px; }
@@ -217,6 +224,13 @@ footer { border-top: 1px solid var(--line); }
   .footer-inner { flex-wrap: wrap; padding-block: 15px; }
 }
 
+@media (max-width: 380px) {
+  .header-inner { gap: 8px; }
+  .header-cta { gap: 4px; padding-inline: 8px; font-size: .72rem; }
+  .header-cta svg { display: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .stars { --sky-x: 0px !important; --sky-y: 0px !important; }
 }
