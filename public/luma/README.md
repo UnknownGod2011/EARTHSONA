@@ -4,4 +4,4 @@ EARTHSONA uses Luma’s original blue crystal artwork from the local November 14
 
 The deployed WebP files preserve the atlas pixels and transparency. The companion uses `idle.webp` (row 0, six frames), `run-right.webp` and `run-left.webp` (rows 1 and 2, eight frames each), and `wave.webp` (row 3, four frames). The two rows in `gaze.webp` (rows 9 and 10) produce 16 gaze directions and the edge peek. Rest uses the third frame of `idle.webp`, the same closed-eye pose used on keyboard.wtf. The guide also uses `react.webp` (the jump on row 4, five frames) and `listen.webp` (the waiting pose on row 6, six frames). Reduced motion shows a still.
 
-The artwork originated in the participant’s earlier AI-assisted Luma project and is credited in Method & Sources. The guide plays the scientific sounds locally in the browser and supports prerecorded narration.
+The artwork originated in the participant’s earlier AI-assisted Luma project and is documented in the project disclosure and asset notes. The guide plays the scientific sounds locally in the browser and supports prerecorded narration.

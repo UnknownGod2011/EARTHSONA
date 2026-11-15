@@ -36,7 +36,7 @@ Keyboard-accessible playback controls, map descriptions, exact readings, and dat
 
 **Use of Super Intelligence (SI)**
 
-The team supplied the Earth-data listening concept and selected the published cut. OpenAI Codex assisted with source research, implementation, tests, documentation and demo production. NASA supplied the climate data, maps and Blue Marble imagery. EARTHSONA reuses AI-assisted Luma artwork on the site. Narration was synthesized with ElevenLabs using Jessica and Eleven v4. Method & Sources carries the site credits. The scientific sounds are synthesized in the browser directly from NASA values and pixels. [Official SI rules](https://www.spaceappschallenge.org/resources/project-submission-guide/#project-page-form-field-instructions)
+The team supplied the Earth-data listening concept and selected the published cut. OpenAI Codex assisted with source research, implementation, tests, documentation and demo production. NASA supplied the climate data, maps and Blue Marble imagery. EARTHSONA reuses AI-assisted Luma artwork on the site. Narration was synthesized with ElevenLabs using Jessica and Eleven v4. Their provenance is recorded in this disclosure and bundled-asset metadata. The scientific sounds are synthesized in the browser directly from NASA values and pixels. [Official SI rules](https://www.spaceappschallenge.org/resources/project-submission-guide/#project-page-form-field-instructions)
 
 **NASA Data**
 

@@ -186,7 +186,6 @@ details[open] > summary svg { transform: rotate(180deg); }
 .method { margin-bottom: 65px; }
 .method-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .method-grid p { margin-bottom: 13px; }
-.media-credits { margin-top: 15px; font-size: .8rem; line-height: 1.5; }
 .source-actions { display: flex; flex-wrap: wrap; gap: 10px 16px; margin-bottom: 13px; }
 .text-link { color: var(--purple); }
 footer { border-top: 1px solid var(--line); }
