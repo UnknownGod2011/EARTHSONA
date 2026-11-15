@@ -5,6 +5,7 @@ test('plays and compares actual NASA records', async ({ page }) => {
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto('/');
   await expect(page.getByRole('heading', { name: 'Hear the Earth.' })).toBeVisible();
+  await expect(page.getByRole('slider', { name: 'Volume' })).toHaveValue('100');
   await expect(page.locator('#primary-value')).toHaveText('+2.93°C');
   await expect(page.locator('#earth')).toBeVisible();
   await page.getByRole('button', { name: 'Zoom in' }).click();

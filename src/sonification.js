@@ -1,5 +1,6 @@
 export const MAX_ANOMALY = 3.5;
 export const REFERENCE_HZ = 220;
+export const DEFAULT_VOLUME = 1;
 
 export function anomalyFrequency(anomaly) {
   if (!Number.isFinite(anomaly)) return null;
@@ -57,7 +58,7 @@ export function scheduleNote(context, destination, note, startTime, duration) {
 
 export class Player {
   constructor() {
-    this.volume = 0.72;
+    this.volume = DEFAULT_VOLUME;
     this.muted = false;
     this.generation = 0;
     this.active = [];

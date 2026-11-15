@@ -1,6 +1,15 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { anomalyFrequency, temperatureScore, scanScore } from '../src/sonification.js';
+import { Player, anomalyFrequency, temperatureScore, scanScore } from '../src/sonification.js';
+
+test('sonification starts at full master volume and remains adjustable', () => {
+  const player = new Player();
+  assert.equal(player.volume, 1);
+  assert.equal(player.muted, false);
+  player.setVolume(0.5, true);
+  assert.equal(player.volume, 0.5);
+  assert.equal(player.muted, true);
+});
 
 test('temperature differences correspond to one shared pitch scale', () => {
   assert.equal(anomalyFrequency(0), 220);

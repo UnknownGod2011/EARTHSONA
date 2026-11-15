@@ -4,7 +4,7 @@
 
 EARTHSONA is an interactive Earth Information Jukebox built for NASA Space Apps Challenge 2026. Use it to hear the colors of NASA Earth Information Center maps and compare surface-temperature changes across latitude bands on one pitch scale.
 
-[Open on Vercel](https://earthsona.vercel.app/) · [GitHub Pages](https://unknowngod2011.github.io/EARTHSONA/) · [Watch the demo](https://unknowngod2011.github.io/EARTHSONA/demo/) · [Official challenge](https://www.spaceappschallenge.org/2026/challenges/the-earth-information-jukebox/)
+[Open on Vercel](https://earthsona.vercel.app/) · [Watch the demo on YouTube](https://www.youtube.com/watch?v=6VNh-8TCNbA) · [Hosted demo copy](https://earthsona.vercel.app/demo/) · [GitHub Pages](https://unknowngod2011.github.io/EARTHSONA/) · [Official challenge](https://www.spaceappschallenge.org/2026/challenges/the-earth-information-jukebox/)
 
 ## Listen and explore
 
@@ -55,7 +55,7 @@ The map scan plays the visual palette. The climate tracks play the measured anom
 - [Scientific data and attribution](docs/DATASET_RESEARCH.md) · [Findings and calculations](docs/DISCOVERED_INSIGHTS.md)
 - [Challenge analysis](docs/CHALLENGE_ANALYSIS.md) · [Product direction](docs/PRODUCT_DIRECTION.md) · [Open-source research](docs/OPEN_SOURCE_RESEARCH.md)
 - [Testing](docs/TESTING.md) · [Self-evaluation](docs/SELF_EVALUATION.md) · [Screenshots](screenshots/)
-- [Demo script](docs/DEMO_SCRIPT.md) · [Submission checklist and form copy](docs/SUBMISSION_CHECKLIST.md)
+- [Demo links and capture notes](docs/DEMO_SCRIPT.md) · [Submission checklist and form copy](docs/SUBMISSION_CHECKLIST.md)
 
 The numeric data comes from [NASA GISS GISTEMP v4](https://data.giss.nasa.gov/gistemp/). The maps come from [NASA’s Scientific Visualization Studio](https://svs.gsfc.nasa.gov/gallery/earth-information-center/), with data provided by Robert B. Schmunk (NASA/GSFC GISS). The basemap uses [NASA Earth Observatory Blue Marble Next Generation](https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/). Source-specific terms and credits apply to NASA material. The font distribution includes the three SIL OFL notices in [`public/fonts`](public/fonts/). Original project code and documentation are under [Apache 2.0](LICENSE).
 

@@ -20,7 +20,7 @@ EARTHSONA turns official NASA Earth Information Center maps into sound and lets 
 
 **Link to Project Demo**
 
-Public captioned demonstration, 29.70 seconds. [Watch the demo](https://unknowngod2011.github.io/EARTHSONA/demo/) · [Direct MP4](https://unknowngod2011.github.io/EARTHSONA/demo/earthsona.mp4)
+[Team’s YouTube demo](https://www.youtube.com/watch?v=6VNh-8TCNbA) · [Hosted demo copy](https://earthsona.vercel.app/demo/) · [Direct MP4](https://earthsona.vercel.app/demo/earthsona.mp4)
 
 **Link to Final Project**
 
@@ -36,7 +36,7 @@ Keyboard-accessible playback controls, map descriptions, exact readings, and dat
 
 **Use of Super Intelligence (SI)**
 
-The team supplied the Earth-data listening concept and the opening animation. OpenAI Codex assisted with source research, implementation, tests, documentation and demo editing. NASA supplied the climate data, maps and Blue Marble imagery. EARTHSONA reuses AI-assisted Luma artwork on the site. Website and demo narration were synthesized with ElevenLabs using Jessica and Eleven v4. Method & Sources carries the site credits. The demo opening carries a visible watermark for the animated GIF. The hosted demo description and media title and metadata identify `elevenlabs.io`. The demo includes browser footage and deterministic Web Audio derived from NASA values and pixels. Its overlays and captions synchronize with the scientific tones. [Official SI rules](https://www.spaceappschallenge.org/resources/project-submission-guide/#project-page-form-field-instructions)
+The team supplied the Earth-data listening concept and selected the published cut. OpenAI Codex assisted with source research, implementation, tests, documentation and demo production. NASA supplied the climate data, maps and Blue Marble imagery. EARTHSONA reuses AI-assisted Luma artwork on the site. Narration was synthesized with ElevenLabs using Jessica and Eleven v4. Method & Sources carries the site credits. The scientific sounds are synthesized in the browser directly from NASA values and pixels. [Official SI rules](https://www.spaceappschallenge.org/resources/project-submission-guide/#project-page-form-field-instructions)
 
 **NASA Data**
 
@@ -49,7 +49,7 @@ The included NASA GISTEMP product draws on NOAA GHCN v4 and ERSST v5. EARTHSONA 
 ## Participant and final delivery
 
 - [ ] Confirm the 2026 event registration, assigned challenge, and team membership in the official dashboard. A one-person team is eligible for Global Judging through a Local Event. The Universal Event requires at least two people. Local Event members must be confirmed and appear on the Members tab. Maximum team size is six. [Eligibility](https://www.spaceappschallenge.org/resources/judging-awards-guide/#eligibility-for-global-judging)
-- [x] Public final project, public GitHub source and public demo endpoints are available. The demo is captioned in English and meets the **30-second** video limit, including titles. [Demo format and hosting](https://www.spaceappschallenge.org/resources/project-submission-guide/#tips-for-creating-a-project-demo)
+- [x] Public final project and source are available. The team’s YouTube upload is the submission demo link, and the website hosts the team’s MP4 as an alternative. [Demo format and hosting](https://www.spaceappschallenge.org/resources/project-submission-guide/#tips-for-creating-a-project-demo)
 - [ ] Add screenshots to the official Project tab if desired. The site accepts JPG, PNG, and GIF images up to 10 MB. Upload video, documents, and slides to a public destination and include their links.
 - [ ] Check final credits, open-source terms, SI disclosure, and the participant’s rights to the submitted materials. The guide specifies visible watermarks for generated images and video, and descriptive text and metadata for generated audio, code, and data. Exclude recognizable identities, likenesses and voices of minors from deliverables. [Project submission guide](https://www.spaceappschallenge.org/resources/project-submission-guide/) · [Participant terms](https://www.spaceappschallenge.org/legal/)
 - [ ] In **My Team → Project**, complete every required field, acknowledge the **Terms and Conditions** and **Confirm All Work is Original** fields, and select **Submit for Judging** before your event’s deadline. Verify the on-page confirmation. The participant is responsible for final approval and submission. [Official submission steps](https://www.spaceappschallenge.org/resources/project-submission-guide/#submitting-your-project)

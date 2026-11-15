@@ -1,4 +1,5 @@
 import { icon } from './icons.js';
+import { DEFAULT_VOLUME } from './sonification.js';
 
 export function layout(first, last) {
   return `
@@ -78,7 +79,7 @@ export function layout(first, last) {
               <button type="button" id="restart" class="icon-button" aria-label="Restart playback" title="Restart playback">${icon('reset', 20)}</button>
               <button type="button" id="mute" class="icon-button" aria-label="Mute" aria-pressed="false">${icon('speaker', 20)}</button>
             </div>
-            <div class="volume-line"><label for="volume">Volume</label><input type="range" id="volume" min="0" max="100" value="72" /></div>
+            <div class="volume-line"><label for="volume">Volume</label><input type="range" id="volume" min="0" max="100" value="${DEFAULT_VOLUME * 100}" /></div>
             <p id="audio-message" class="status-text" role="status" hidden></p>
           </aside>
         </div>
