@@ -102,5 +102,5 @@ export function layout(first, last) {
         </div>
       </section>
     </main>
-    <footer><div class="shell footer-inner"><a class="brand" href="#top"><span class="brand-mark">${icon('wave', 23)}</span> EARTHSONA</a><span>Built for NASA Space Apps Challenge 2026</span><div class="footer-links"><a href="${import.meta.env.BASE_URL}demo/" target="_blank" rel="noreferrer">Watch the demo ${icon('external', 16)}</a><a href="https://github.com/UnknownGod2011/EARTHSONA" target="_blank" rel="noreferrer">Source on GitHub ${icon('external', 16)}</a></div></div></footer>`;
+    <footer><div class="shell footer-inner"><a class="brand" href="#top"><span class="brand-mark">${icon('wave', 23)}</span> EARTHSONA</a><span>Built for NASA Space Apps Challenge 2026</span><div class="footer-links"><a href="${import.meta.env.BASE_URL}demo/">Watch the demo ${icon('external', 16)}</a><a href="https://github.com/UnknownGod2011/EARTHSONA" target="_blank" rel="noreferrer">Source on GitHub ${icon('external', 16)}</a></div></div></footer>`;
 }
